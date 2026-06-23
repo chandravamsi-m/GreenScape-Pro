@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMultiStepForm();
   initDashboardTabs();
   initFaqAccordion();
+  initScrollReveal();
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
@@ -410,4 +411,22 @@ function initFaqAccordion() {
    ========================================================================== */
 function showToast(message, type = 'info') {
   // Toast notifications disabled by user request
+}
+
+/* ==========================================================================
+   11. Scroll Reveal Animation
+   ========================================================================== */
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  if (elements.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach(el => observer.observe(el));
 }
