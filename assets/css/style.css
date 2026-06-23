@@ -11,6 +11,15 @@
   --color-text-secondary: #4A4A4A;
   --color-border:         #D9E3D9;
 
+  /* -- Footer Variable Defaults (Light Mode) -- */
+  --color-footer-bg:      #0B130E;
+  --color-footer-text:    #A8C0A8;
+  --color-footer-border:  #1D2E22;
+  --color-footer-title:   #FFFFFF;
+  --color-footer-widget-bg:     #111C15;
+  --color-footer-widget-border: #1D2E22;
+  --color-footer-widget-text:   #8AA392;
+
   /* -- Typography -- */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
@@ -92,3 +101,53 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Footer style overrides to support dark mode transition */
+footer {
+  background-color: var(--color-footer-bg) !important;
+  color: var(--color-footer-text) !important;
+  border-top: 1px solid var(--color-footer-border) !important;
+}
+footer h4 {
+  color: var(--color-footer-title) !important;
+}
+footer p, footer span, footer li {
+  color: var(--color-footer-text) !important;
+}
+footer a {
+  color: var(--color-footer-text) !important;
+}
+footer a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Footer elements overrides */
+footer input, footer .rounded-full {
+  background-color: var(--color-footer-widget-bg) !important;
+  border-color: var(--color-footer-widget-border) !important;
+  color: var(--color-footer-widget-text) !important;
+}
+footer .rounded-full svg {
+  color: var(--color-footer-widget-text) !important;
+}
+footer .rounded-full:hover {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: white !important;
+}
+footer .rounded-full:hover svg {
+  color: white !important;
+}
+footer input:focus {
+  border-color: var(--color-primary) !important;
+}
+
+/* RTL/LTR Toggle Visibility Rules */
+html[dir="rtl"] .rtl-toggle-text-ltr { display: block !important; }
+html[dir="rtl"] .rtl-toggle-text-rtl { display: none !important; }
+html[dir="ltr"] .rtl-toggle-text-ltr { display: none !important; }
+html[dir="ltr"] .rtl-toggle-text-rtl { display: block !important; }
+
+/* Fallbacks */
+.rtl-toggle-text-ltr { display: none; }
+.rtl-toggle-text-rtl { display: block; }

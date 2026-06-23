@@ -1,10 +1,19 @@
 /* ===== GreenScape Pro — Dark Mode Overrides ===== */
 html[data-theme="dark"] {
-  --color-bg:             #0F1610;  /* Very dark green-black */
-  --color-surface:        #1A2B1E;  /* Dark forest/sage tint */
-  --color-text-primary:   #F0F5F0;
-  --color-text-secondary: #A8C0A8;
-  --color-border:         #2E4033;
+  --color-bg:             #0B0C0E;  /* Premium dark obsidian black */
+  --color-surface:        #121315;  /* Elevated card background */
+  --color-text-primary:   #F3F4F6;  /* Soft white text */
+  --color-text-secondary: #9CA3AF;  /* Slate gray secondary text */
+  --color-border:         #1B1C1F;  /* Clean subtle dark border */
+
+  /* Footer Variable Overrides (Dark Mode) */
+  --color-footer-bg:      #0B0C0E;  /* Match main body background */
+  --color-footer-text:    #9CA3AF;  /* Slate gray */
+  --color-footer-border:  #1B1C1F;  /* Subtle border line */
+  --color-footer-title:   #F3F4F6;  /* Soft white */
+  --color-footer-widget-bg:     #121315;  /* Match surface card background */
+  --color-footer-widget-border: #1B1C1F;  /* Subtle widget border */
+  --color-footer-widget-text:   #9CA3AF;  /* Slate gray */
 }
 
 /* Ensure background transitions are smooth when changing theme */
@@ -12,4 +21,11 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Specific Header styling in dark mode */
+html[data-theme="dark"] header {
+  background-color: #0B0C0E !important;
+  border-bottom: 1px solid #1B1C1F;
+  box-shadow: none;
 }
