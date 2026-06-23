@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — GreenScape Pro</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2D6A4F',
+              hover: '#1B4332',
+            },
+            secondary: {
+              DEFAULT: '#B7832A',
+            },
+            surface: 'var(--color-surface)',
+            customBg: 'var(--color-bg)',
+            textPrimary: 'var(--color-text-primary)',
+            textSecondary: 'var(--color-text-secondary)',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+</head>
+<body class="bg-customBg text-textPrimary font-body min-h-screen flex flex-col justify-center items-center p-6">
+
+  <div class="text-center space-y-6 max-w-lg w-full bg-surface border border-customBorder rounded-2xl p-8 shadow-lg">
+    <div class="flex justify-center gap-2 items-center text-primary font-heading font-bold text-2xl">
+      <i data-lucide="sprout" class="w-8 h-8"></i>
+      <span>GreenScape Pro</span>
+    </div>
+    
+    <h1 class="font-heading text-4xl sm:text-5xl font-bold">New Layouts Blooming Soon!</h1>
+    <p class="text-textSecondary text-sm">
+      We are renovating our online portal catalog. Subscribe to be notified when the custom dashboard goes live.
+    </p>
+
+    <!-- Static Countdown Timer -->
+    <div class="grid grid-cols-4 gap-4 max-w-xs mx-auto py-6">
+      <div class="bg-customBg p-3 rounded-lg border border-customBorder">
+        <div class="text-2xl font-bold text-primary">12</div>
+        <div class="text-xs text-textSecondary">Days</div>
+      </div>
+      <div class="bg-customBg p-3 rounded-lg border border-customBorder">
+        <div class="text-2xl font-bold text-primary">08</div>
+        <div class="text-xs text-textSecondary">Hours</div>
+      </div>
+      <div class="bg-customBg p-3 rounded-lg border border-customBorder">
+        <div class="text-2xl font-bold text-primary">45</div>
+        <div class="text-xs text-textSecondary">Mins</div>
+      </div>
+      <div class="bg-customBg p-3 rounded-lg border border-customBorder">
+        <div class="text-2xl font-bold text-primary">19</div>
+        <div class="text-xs text-textSecondary">Secs</div>
+      </div>
+    </div>
+
+    <!-- Email Signup -->
+    <form class="flex gap-2" onsubmit="event.preventDefault(); alert('Subscribed!')">
+      <input type="email" required placeholder="john@example.com" class="flex-grow p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
+      <button type="submit" class="px-6 py-3 bg-primary text-white font-bold rounded shadow hover:bg-primary-hover transition-colors">Notify Me</button>
+    </form>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

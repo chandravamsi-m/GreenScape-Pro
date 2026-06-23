@@ -1,0 +1,15 @@
+/* ===== GreenScape Pro — Dark Mode Overrides ===== */
+html[data-theme="dark"] {
+  --color-bg:             #0F1610;  /* Very dark green-black */
+  --color-surface:        #1A2B1E;  /* Dark forest/sage tint */
+  --color-text-primary:   #F0F5F0;
+  --color-text-secondary: #A8C0A8;
+  --color-border:         #2E4033;
+}
+
+/* Ensure background transitions are smooth when changing theme */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

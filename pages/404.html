@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — GreenScape Pro</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2D6A4F',
+              hover: '#1B4332',
+            },
+            secondary: {
+              DEFAULT: '#B7832A',
+            },
+            surface: 'var(--color-surface)',
+            customBg: 'var(--color-bg)',
+            textPrimary: 'var(--color-text-primary)',
+            textSecondary: 'var(--color-text-secondary)',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+</head>
+<body class="bg-customBg text-textPrimary font-body min-h-screen flex flex-col justify-center items-center p-6">
+
+  <div class="text-center space-y-6 max-w-md">
+    <div class="w-24 h-24 bg-primary/10 text-primary flex items-center justify-center rounded-full mx-auto">
+      <i data-lucide="shovel" class="w-12 h-12"></i>
+    </div>
+    
+    <h1 class="font-heading text-6xl font-bold text-primary">404</h1>
+    <h2 class="text-2xl font-bold">Looks Like We Hit Rock Soil!</h2>
+    <p class="text-textSecondary text-sm">
+      The garden bed you are trying to reach has not been dug yet, or the page was moved to another location.
+    </p>
+
+    <div class="pt-4">
+      <a href="index.html" class="inline-block px-8 py-3 bg-primary text-white font-bold rounded shadow hover:bg-primary-hover transition-colors">Return to Home</a>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

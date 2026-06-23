@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Login — GreenScape Pro</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2D6A4F',
+              hover: '#1B4332',
+            },
+            secondary: {
+              DEFAULT: '#B7832A',
+            },
+            surface: 'var(--color-surface)',
+            customBg: 'var(--color-bg)',
+            textPrimary: 'var(--color-text-primary)',
+            textSecondary: 'var(--color-text-secondary)',
+            customBorder: 'var(--color-border)',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="bg-customBg text-textPrimary font-body min-h-screen flex items-center justify-center p-6">
+
+  <!-- Main Login Card -->
+  <div class="relative w-full max-w-md bg-surface border border-customBorder rounded-2xl p-8 shadow-xl space-y-6">
+    
+    <!-- Top Right Controls (Theme & RTL) -->
+    <div class="absolute top-4 right-4 flex items-center gap-2">
+      <button class="theme-toggle p-2 rounded-full hover:bg-customBg/80 text-textSecondary transition-colors">
+        <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+        <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-yellow-400"></i>
+      </button>
+      <button class="rtl-toggle p-2 rounded-full hover:bg-customBg/80 text-textSecondary transition-colors">
+        <i data-lucide="languages" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Header Logo -->
+    <div class="text-center space-y-2">
+      <a href="index.html" class="inline-flex items-center gap-2">
+        <i data-lucide="sprout" class="w-8 h-8 text-primary"></i>
+        <span class="font-heading font-bold text-2xl text-primary">GreenScape <span class="text-secondary">Pro</span></span>
+      </a>
+      <p class="text-xs text-textSecondary">Access your project designs and approvals portal</p>
+    </div>
+
+    <!-- Login Form -->
+    <form class="space-y-4" onsubmit="event.preventDefault(); window.location.href='user-dashboard.html'">
+      <div>
+        <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Email Address</label>
+        <input type="email" required placeholder="name@domain.com" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
+      </div>
+      <div>
+        <div class="flex justify-between items-center mb-1.5">
+          <label class="block text-xs font-bold uppercase text-textSecondary">Password</label>
+          <a href="#" class="text-xs text-primary hover:underline">Forgot?</a>
+        </div>
+        <div class="relative">
+          <input type="password" required id="login-password" placeholder="••••••••" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
+          <button type="button" onclick="const p = document.getElementById('login-password'); p.type = p.type === 'password' ? 'text' : 'password';" class="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary hover:text-primary">
+            <i data-lucide="eye" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <input type="checkbox" id="remember" class="w-4 h-4 text-primary focus:ring-primary rounded border-customBorder bg-customBg">
+        <label for="remember" class="ml-2 text-xs text-textSecondary cursor-pointer">Remember my device</label>
+      </div>
+
+      <button type="submit" class="w-full py-3.5 bg-primary hover:bg-primary-hover text-white font-bold rounded shadow-md transition-colors">Log In to Portal</button>
+    </form>
+
+    <div class="relative flex items-center justify-center py-2">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-customBorder"></div>
+      </div>
+      <span class="relative bg-surface px-3 text-xs text-textSecondary uppercase">or continue with</span>
+    </div>
+
+    <!-- Social Sign In -->
+    <div class="grid grid-cols-2 gap-3">
+      <button onclick="window.location.href='user-dashboard.html'" class="flex items-center justify-center gap-2 p-2.5 border border-customBorder rounded bg-customBg text-xs font-semibold hover:bg-surface transition-colors">
+        <i data-lucide="chrome" class="w-4 h-4"></i> Google
+      </button>
+      <button onclick="window.location.href='admin-dashboard.html'" class="flex items-center justify-center gap-2 p-2.5 border border-customBorder rounded bg-customBg text-xs font-semibold hover:bg-surface transition-colors">
+        <i data-lucide="terminal" class="w-4 h-4"></i> Admin Demo
+      </button>
+    </div>
+
+    <div class="text-center text-xs text-textSecondary pt-2">
+      Don't have a portal account? <a href="signup.html" class="text-primary font-bold hover:underline">Sign Up</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — GreenScape Pro</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2D6A4F',
+              hover: '#1B4332',
+            },
+            secondary: {
+              DEFAULT: '#B7832A',
+            },
+            surface: 'var(--color-surface)',
+            customBg: 'var(--color-bg)',
+            textPrimary: 'var(--color-text-primary)',
+            textSecondary: 'var(--color-text-secondary)',
+            customBorder: 'var(--color-border)',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" id="rtl-stylesheet" href="../assets/css/rtl.css" disabled>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="bg-customBg text-textPrimary font-body min-h-screen flex flex-col md:flex-row">
+
+  <!-- Mobile Sidebar Toggle Topbar -->
+  <div class="md:hidden w-full h-16 bg-surface border-b border-customBorder px-4 flex items-center justify-between z-30">
+    <span class="font-heading font-bold text-lg text-primary">GreenScape Pro</span>
+    <button id="db-sidebar-toggle" class="p-2 rounded-md hover:bg-customBg text-textSecondary">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+
+  <!-- Dashboard Sidebar Navigation -->
+  <aside id="db-sidebar" class="fixed md:static inset-y-0 left-0 w-64 bg-surface border-r border-customBorder p-6 flex flex-col justify-between transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 shrink-0">
+    <div class="space-y-6">
+      <div class="flex items-center gap-2">
+        <i data-lucide="sprout" class="w-6 h-6 text-primary"></i>
+        <span class="font-heading font-bold text-lg text-primary">GreenScape <span class="text-secondary">Pro</span></span>
+      </div>
+
+      <!-- Welcome Banner -->
+      <div class="p-4 bg-primary/10 rounded-xl flex items-center gap-3">
+        <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">A</div>
+        <div>
+          <div class="text-xs text-textSecondary font-semibold">Welcome back,</div>
+          <div class="text-sm font-bold text-primary">Admin Portal</div>
+        </div>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="space-y-1">
+        <a href="#" data-target="admin-overview" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold bg-primary/20 text-primary border-l-4 border-primary">
+          <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Overview
+        </a>
+        <a href="#" data-target="clients" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-textSecondary hover:bg-primary/10">
+          <i data-lucide="users" class="w-4 h-4"></i> Clients
+        </a>
+        <a href="#" data-target="admin-projects" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-textSecondary hover:bg-primary/10">
+          <i data-lucide="folder-kanban" class="w-4 h-4"></i> Project Management
+        </a>
+        <a href="#" data-target="admin-approvals" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-textSecondary hover:bg-primary/10">
+          <i data-lucide="file-check" class="w-4 h-4"></i> Design Proposals
+        </a>
+        <a href="#" data-target="admin-scheduling" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-textSecondary hover:bg-primary/10">
+          <i data-lucide="calendar" class="w-4 h-4"></i> Scheduling
+        </a>
+        <a href="#" data-target="reports" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-textSecondary hover:bg-primary/10">
+          <i data-lucide="pie-chart" class="w-4 h-4"></i> Reports & Analytics
+        </a>
+      </nav>
+    </div>
+
+    <!-- Bottom Settings & Actions -->
+    <div class="space-y-4 pt-6 border-t border-customBorder">
+      <div class="flex items-center justify-between">
+        <span class="text-xs text-textSecondary">Theme & Dir</span>
+        <div class="flex items-center gap-2">
+          <button class="theme-toggle p-1.5 rounded-full hover:bg-customBg/80 text-textSecondary">
+            <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-yellow-400"></i>
+          </button>
+          <button class="rtl-toggle p-1.5 rounded-full hover:bg-customBg/80 text-textSecondary">
+            <i data-lucide="languages" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+      <a href="login.html" class="flex items-center gap-3 px-4 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg">
+        <i data-lucide="log-out" class="w-4 h-4"></i> Log Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content Space -->
+  <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto max-h-screen">
+    
+    <!-- Section: Admin Overview -->
+    <section id="admin-overview" class="db-section space-y-6">
+      <div>
+        <h1 class="font-heading text-2xl sm:text-3xl font-bold">Admin Controls</h1>
+        <p class="text-xs text-textSecondary">June 23, 2026</p>
+      </div>
+
+      <!-- Metrics Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-surface p-6 rounded-xl border border-customBorder">
+          <div class="text-textSecondary text-xs font-semibold mb-1">Total Clients</div>
+          <div class="text-2xl font-bold">84</div>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-customBorder">
+          <div class="text-textSecondary text-xs font-semibold mb-1">Active Projects</div>
+          <div class="text-2xl font-bold">12</div>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-customBorder">
+          <div class="text-textSecondary text-xs font-semibold mb-1">Visits Scheduled (Week)</div>
+          <div class="text-2xl font-bold text-yellow-600">8</div>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-customBorder">
+          <div class="text-textSecondary text-xs font-semibold mb-1">YTD Revenue</div>
+          <div class="text-2xl font-bold text-primary">$48,250</div>
+        </div>
+      </div>
+
+      <!-- Project Board -->
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+        <h3 class="font-bold text-sm">Recent Active Contracts</h3>
+        <table class="w-full text-xs text-left">
+          <thead>
+            <tr class="border-b border-customBorder text-textSecondary font-semibold">
+              <th class="py-2">Client</th>
+              <th class="py-2">Project</th>
+              <th class="py-2">Progress</th>
+              <th class="py-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-3 font-semibold">John Doe</td>
+              <td class="py-3">Portland Heights Redesign</td>
+              <td class="py-3">40%</td>
+              <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">In Progress</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section: Client Management -->
+    <section id="clients" class="db-section space-y-6 hidden">
+      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Client Directory</h1>
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+        <table class="w-full text-xs text-left">
+          <thead>
+            <tr class="border-b border-customBorder text-textSecondary font-semibold">
+              <th class="py-2">Client Name</th>
+              <th class="py-2">Email Address</th>
+              <th class="py-2">Location</th>
+              <th class="py-2">Join Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-3 font-semibold">John Doe</td>
+              <td class="py-3">john@example.com</td>
+              <td class="py-3">West Hills, Portland</td>
+              <td class="py-3">Jan 12, 2026</td>
+            </tr>
+            <tr>
+              <td class="py-3 font-semibold">Sarah L.</td>
+              <td class="py-3">sarah@domain.com</td>
+              <td class="py-3">East Portland</td>
+              <td class="py-3">Feb 19, 2026</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section: Project Management -->
+    <section id="admin-projects" class="db-section space-y-6 hidden">
+      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Project Management</h1>
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+        <h3 class="font-bold text-sm">Add New Landscape Contract</h3>
+        <form class="grid grid-cols-2 gap-4 text-xs" onsubmit="event.preventDefault(); alert('Project created!')">
+          <div>
+            <label class="block font-bold mb-1 uppercase text-textSecondary">Contract Name</label>
+            <input type="text" required placeholder="e.g. West Portland Lawn" class="w-full p-2.5 border border-customBorder rounded bg-customBg text-textPrimary">
+          </div>
+          <div>
+            <label class="block font-bold mb-1 uppercase text-textSecondary">Client Selector</label>
+            <select required class="w-full p-2.5 border border-customBorder rounded bg-customBg text-textPrimary">
+              <option>John Doe</option>
+              <option>Sarah L.</option>
+            </select>
+          </div>
+          <div class="col-span-2 pt-2">
+            <button type="submit" class="px-6 py-2 bg-primary text-white font-bold rounded shadow">Launch Project</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section: Proposals -->
+    <section id="admin-approvals" class="db-section space-y-6 hidden">
+      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Submit New Design Proposal</h1>
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+        <form class="space-y-4 text-xs" onsubmit="event.preventDefault(); alert('Design uploaded!')">
+          <div>
+            <label class="block font-bold mb-1 uppercase text-textSecondary">Select Project</label>
+            <select class="w-full p-2.5 border border-customBorder rounded bg-customBg text-textPrimary">
+              <option>Portland Heights Redesign</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold mb-1 uppercase text-textSecondary">Version Notes</label>
+            <textarea placeholder="Specify adjustments..." rows="3" class="w-full p-2.5 border border-customBorder rounded bg-customBg text-textPrimary"></textarea>
+          </div>
+          <button type="submit" class="px-6 py-2.5 bg-primary text-white font-bold rounded shadow">Publish to Portal</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section: Scheduling -->
+    <section id="admin-scheduling" class="db-section space-y-6 hidden">
+      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Crew Scheduling Board</h1>
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+        <h3 class="font-bold text-sm">Schedule New Visit</h3>
+        <form class="grid grid-cols-3 gap-4 text-xs" onsubmit="event.preventDefault(); alert('Visit scheduled!')">
+          <div>
+            <label class="block font-bold mb-1 uppercase text-textSecondary">Date</label>
+            <input type="date" required class="w-full p-2.5 border border-customBorder rounded bg-customBg text-textPrimary">
+          </div>
+          <div>
+            <label class="block font-bold mb-1 uppercase text-textSecondary">Time Slot</label>
+            <input type="time" required class="w-full p-2.5 border border-customBorder rounded bg-customBg text-textPrimary">
+          </div>
+          <div>
+            <label class="block font-bold mb-1 uppercase text-textSecondary">Crew Lead</label>
+            <select class="w-full p-2.5 border border-customBorder rounded bg-customBg text-textPrimary">
+              <option>Marcus V.</option>
+              <option>David P.</option>
+            </select>
+          </div>
+          <button type="submit" class="col-span-3 py-2.5 bg-primary text-white font-bold rounded shadow">Book Visit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section: Reports -->
+    <section id="reports" class="db-section space-y-6 hidden">
+      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Monthly Revenue Reports</h1>
+      
+      <!-- Custom SVG Chart -->
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+        <h3 class="font-bold text-sm">YTD Performance (Monthly)</h3>
+        
+        <!-- SVG Line Chart Grid -->
+        <svg viewBox="0 0 500 200" class="w-full h-64 overflow-visible">
+          <!-- Background grids -->
+          <line x1="50" y1="20" x2="480" y2="20" stroke="rgba(0,0,0,0.05)" stroke-dasharray="4"/>
+          <line x1="50" y1="70" x2="480" y2="70" stroke="rgba(0,0,0,0.05)" stroke-dasharray="4"/>
+          <line x1="50" y1="120" x2="480" y2="120" stroke="rgba(0,0,0,0.05)" stroke-dasharray="4"/>
+          <line x1="50" y1="170" x2="480" y2="170" stroke="rgba(0,0,0,0.1)"/>
+          
+          <!-- Axis labels -->
+          <text x="15" y="25" fill="#888" font-size="10">$15k</text>
+          <text x="15" y="75" fill="#888" font-size="10">$10k</text>
+          <text x="15" y="125" fill="#888" font-size="10">$5k</text>
+          <text x="20" y="175" fill="#888" font-size="10">$0</text>
+          
+          <text x="60" y="192" fill="#888" font-size="10">Jan</text>
+          <text x="140" y="192" fill="#888" font-size="10">Feb</text>
+          <text x="220" y="192" fill="#888" font-size="10">Mar</text>
+          <text x="300" y="192" fill="#888" font-size="10">Apr</text>
+          <text x="380" y="192" fill="#888" font-size="10">May</text>
+          <text x="460" y="192" fill="#888" font-size="10">Jun</text>
+
+          <!-- SVG Path line -->
+          <path d="M 60 170 L 140 140 L 220 120 L 300 80 L 380 90 L 460 30" fill="none" stroke="#2D6A4F" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="60" cy="170" r="4" fill="#B7832A"/>
+          <circle cx="140" cy="140" r="4" fill="#B7832A"/>
+          <circle cx="220" cy="120" r="4" fill="#B7832A"/>
+          <circle cx="300" cy="80" r="4" fill="#B7832A"/>
+          <circle cx="380" cy="90" r="4" fill="#B7832A"/>
+          <circle cx="460" cy="30" r="4" fill="#B7832A"/>
+        </svg>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

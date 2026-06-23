@@ -1,0 +1,27 @@
+/* ===== GreenScape Pro — RTL Stylesheet Overrides ===== */
+html[dir="rtl"] {
+  /* Flip any directional icons or custom layouts not handled by Tailwind */
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+html[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Ensure margins/paddings that need direct CSS override for older systems are flipped */
+html[dir="rtl"] .before-after-handle {
+  left: auto;
+  right: var(--slider-pos, 50%);
+}
+
+html[dir="rtl"] #mobile-menu-drawer {
+  right: auto;
+  left: 0;
+  border-left-width: 0;
+  border-right-width: 1px;
+}
+
+html[dir="rtl"] #mobile-menu-drawer.translate-x-full {
+  transform: translateX(-100%);
+}

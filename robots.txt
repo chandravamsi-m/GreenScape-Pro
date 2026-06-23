@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /pages/index.html
+Allow: /pages/home-2.html
+Allow: /pages/about.html
+Allow: /pages/services.html
+Allow: /pages/portfolio.html
+Allow: /pages/pricing.html
+Allow: /pages/blog.html
+Allow: /pages/contact.html
+
+# Disallow private user portals and dashboard files
+Disallow: /pages/user-dashboard.html
+Disallow: /pages/admin-dashboard.html
+Disallow: /pages/login.html
+Disallow: /pages/signup.html
+
+Sitemap: https://greenscapepro.demo/sitemap.xml

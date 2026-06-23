@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Transformations Portfolio — GreenScape Pro</title>
+  <meta name="description" content="Browse our before-and-after landscaping results, flagstone patios, custom gardens, and commercial spaces.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2D6A4F',
+              hover: '#1B4332',
+            },
+            secondary: {
+              DEFAULT: '#B7832A',
+              hover: '#8B6320',
+            },
+            surface: 'var(--color-surface)',
+            customBg: 'var(--color-bg)',
+            textPrimary: 'var(--color-text-primary)',
+            textSecondary: 'var(--color-text-secondary)',
+            customBorder: 'var(--color-border)',
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" id="rtl-stylesheet" href="../assets/css/rtl.css" disabled>
+  
+  <!-- Custom JS -->
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="bg-customBg text-textPrimary font-body min-h-screen flex flex-col">
+
+  <!-- ===== HEADER & NAVBAR ===== -->
+  <header class="sticky top-0 z-40 w-full bg-surface shadow-sm transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22C12 22 20 18 20 12C20 6.5 15.5 2 12 2C8.5 2 4 6.5 4 12C4 18 12 22 12 22Z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M12 2V22"/>
+          <path d="M12 8C12 8 16 9 17 12"/>
+          <path d="M12 13C12 13 8 14 7 17"/>
+        </svg>
+        <span class="font-heading font-bold text-2xl text-primary tracking-wide whitespace-nowrap">GreenScape<span class="text-secondary">Pro</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+        <!-- Home Dropdown (Active state: text-primary font-bold) -->
+        <div class="relative group py-2">
+          <button class="hover:text-primary transition-colors text-textSecondary flex items-center gap-1 focus:outline-none">
+            Home <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute left-0 mt-2 w-40 bg-customBg border border-customBorder rounded-md shadow-lg hidden group-hover:block transition-all z-50">
+            <div class="py-1">
+              <a href="index.html" class="block px-4 py-2 text-sm text-primary hover:bg-surface font-semibold">Home 1</a>
+              <a href="home-2.html" class="block px-4 py-2 text-sm text-textSecondary hover:bg-surface hover:text-primary font-semibold">Home 2</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.html" class="hover:text-primary transition-colors text-textSecondary py-2">About</a>
+        <a href="services.html" class="hover:text-primary transition-colors text-textSecondary py-2">Services</a>
+        <a href="portfolio.html" class="text-primary font-bold py-2">Portfolio</a>
+        <a href="pricing.html" class="hover:text-primary transition-colors text-textSecondary py-2">Pricing</a>
+        <a href="blog.html" class="hover:text-primary transition-colors text-textSecondary py-2">Blog</a>
+        <a href="contact.html" class="hover:text-primary transition-colors text-textSecondary py-2">Contact</a>
+
+        <!-- Dashboard Dropdown -->
+        <div class="relative group py-2">
+          <button class="hover:text-primary transition-colors text-textSecondary flex items-center gap-1 focus:outline-none">
+            Dashboard <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute left-0 mt-2 w-44 bg-customBg border border-customBorder rounded-md shadow-lg hidden group-hover:block transition-all z-50">
+            <div class="py-1">
+              <a href="user-dashboard.html" class="block px-4 py-2 text-sm text-textSecondary hover:bg-surface hover:text-primary font-semibold">User Dashboard</a>
+              <a href="admin-dashboard.html" class="block px-4 py-2 text-sm text-textSecondary hover:bg-surface hover:text-primary font-semibold">Admin Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Action buttons & toggles -->
+      <div class="hidden lg:flex items-center gap-4">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle p-2 rounded-full hover:bg-surface text-textSecondary transition-colors" title="Toggle Light/Dark Mode">
+          <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+          <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle px-3 py-1.5 rounded-md hover:bg-surface text-textSecondary font-bold text-sm transition-colors" title="Toggle Direction">
+          <span class="rtl-toggle-text-rtl">RTL</span>
+          <span class="rtl-toggle-text-ltr">LTR</span>
+        </button>
+
+        <!-- CTAs -->
+        <a href="login.html" class="h-10 px-4 border border-primary text-primary font-bold rounded-md hover:bg-primary hover:text-white transition-all duration-300 text-sm flex items-center justify-center">Login</a>
+        <a href="quote.html" class="h-10 px-5 bg-primary hover:bg-primary-hover text-white font-bold rounded-md transition-all duration-300 shadow-md text-sm flex items-center justify-center">Get Quote</a>
+      </div>
+
+      <!-- Hamburger Menu Button -->
+      <button id="mobile-menu-burger" class="lg:hidden p-2 rounded-md hover:bg-surface text-textSecondary transition-colors">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-y-0 right-0 z-50 w-[80%] bg-customBg border-l border-customBorder p-6 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto">
+    <div class="space-y-6">
+      <div class="flex items-center justify-between mb-2">
+        <a href="index.html" class="flex items-center gap-2 shrink-0">
+          <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22C12 22 20 18 20 12C20 6.5 15.5 2 12 2C8.5 2 4 6.5 4 12C4 18 12 22 12 22Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M12 2V22"/>
+            <path d="M12 8C12 8 16 9 17 12"/>
+            <path d="M12 13C12 13 8 14 7 17"/>
+          </svg>
+          <span class="font-heading font-bold text-2xl text-primary tracking-wide whitespace-nowrap">GreenScape<span class="text-secondary">Pro</span></span>
+        </a>
+        <button id="mobile-menu-close" class="p-2 rounded-md hover:bg-surface text-textSecondary">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-3 text-sm font-semibold">
+        <!-- Home Dropdown Accordion -->
+        <details class="group py-1 border-b border-customBorder">
+          <summary class="flex justify-between items-center text-textSecondary hover:text-primary cursor-pointer list-none">
+            <span>Home</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="pl-4 mt-2 flex flex-col gap-2 border-l-2 border-primary/20 pb-2">
+            <a href="index.html" class="text-xs text-textSecondary hover:text-primary py-1">Home 1</a>
+            <a href="home-2.html" class="text-xs text-textSecondary hover:text-primary py-1">Home 2</a>
+          </div>
+        </details>
+        
+        <a href="about.html" class="py-2 text-textSecondary hover:text-primary border-b border-customBorder">About</a>
+        <a href="services.html" class="py-2 text-textSecondary hover:text-primary border-b border-customBorder">Services</a>
+        <a href="portfolio.html" class="py-2 text-primary font-bold border-b border-customBorder">Portfolio</a>
+        <a href="pricing.html" class="py-2 text-textSecondary hover:text-primary border-b border-customBorder">Pricing</a>
+        <a href="blog.html" class="py-2 text-textSecondary hover:text-primary border-b border-customBorder">Blog</a>
+        <a href="contact.html" class="py-2 text-textSecondary hover:text-primary border-b border-customBorder">Contact</a>
+
+        <!-- Dashboard Dropdown Accordion -->
+        <details class="group py-1 border-b border-customBorder">
+          <summary class="flex justify-between items-center text-textSecondary hover:text-primary cursor-pointer list-none">
+            <span>Dashboard</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="pl-4 mt-2 flex flex-col gap-2 border-l-2 border-customBorder pb-2">
+            <a href="user-dashboard.html" class="text-xs text-textSecondary hover:text-primary py-1">User Dashboard</a>
+            <a href="admin-dashboard.html" class="text-xs text-textSecondary hover:text-primary py-1">Admin Dashboard</a>
+          </div>
+        </details>
+      </nav>
+
+      <!-- Appearance & Settings (Appears directly after navlinks) -->
+      <div class="pt-4 border-t border-customBorder space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-textSecondary font-semibold">Appearance & Settings</span>
+          <div class="flex items-center gap-2">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle p-2 rounded-full hover:bg-surface text-textSecondary">
+              <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+              <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+            </button>
+            
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle px-3 py-1.5 rounded-md hover:bg-surface text-textSecondary font-bold text-xs transition-colors" title="Toggle Direction">
+              <span class="rtl-toggle-text-rtl">RTL</span>
+              <span class="rtl-toggle-text-ltr">LTR</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <a href="login.html" class="h-11 w-full border border-primary text-primary font-bold rounded-md hover:bg-primary hover:text-white transition-all text-sm flex items-center justify-center">Login</a>
+          <a href="quote.html" class="h-11 w-full bg-primary text-white font-bold rounded-md hover:bg-primary-hover transition-all text-sm shadow-sm flex items-center justify-center">Get Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="flex-grow">
+
+    <!-- Hero Header -->
+    <section class="bg-surface py-12 border-b border-customBorder">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+        <nav class="text-xs text-textSecondary flex gap-2">
+          <a href="index.html" class="hover:text-primary">Home</a>
+          <span>/</span>
+          <span class="text-textPrimary font-semibold">Portfolio</span>
+        </nav>
+        <h1 class="font-heading text-3xl sm:text-4xl font-bold">Our Project Transformations</h1>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-3 justify-center mb-12">
+        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-semibold transition-all bg-primary text-white" data-filter="all">All Projects</button>
+        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-semibold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="residential">Residential</button>
+        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-semibold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="commercial">Commercial</button>
+        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-semibold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="hardscaping">Hardscaping</button>
+        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-semibold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="gardens">Garden Design</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1 -->
+        <div class="portfolio-item category-residential category-gardens bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80" alt="Portland Heights Project" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-2">
+            <span class="text-xs text-secondary font-bold uppercase">Residential · Garden Design</span>
+            <h3 class="font-heading text-lg font-bold">Portland Heights Estate</h3>
+            <p class="text-textSecondary text-xs">Lush organic garden beds surrounding a multi-level concrete stepping pathway design.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-item category-hardscaping bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1558905612-27141b1ab6a7?auto=format&fit=crop&w=600&q=80" alt="Stone Pergola Patio" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-2">
+            <span class="text-xs text-secondary font-bold uppercase">Hardscaping</span>
+            <h3 class="font-heading text-lg font-bold">Stone Patio & Pergola</h3>
+            <p class="text-textSecondary text-xs">Custom Cedar timber framing set on a natural flagstone dining patio courtyard.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="portfolio-item category-commercial bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=600&q=80" alt="Lakeview Office Grounds" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-2">
+            <span class="text-xs text-secondary font-bold uppercase">Commercial</span>
+            <h3 class="font-heading text-lg font-bold">Lakeview Business Plaza</h3>
+            <p class="text-textSecondary text-xs">Modern office courtyard designed with drought-resistant ornamental wild plants.</p>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-item category-gardens bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=600&q=80" alt="Lush Florals" class="w-full h-56 object-cover">
+          <div class="p-6 space-y-2">
+            <span class="text-xs text-secondary font-bold uppercase">Garden Design</span>
+            <h3 class="font-heading text-lg font-bold">Suburban Pollinator Sanctuary</h3>
+            <p class="text-textSecondary text-xs">High-density bee-friendly floral planning with integrated smart drip irrigation pipelines.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Before & After slider section -->
+    <section class="py-20 bg-surface">
+      <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold">Flagstone Transformation Interactive View</h2>
+        <div class="before-after-container aspect-[16/9] rounded-2xl shadow-xl border-4 border-white dark:border-surface">
+          <!-- Underneath image (After) -->
+          <img src="https://images.unsplash.com/photo-1558905612-27141b1ab6a7?auto=format&fit=crop&w=1200&q=80" alt="Flagstone After" class="absolute inset-0 w-full h-full object-cover">
+          <!-- Overlay image (Before) -->
+          <div class="before-after-overlay absolute inset-0 w-full h-full clip-[polygon(0_0,50%_0,50%_100%,0_100%)]">
+            <img src="https://images.unsplash.com/photo-1507036066871-b7e8032b3dea?auto=format&fit=crop&w=1200&q=80" alt="Flagstone Before" class="absolute inset-0 w-full h-full object-cover">
+          </div>
+          <div class="before-after-handle left-[50%]"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-[#0B130E] text-[#A8C0A8] border-t border-[#1D2E22] py-10 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <!-- Middle Grid: Asymmetric Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-2 shrink-0">
+            <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22C12 22 20 18 20 12C20 6.5 15.5 2 12 2C8.5 2 4 6.5 4 12C4 18 12 22 12 22Z" fill="currentColor" fill-opacity="0.15"/>
+              <path d="M12 2V22"/>
+              <path d="M12 8C12 8 16 9 17 12"/>
+              <path d="M12 13C12 13 8 14 7 17"/>
+            </svg>
+            <span class="font-heading font-bold text-2xl text-primary tracking-wide whitespace-nowrap">GreenScape<span class="text-secondary">Pro</span></span>
+          </a>
+          <p class="text-sm leading-relaxed text-[#8AA392]">
+            Exquisite landscape architecture and recurring garden care. We shape environments that inspire living.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="#" class="w-10 h-10 rounded-full bg-[#111C15] border border-[#1D2E22] flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-[#8AA392]" title="Facebook">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-[#111C15] border border-[#1D2E22] flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-[#8AA392]" title="Instagram">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-[#111C15] border border-[#1D2E22] flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-[#8AA392]" title="Twitter">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="font-bold text-white text-sm tracking-wider uppercase mb-4">Navigation</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Home 1</a></li>
+            <li><a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a></li>
+            <li><a href="about.html" class="hover:text-primary transition-colors">About Our Agency</a></li>
+            <li><a href="portfolio.html" class="hover:text-primary transition-colors">Transformations</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition-colors">Garden Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Columns -->
+        <div>
+          <h4 class="font-bold text-white text-sm tracking-wider uppercase mb-4">Contact Us</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+              <span>482 Forest Ave, Portland, OR</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="phone" class="w-4 h-4 text-primary shrink-0"></i>
+              <span>+1 (503) 555-0149</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="mail" class="w-4 h-4 text-primary shrink-0"></i>
+              <span>info@greenscapepro.demo</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Subscription (Replacing Service Hours) -->
+        <div class="space-y-4">
+          <h4 class="font-bold text-white text-sm tracking-wider uppercase mb-2">Newsletter</h4>
+          <p class="text-sm leading-relaxed text-[#8AA392]">Subscribe to get seasonal care checklists and early booking slots.</p>
+          <form class="relative flex items-center" onsubmit="event.preventDefault(); alert('Subscribed!')">
+            <input type="email" required placeholder="name@domain.com" class="w-full h-11 pl-4 pr-12 rtl:pr-4 rtl:pl-12 border border-[#1D2E22] rounded-md bg-[#111C15] text-white focus:outline-none focus:border-primary text-sm">
+            <button type="submit" class="absolute right-1 top-1 bottom-1 w-9 bg-primary hover:bg-primary-hover text-white rounded flex items-center justify-center transition-colors rtl:right-auto rtl:left-1" title="Subscribe">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Grid: Copyright & Policies -->
+      <div class="border-t border-[#1D2E22] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+        <p class="text-[#6F8E78]">&copy; 2026 GreenScape Pro. All rights reserved. Made for premium gardens.</p>
+        <div class="flex gap-6 text-[#6F8E78]">
+          <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
