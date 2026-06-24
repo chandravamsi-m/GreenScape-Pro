@@ -214,86 +214,241 @@
   <!-- ===== MAIN CONTENT ===== -->
   <main class="flex-grow">
 
-    <!-- Hero Header -->
-    <section class="bg-surface py-12 border-b border-customBorder">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-        <nav class="text-xs text-textSecondary flex gap-2">
-          <a href="index.html" class="hover:text-primary">Home</a>
-          <span>/</span>
-          <span class="text-textPrimary font-semibold">Portfolio</span>
-        </nav>
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold">Our Project Transformations</h1>
+    <!-- Simple Centered Hero Section -->
+    <section class="py-14 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-70"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 relative z-10">
+        <span class="text-secondary font-bold text-xs tracking-widest uppercase">Our Portfolio</span>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-textPrimary leading-tight">
+          Our Project Transformations
+        </h1>
+        <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+          Explore our gallery of residential sanctuaries, commercial courtyards, custom flagstone terraces, and biologically optimized gardens.
+        </p>
       </div>
     </section>
 
-    <!-- Filters Section -->
-    <section class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap gap-3 justify-center mb-12">
-        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-primary text-white" data-filter="all">All Projects</button>
-        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="residential">Residential</button>
-        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="commercial">Commercial</button>
-        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="hardscaping">Hardscaping</button>
-        <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-surface text-textPrimary hover:bg-primary/20" data-filter="gardens">Garden Design</button>
-      </div>
-
-      <!-- Portfolio Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- Project 1 -->
-        <div class="portfolio-item category-residential category-gardens bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
-          <img src="../assets/images/hero_garden.png" alt="Portland Heights Project" class="w-full h-56 object-cover">
-          <div class="p-6 space-y-2">
-            <span class="text-xs text-secondary font-bold uppercase">Residential · Garden Design</span>
-            <h3 class="font-heading text-lg font-bold">Portland Heights Estate</h3>
-            <p class="text-textSecondary text-xs">Lush organic garden beds surrounding a multi-level concrete stepping pathway design.</p>
-          </div>
+    <!-- Filters & Grid Section -->
+    <section class="py-14 bg-surface border-t border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div class="flex flex-wrap gap-3 justify-center">
+          <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-primary text-white" data-filter="all">All Projects</button>
+          <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-customBg border border-customBorder text-textPrimary hover:bg-primary/20" data-filter="residential">Residential</button>
+          <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-customBg border border-customBorder text-textPrimary hover:bg-primary/20" data-filter="commercial">Commercial</button>
+          <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-customBg border border-customBorder text-textPrimary hover:bg-primary/20" data-filter="hardscaping">Hardscaping</button>
+          <button class="portfolio-filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-customBg border border-customBorder text-textPrimary hover:bg-primary/20" data-filter="gardens">Garden Design</button>
         </div>
 
-        <!-- Project 2 -->
-        <div class="portfolio-item category-hardscaping bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
-          <img src="../assets/images/garden_after.png" alt="Stone Pergola Patio" class="w-full h-56 object-cover">
-          <div class="p-6 space-y-2">
-            <span class="text-xs text-secondary font-bold uppercase">Hardscaping</span>
-            <h3 class="font-heading text-lg font-bold">Stone Patio & Pergola</h3>
-            <p class="text-textSecondary text-xs">Custom Cedar timber framing set on a natural flagstone dining patio courtyard.</p>
+        <!-- Portfolio Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Project 1 -->
+          <div class="portfolio-item category-residential category-gardens bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm group">
+            <div class="overflow-hidden h-56 relative">
+              <img src="../assets/images/hero_garden.png" alt="Portland Heights Project" class="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-105">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-xs text-secondary font-bold uppercase">Residential · Garden Design</span>
+              <h3 class="font-heading text-lg font-bold">Portland Heights Estate</h3>
+              <p class="text-textSecondary text-xs font-light">Lush organic garden beds surrounding a multi-level concrete stepping pathway design.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Project 3 -->
-        <div class="portfolio-item category-commercial bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
-          <img src="../assets/images/landscaper_work.png" alt="Lakeview Office Grounds" class="w-full h-56 object-cover">
-          <div class="p-6 space-y-2">
-            <span class="text-xs text-secondary font-bold uppercase">Commercial</span>
-            <h3 class="font-heading text-lg font-bold">Lakeview Business Plaza</h3>
-            <p class="text-textSecondary text-xs">Modern office courtyard designed with drought-resistant ornamental wild plants.</p>
+          <!-- Project 2 -->
+          <div class="portfolio-item category-hardscaping bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm group">
+            <div class="overflow-hidden h-56 relative">
+              <img src="../assets/images/garden_after.png" alt="Stone Pergola Patio" class="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-105">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-xs text-secondary font-bold uppercase">Hardscaping</span>
+              <h3 class="font-heading text-lg font-bold">Stone Patio & Pergola</h3>
+              <p class="text-textSecondary text-xs font-light">Custom Cedar timber framing set on a natural flagstone dining patio courtyard.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Project 4 -->
-        <div class="portfolio-item category-gardens bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm">
-          <img src="../assets/images/irrigation_systems.png" alt="Lush Florals" class="w-full h-56 object-cover">
-          <div class="p-6 space-y-2">
-            <span class="text-xs text-secondary font-bold uppercase">Garden Design</span>
-            <h3 class="font-heading text-lg font-bold">Suburban Pollinator Sanctuary</h3>
-            <p class="text-textSecondary text-xs">High-density bee-friendly floral planning with integrated smart drip irrigation pipelines.</p>
+          <!-- Project 3 -->
+          <div class="portfolio-item category-commercial bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm group">
+            <div class="overflow-hidden h-56 relative">
+              <img src="../assets/images/landscaper_work.png" alt="Lakeview Office Grounds" class="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-105">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-xs text-secondary font-bold uppercase">Commercial</span>
+              <h3 class="font-heading text-lg font-bold">Lakeview Business Plaza</h3>
+              <p class="text-textSecondary text-xs font-light">Modern office courtyard designed with drought-resistant ornamental wild plants.</p>
+            </div>
           </div>
-        </div>
 
+          <!-- Project 4 -->
+          <div class="portfolio-item category-gardens bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm group">
+            <div class="overflow-hidden h-56 relative">
+              <img src="../assets/images/irrigation_systems.png" alt="Lush Florals" class="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-105">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-xs text-secondary font-bold uppercase">Garden Design</span>
+              <h3 class="font-heading text-lg font-bold">Suburban Pollinator Sanctuary</h3>
+              <p class="text-textSecondary text-xs font-light">High-density bee-friendly floral planning with integrated smart drip irrigation pipelines.</p>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="portfolio-item category-residential category-hardscaping bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm group">
+            <div class="overflow-hidden h-56 relative">
+              <img src="../assets/images/landscape_architecture.png" alt="West Hills Slope Restoration" class="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-105">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-xs text-secondary font-bold uppercase">Residential · Hardscaping</span>
+              <h3 class="font-heading text-lg font-bold">West Hills Slope Restoration</h3>
+              <p class="text-textSecondary text-xs font-light">Tiered retaining stone walls designed to secure a high-grade hillside slope estate.</p>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="portfolio-item category-commercial category-gardens bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm group">
+            <div class="overflow-hidden h-56 relative">
+              <img src="../assets/images/hero_garden.png" alt="Automated Estate Orchard" class="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-105">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-xs text-secondary font-bold uppercase">Commercial · Garden Design</span>
+              <h3 class="font-heading text-lg font-bold">Automated Estate Orchard</h3>
+              <p class="text-textSecondary text-xs font-light">Weather-linked moisture delivery lines supporting custom raised organic crop boxes.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- Before & After slider section -->
-    <section class="py-20 bg-surface">
-      <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">
-        <h2 class="font-heading text-2xl sm:text-3xl font-bold">Flagstone Transformation Interactive View</h2>
-        <div class="before-after-container aspect-[16/9] rounded-2xl shadow-xl border-4 border-white dark:border-surface">
-          <!-- Underneath image (After) -->
-          <img src="../assets/images/garden_after.png" alt="Flagstone After" class="absolute inset-0 w-full h-full object-cover">
-          <!-- Overlay image (Before) -->
-          <div class="before-after-overlay absolute inset-0 w-full h-full clip-[polygon(0_0,50%_0,50%_100%,0_100%)]">
-            <img src="../assets/images/garden_before.png" alt="Flagstone Before" class="absolute inset-0 w-full h-full object-cover">
+    <!-- Landmark Case Study Spotlight Section -->
+    <section class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative overflow-hidden rounded-2xl border border-customBorder shadow-md aspect-[16/10]">
+          <img src="../assets/images/garden_after.png" alt="Portland Heights Spotlight" class="w-full h-full object-cover">
+        </div>
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <span class="text-secondary font-bold text-xs tracking-widest uppercase block">Featured Transformation</span>
+            <h2 class="font-heading text-3xl font-bold text-textPrimary leading-tight">The Portland Heights Restoration Case Study</h2>
+            <p class="text-textSecondary text-sm font-light leading-relaxed">
+              Our hallmark project involved converting a highly eroded, steep-grade backyard hillside into a multi-tiered flagstone terrace. We integrated drought-adapted native planting designs, automatic sub-surface weather sensors, and natural dry-stack masonry walls.
+            </p>
           </div>
-          <div class="before-after-handle left-[50%]"></div>
+          
+          <div class="grid grid-cols-3 gap-6 pt-2 border-t border-customBorder">
+            <div>
+              <div class="text-3xl font-bold text-primary font-heading">90%</div>
+              <div class="text-[10px] text-textSecondary uppercase font-bold tracking-wider mt-1">Water Savings</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-primary font-heading">120+</div>
+              <div class="text-[10px] text-textSecondary uppercase font-bold tracking-wider mt-1">Native Flora</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-primary font-heading">12 Wks</div>
+              <div class="text-[10px] text-textSecondary uppercase font-bold tracking-wider mt-1">Duration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section class="py-14 bg-surface border-t border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase">Client Praise</span>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-textPrimary">Praise from the Estates</h2>
+          <p class="text-sm text-textSecondary">Read what our clients say about their custom landscape transformations.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Quote 1 -->
+          <div class="bg-customBg p-8 rounded-2xl border border-customBorder space-y-4 relative group shadow-sm">
+            <div class="flex text-yellow-500 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+            </div>
+            <p class="text-xs text-textSecondary italic leading-relaxed font-light">
+              "The team completely turned our eroding hillside slope into a gorgeous tiered flagstone patio. The sub-surface irrigation runs seamlessly. We couldn't be happier with our new backyard."
+            </p>
+            <div class="pt-4 border-t border-customBorder flex items-center gap-3">
+              <div class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">JH</div>
+              <div>
+                <h4 class="font-bold text-xs text-textPrimary">Juliet H.</h4>
+                <p class="text-[10px] text-textSecondary uppercase font-bold">Portland Heights Estate</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quote 2 -->
+          <div class="bg-customBg p-8 rounded-2xl border border-customBorder space-y-4 relative group shadow-sm">
+            <div class="flex text-yellow-500 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+            </div>
+            <p class="text-xs text-textSecondary italic leading-relaxed font-light">
+              "GreenScape's attention to detail during our office grounds redesign was outstanding. The drought-resistant flora options look extremely modern and require very minimal watering."
+            </p>
+            <div class="pt-4 border-t border-customBorder flex items-center gap-3">
+              <div class="w-9 h-9 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-sm">RT</div>
+              <div>
+                <h4 class="font-bold text-xs text-textPrimary">Robert T.</h4>
+                <p class="text-[10px] text-textSecondary uppercase font-bold">Lakeview Business Plaza</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quote 3 -->
+          <div class="bg-customBg p-8 rounded-2xl border border-customBorder space-y-4 relative group shadow-sm">
+            <div class="flex text-yellow-500 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+            </div>
+            <p class="text-xs text-textSecondary italic leading-relaxed font-light">
+              "The custom cedar pergola and flagstone work are spectacular. It feels like we added an entire new room to our home. The native plants attract local birds and bees constantly."
+            </p>
+            <div class="pt-4 border-t border-customBorder flex items-center gap-3">
+              <div class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">AM</div>
+              <div>
+                <h4 class="font-bold text-xs text-textPrimary">Alina M.</h4>
+                <p class="text-[10px] text-textSecondary uppercase font-bold">Stone Patio Villa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered CTA Section -->
+    <section class="py-16 border-t border-customBorder relative overflow-hidden reveal-on-scroll">
+      <!-- Glow background decoration -->
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+        <div class="space-y-4">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase block">Begin Your Journey</span>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-textPrimary leading-tight">Ready to Craft Your Private Sanctuary?</h2>
+          <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-3xl mx-auto font-light">
+            Whether you are looking to reclaim a steep-grade hillside, optimize your estate's irrigation performance with smart weather-linked automation, or design custom flagstone terraces and masonry paths, our certified horticulturists and landscape architects are here to guide you every step of the way from initial blueprint to ongoing care.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <a href="contact.html" class="w-full sm:w-auto h-11 px-7 bg-primary hover:bg-primary-hover text-white font-bold rounded-md shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center justify-center">
+            Schedule a Consultation
+          </a>
+          <a href="portfolio.html" class="w-full sm:w-auto h-11 px-7 border border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-md transition-all duration-300 text-sm flex items-center justify-center">
+            View Our Work
+          </a>
         </div>
       </div>
     </section>

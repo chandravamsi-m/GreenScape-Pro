@@ -210,132 +210,315 @@
   </div>
 
   
-
   <!-- ===== MAIN CONTENT ===== -->
-  <main class="flex-grow max-w-2xl mx-auto px-4 sm:px-6 py-12 w-full">
+  <main class="flex-grow bg-customBg">
     
-    <div class="space-y-6 text-center mb-10">
-      <h1 class="font-heading text-3xl sm:text-4xl font-bold">Request a Custom Quote</h1>
-      <p class="text-textSecondary text-sm">Tell us about your property. Complete this 4-step sheet to get your draft design proposal.</p>
+    <!-- Hero Header -->
+    <section class="py-14 relative overflow-hidden bg-customBg border-b border-customBorder text-center">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-70"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 relative z-10">
+        <span class="text-secondary font-bold text-xs tracking-widest uppercase">Proposal Request</span>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-textPrimary leading-tight">Request a Custom Proposal</h1>
+        <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+          Tell us about your property. Complete this 4-step wizard to share your design goals and receive a detailed draft diagnostic.
+        </p>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-16 bg-surface border-b border-customBorder">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Progress Indicator Bar -->
+        <div class="mb-8 space-y-4">
+          <div class="h-2 bg-customBg border border-customBorder rounded-full overflow-hidden">
+            <div id="quote-progress" class="h-full bg-primary transition-all duration-300 w-0"></div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[10px] sm:text-xs text-textSecondary">
+            <span class="quote-indicator font-bold px-2.5 py-1.5 rounded bg-surface border border-customBorder/50 block">Step 1: Property</span>
+            <span class="quote-indicator font-bold px-2.5 py-1.5 rounded bg-surface border border-customBorder/50 block">Step 2: Services</span>
+            <span class="quote-indicator font-bold px-2.5 py-1.5 rounded bg-surface border border-customBorder/50 block">Step 3: Timeline</span>
+            <span class="quote-indicator font-bold px-2.5 py-1.5 rounded bg-surface border border-customBorder/50 block">Step 4: Contact</span>
+          </div>
+        </div>
+
+        <!-- Form Structure -->
+        <form id="multistep-quote-form" class="bg-customBg border border-customBorder rounded-2xl p-6 sm:p-10 space-y-6 shadow-md hover:shadow-lg transition-all duration-300">
+          
+          <!-- Step 1: Property Details -->
+          <div class="quote-step space-y-5">
+            <div class="border-b border-customBorder pb-3 mb-2">
+              <span class="text-secondary font-bold text-[10px] tracking-wider uppercase block">Initial Step</span>
+              <h3 class="font-heading text-xl font-bold text-textPrimary">Property Characteristics</h3>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Property Type</label>
+                <select required class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  <option value="">Select option...</option>
+                  <option value="residential">Residential Estate</option>
+                  <option value="commercial">Commercial Courtyard</option>
+                  <option value="suburban">Suburban Backyard</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Property Size (sq ft)</label>
+                <input type="number" required placeholder="e.g. 5000" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Sunlight Exposure</label>
+                <select required class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  <option value="">Select option...</option>
+                  <option value="full-sun">Full Sun (6+ hours)</option>
+                  <option value="partial">Partial Sun/Shade</option>
+                  <option value="full-shade">Full Shade</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Water Sources</label>
+                <select required class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  <option value="">Select option...</option>
+                  <option value="sprinklers">Existing Smart Sprinklers</option>
+                  <option value="hose">Hose Bibs & Spigots Only</option>
+                  <option value="none">No External Lines Present</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Property Address</label>
+              <input type="text" required placeholder="482 Forest Ave, Portland, OR" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+            </div>
+
+            <div class="flex justify-end pt-4 border-t border-customBorder/50">
+              <button class="quote-next-btn h-11 px-6 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-primary-hover transition-colors text-xs flex items-center justify-center">Next Step</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Services Required -->
+          <div class="quote-step space-y-5 hidden">
+            <div class="border-b border-customBorder pb-3 mb-2">
+              <span class="text-secondary font-bold text-[10px] tracking-wider uppercase block">Second Step</span>
+              <h3 class="font-heading text-xl font-bold text-textPrimary">Select Needed Services</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label class="flex items-start gap-3.5 p-4 border border-customBorder rounded-xl cursor-pointer hover:border-primary/50 bg-customBg transition-all group">
+                <input type="checkbox" name="services" value="design" class="w-4 h-4 mt-0.5 text-primary focus:ring-primary rounded border-customBorder">
+                <div class="space-y-0.5">
+                  <span class="text-xs font-bold text-textPrimary block group-hover:text-primary transition-colors">Landscape Design</span>
+                  <span class="text-[10px] text-textSecondary font-light block">3D layouts and soil biology maps</span>
+                </div>
+              </label>
+              <label class="flex items-start gap-3.5 p-4 border border-customBorder rounded-xl cursor-pointer hover:border-primary/50 bg-customBg transition-all group">
+                <input type="checkbox" name="services" value="maintenance" class="w-4 h-4 mt-0.5 text-primary focus:ring-primary rounded border-customBorder">
+                <div class="space-y-0.5">
+                  <span class="text-xs font-bold text-textPrimary block group-hover:text-primary transition-colors">Garden Maintenance</span>
+                  <span class="text-[10px] text-textSecondary font-light block">Regular trimming and arborist care</span>
+                </div>
+              </label>
+              <label class="flex items-start gap-3.5 p-4 border border-customBorder rounded-xl cursor-pointer hover:border-primary/50 bg-customBg transition-all group">
+                <input type="checkbox" name="services" value="irrigation" class="w-4 h-4 mt-0.5 text-primary focus:ring-primary rounded border-customBorder">
+                <div class="space-y-0.5">
+                  <span class="text-xs font-bold text-textPrimary block group-hover:text-primary transition-colors">Smart Irrigation</span>
+                  <span class="text-[10px] text-textSecondary font-light block">Meteorological controllers & drip lines</span>
+                </div>
+              </label>
+              <label class="flex items-start gap-3.5 p-4 border border-customBorder rounded-xl cursor-pointer hover:border-primary/50 bg-customBg transition-all group">
+                <input type="checkbox" name="services" value="hardscape" class="w-4 h-4 mt-0.5 text-primary focus:ring-primary rounded border-customBorder">
+                <div class="space-y-0.5">
+                  <span class="text-xs font-bold text-textPrimary block group-hover:text-primary transition-colors">Hardscaping Masonry</span>
+                  <span class="text-[10px] text-textSecondary font-light block">Stone basalt walls & flagstone terraces</span>
+                </div>
+              </label>
+            </div>
+
+            <div class="flex justify-between pt-4 border-t border-customBorder/50">
+              <button class="quote-prev-btn h-11 px-6 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors text-xs">Back</button>
+              <button class="quote-next-btn h-11 px-6 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-primary-hover transition-colors text-xs">Next Step</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Timeline & Budget -->
+          <div class="quote-step space-y-5 hidden">
+            <div class="border-b border-customBorder pb-3 mb-2">
+              <span class="text-secondary font-bold text-[10px] tracking-wider uppercase block">Third Step</span>
+              <h3 class="font-heading text-xl font-bold text-textPrimary">Timeline & Budget</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Preferred Start Timeline</label>
+                <select required class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  <option value="">Select option...</option>
+                  <option value="immediate">As soon as possible</option>
+                  <option value="month">Within 1 month</option>
+                  <option value="season">Next season</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Est. Budget Range</label>
+                <select required class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  <option value="">Select option...</option>
+                  <option value="under5k">Under $5,000</option>
+                  <option value="5k-15k">$5,000 - $15,000</option>
+                  <option value="above15k">Above $15,000</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Special Property Concerns</label>
+              <textarea placeholder="e.g. Steep slope, poor soil drainage, clay base, dog-friendly plants..." class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary resize-none" rows="3"></textarea>
+            </div>
+
+            <div class="flex justify-between pt-4 border-t border-customBorder/50">
+              <button class="quote-prev-btn h-11 px-6 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors text-xs">Back</button>
+              <button class="quote-next-btn h-11 px-6 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-primary-hover transition-colors text-xs">Next Step</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Contact Details -->
+          <div class="quote-step space-y-5 hidden">
+            <div class="border-b border-customBorder pb-3 mb-2">
+              <span class="text-secondary font-bold text-[10px] tracking-wider uppercase block">Final Step</span>
+              <h3 class="font-heading text-xl font-bold text-textPrimary">Contact Information</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Full Name</label>
+                <input type="text" required placeholder="John Doe" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Email Address</label>
+                <input type="email" required placeholder="john@example.com" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Phone Number</label>
+                <input type="tel" required placeholder="+1 (503) 555-0149" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Best Time to Call</label>
+                <select required class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  <option value="">Select time...</option>
+                  <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">Afternoon (12:00 PM - 5:00 PM)</option>
+                  <option value="evening">Evening (5:00 PM - 7:00 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex justify-between pt-4 border-t border-customBorder/50">
+              <button class="quote-prev-btn h-11 px-6 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors text-xs">Back</button>
+              <button type="submit" class="h-11 px-8 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-colors text-xs flex items-center justify-center">Submit Quote Request</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-customBg border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase">Our Workflow</span>
+          <h2 class="font-heading text-3xl font-bold text-textPrimary">Your Journey to a Dream Garden</h2>
+          <p class="text-xs sm:text-sm text-textSecondary leading-relaxed font-light">
+            Once you submit your custom quote request, here are the detailed phases we guide you through to build your landscape masterpiece.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Step 1 -->
+          <div class="bg-surface border border-customBorder rounded-2xl p-6 space-y-3 relative hover:-translate-y-1 transition-all duration-300">
+            <span class="text-secondary font-heading font-bold text-3xl opacity-30">01</span>
+            <h4 class="font-heading font-bold text-base text-textPrimary">Request Intake</h4>
+            <p class="text-xs text-textSecondary leading-relaxed font-light">
+              We process your property sizing, sun profile, and target botanical options within 24 business hours.
+            </p>
+          </div>
+          <!-- Step 2 -->
+          <div class="bg-surface border border-customBorder rounded-2xl p-6 space-y-3 relative hover:-translate-y-1 transition-all duration-300">
+            <span class="text-secondary font-heading font-bold text-3xl opacity-30">02</span>
+            <h4 class="font-heading font-bold text-base text-textPrimary">Site Diagnostic</h4>
+            <p class="text-xs text-textSecondary leading-relaxed font-light">
+              Our ISA-certified arborists visit your site to review soil metrics, drainage levels, and sun shadows.
+            </p>
+          </div>
+          <!-- Step 3 -->
+          <div class="bg-surface border border-customBorder rounded-2xl p-6 space-y-3 relative hover:-translate-y-1 transition-all duration-300">
+            <span class="text-secondary font-heading font-bold text-3xl opacity-30">03</span>
+            <h4 class="font-heading font-bold text-base text-textPrimary">3D Rendering</h4>
+            <p class="text-xs text-textSecondary leading-relaxed font-light">
+              We compile full 3D layouts, evergreen assortments, and fixed seasonal costs for your approval.
+            </p>
+          </div>
+          <!-- Step 4 -->
+          <div class="bg-surface border border-customBorder rounded-2xl p-6 space-y-3 relative hover:-translate-y-1 transition-all duration-300">
+            <span class="text-secondary font-heading font-bold text-3xl opacity-30">04</span>
+            <h4 class="font-heading font-bold text-base text-textPrimary">Master Build</h4>
+            <p class="text-xs text-textSecondary leading-relaxed font-light">
+              Our hardscaping masonry and irrigation specialists construct the project using organic local specimens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden px-4">
+      <div class="bg-customBg border border-customBorder rounded-2xl p-8 max-w-md w-full shadow-2xl text-center space-y-5 animate-in fade-in zoom-in duration-300">
+        <div class="w-16 h-16 rounded-full bg-primary/15 text-primary flex items-center justify-center mx-auto">
+          <i data-lucide="check-circle" class="w-10 h-10"></i>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-heading text-2xl font-bold text-textPrimary">Request Received!</h3>
+          <p class="text-xs text-textSecondary leading-relaxed font-light">
+            Thank you for requesting a custom proposal. Our master botanical coordinator will review your property specifications and contact you within 24 hours to schedule your diagnostics audit.
+          </p>
+        </div>
+        <button id="close-modal-btn" class="w-full h-11 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg transition-colors text-xs flex items-center justify-center shadow-md">
+          Return to Home Page
+        </button>
+      </div>
     </div>
 
-    <!-- Progress Indicator Bar -->
-    <div class="mb-8">
-      <div class="h-2 bg-surface rounded-full overflow-hidden">
-        <div id="quote-progress" class="h-full bg-primary transition-all duration-300 w-0"></div>
-      </div>
-      <div class="flex justify-between mt-3 text-xs text-textSecondary">
-        <span class="quote-indicator font-bold px-2 py-1 rounded bg-surface">Step 1: Property</span>
-        <span class="quote-indicator font-bold px-2 py-1 rounded bg-surface">Step 2: Services</span>
-        <span class="quote-indicator font-bold px-2 py-1 rounded bg-surface">Step 3: Timeline</span>
-        <span class="quote-indicator font-bold px-2 py-1 rounded bg-surface">Step 4: Contact</span>
-      </div>
-    </div>
+    <!-- Script to handle Success Modal -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const quoteForm = document.getElementById('multistep-quote-form');
+        const successModal = document.getElementById('success-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
 
-    <!-- Form Structure -->
-    <form id="multistep-quote-form" class="bg-surface border border-customBorder rounded-2xl p-8 shadow-md">
-      
-      <!-- Step 1: Property Details -->
-      <div class="quote-step space-y-4">
-        <h3 class="font-bold text-lg border-b border-customBorder pb-2">Property Details</h3>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Property Type</label>
-          <select required class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-            <option value="">Select option...</option>
-            <option value="residential">Residential Estate</option>
-            <option value="commercial">Commercial Courtyard</option>
-            <option value="garden">Suburban Backyard</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Property Size (sq ft)</label>
-          <input type="number" required placeholder="e.g. 5000" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Property Address</label>
-          <input type="text" required placeholder="482 Forest Ave, Portland, OR" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-        </div>
-        <div class="flex justify-end pt-4">
-          <button class="quote-next-btn px-6 py-2.5 bg-primary text-white font-bold rounded shadow-md hover:bg-primary-hover transition-colors">Next Step</button>
-        </div>
-      </div>
+        if (quoteForm && successModal) {
+          quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Show modal
+            successModal.classList.remove('hidden');
+            // Re-render lucide icons inside modal if needed
+            if (typeof lucide !== 'undefined') {
+              lucide.createIcons();
+            }
+          });
+        }
 
-      <!-- Step 2: Services Required -->
-      <div class="quote-step space-y-4 hidden">
-        <h3 class="font-bold text-lg border-b border-customBorder pb-2">Select Services</h3>
-        <div class="grid grid-cols-2 gap-4">
-          <label class="flex items-center gap-3 p-4 border border-customBorder rounded cursor-pointer hover:bg-customBg">
-            <input type="checkbox" name="services" value="design" class="w-4 h-4 text-primary focus:ring-primary">
-            <span class="text-sm">Landscape Design</span>
-          </label>
-          <label class="flex items-center gap-3 p-4 border border-customBorder rounded cursor-pointer hover:bg-customBg">
-            <input type="checkbox" name="services" value="maintenance" class="w-4 h-4 text-primary focus:ring-primary">
-            <span class="text-sm">Garden Maintenance</span>
-          </label>
-          <label class="flex items-center gap-3 p-4 border border-customBorder rounded cursor-pointer hover:bg-customBg">
-            <input type="checkbox" name="services" value="irrigation" class="w-4 h-4 text-primary focus:ring-primary">
-            <span class="text-sm">Smart Irrigation</span>
-          </label>
-          <label class="flex items-center gap-3 p-4 border border-customBorder rounded cursor-pointer hover:bg-customBg">
-            <input type="checkbox" name="services" value="hardscape" class="w-4 h-4 text-primary focus:ring-primary">
-            <span class="text-sm">Hardscaping Masonry</span>
-          </label>
-        </div>
-        <div class="flex justify-between pt-4">
-          <button class="quote-prev-btn px-6 py-2.5 border border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors">Back</button>
-          <button class="quote-next-btn px-6 py-2.5 bg-primary text-white font-bold rounded shadow-md hover:bg-primary-hover transition-colors">Next Step</button>
-        </div>
-      </div>
-
-      <!-- Step 3: Timeline & Budget -->
-      <div class="quote-step space-y-4 hidden">
-        <h3 class="font-bold text-lg border-b border-customBorder pb-2">Timeline & Budget</h3>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Preferred Start Timeline</label>
-          <select required class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-            <option value="">Select option...</option>
-            <option value="immediate">As soon as possible</option>
-            <option value="month">Within 1 month</option>
-            <option value="season">Next season</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Est. Budget Range</label>
-          <select required class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-            <option value="">Select option...</option>
-            <option value="under5k">Under $5,000</option>
-            <option value="5k-15k">$5,000 - $15,000</option>
-            <option value="above15k">Above $15,000</option>
-          </select>
-        </div>
-        <div class="flex justify-between pt-4">
-          <button class="quote-prev-btn px-6 py-2.5 border border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors">Back</button>
-          <button class="quote-next-btn px-6 py-2.5 bg-primary text-white font-bold rounded shadow-md hover:bg-primary-hover transition-colors">Next Step</button>
-        </div>
-      </div>
-
-      <!-- Step 4: Contact Details -->
-      <div class="quote-step space-y-4 hidden">
-        <h3 class="font-bold text-lg border-b border-customBorder pb-2">Contact Information</h3>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Full Name</label>
-          <input type="text" required placeholder="John Doe" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Email Address</label>
-          <input type="email" required placeholder="john@example.com" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Phone Number</label>
-          <input type="tel" required placeholder="+1 (503) 555-0149" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
-        </div>
-        <div class="flex justify-between pt-4">
-          <button class="quote-prev-btn px-6 py-2.5 border border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors">Back</button>
-          <button type="submit" class="px-8 py-2.5 bg-primary hover:bg-primary-hover text-white font-bold rounded shadow-md hover:bg-primary hover:bg-primary-hover-hover transition-colors">Submit Quote Request</button>
-        </div>
-      </div>
-
-    </form>
+        if (closeModalBtn && successModal) {
+          closeModalBtn.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+            window.location.href = 'index.html';
+          });
+        }
+      });
+    </script>
   </main>
 
   <!-- ===== FOOTER ===== -->

@@ -212,51 +212,347 @@
   
 
   <!-- ===== MAIN CONTENT ===== -->
-  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12">
-    
-    <!-- Navigation Trail -->
-    <nav class="text-xs text-textSecondary flex gap-2 mb-6">
-      <a href="index.html" class="hover:text-primary">Home</a>
-      <span>/</span>
-      <a href="blog.html" class="hover:text-primary">Blog</a>
-      <span>/</span>
-      <span class="text-textPrimary font-semibold">5 Spring Seeds...</span>
-    </nav>
+  <main class="flex-grow bg-customBg">
 
-    <!-- Article Structure -->
-    <article class="space-y-8">
-      <header class="space-y-4">
-        <span class="text-xs text-secondary font-bold uppercase">Planting Guide</span>
-        <h1 class="font-heading text-3xl sm:text-5xl font-bold leading-tight">5 Spring Seeds for Pollinators to Plant Right Now</h1>
-        <div class="flex items-center gap-3 text-xs text-textSecondary">
+    <!-- Hero Header -->
+    <section class="py-14 relative overflow-hidden bg-customBg border-b border-customBorder">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-70"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 relative z-10">
+        <span class="text-secondary font-bold text-xs tracking-widest uppercase">Planting Guide</span>
+        <h1 class="font-heading text-3xl sm:text-5xl font-bold text-textPrimary leading-tight">5 Spring Seeds for Pollinators to Plant Right Now</h1>
+        <div class="flex items-center justify-center gap-3 text-xs text-textSecondary pt-2">
           <img src="../assets/images/landscaper_work.png" alt="Elena K." class="w-8 h-8 rounded-full object-cover">
           <div>
             <span class="font-semibold text-textPrimary">Elena K.</span> · <span>June 18, 2026</span>
           </div>
           <span>·</span>
-          <span>4 min read</span>
+          <span>5 min read</span>
         </div>
-      </header>
-
-      <img src="../assets/images/blog_seeds.png" alt="Spring Planting Roots" class="rounded-2xl w-full object-cover h-[400px]">
-
-      <div class="prose dark:prose-invert max-w-none text-sm text-textSecondary leading-relaxed space-y-6">
-        <p>
-          Springtime is the ideal season to prepare your soil beds for the yearly cycle of pollinators. Bringing native bees, butterflies, and organic hummingbirds to your garden requires strategic plant layouts. Below are the five best seeds we recommend planting during early spring months.
-        </p>
-        
-        <h3 class="font-heading text-lg font-bold text-textPrimary">1. Purple Coneflower (Echinacea purpurea)</h3>
-        <p>
-          Extremely resilient, purple coneflowers hold deep nectar reserves that butterflies love. They survive hot dry summers and return every year without replanting.
-        </p>
-
-        <h3 class="font-heading text-lg font-bold text-textPrimary">2. Wild Bergamot (Monarda fistulosa)</h3>
-        <p>
-          Also known as Bee Balm, this native mint cousin blossoms into lavender tubes that hold rich pollen reserves, attracting native honeybees instantly.
-        </p>
       </div>
+    </section>
 
-    </article>
+    <!-- Main Content & Sidebar Grid -->
+    <section class="py-16 bg-surface border-b border-customBorder">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+
+          <!-- Left Column: Article Body & Comments (8 cols) -->
+          <div class="lg:col-span-8 space-y-12">
+            
+            <!-- Article Card -->
+            <article class="bg-customBg border border-customBorder rounded-2xl p-6 sm:p-10 shadow-sm space-y-8">
+              
+              <!-- Navigation Trail -->
+              <nav class="text-xs text-textSecondary flex gap-2">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <span>/</span>
+                <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
+                <span>/</span>
+                <span class="text-textPrimary font-semibold">5 Spring Seeds...</span>
+              </nav>
+
+              <img src="../assets/images/blog_seeds.png" alt="Spring Planting Roots" class="rounded-2xl w-full object-cover h-[250px] sm:h-[400px] shadow-sm">
+
+              <!-- Article Prose -->
+              <div class="prose dark:prose-invert max-w-none text-sm text-textSecondary leading-relaxed space-y-6">
+                <p class="text-base text-textPrimary font-normal leading-relaxed">
+                  Springtime is the ideal season to prepare your soil beds for the yearly cycle of pollinators. Bringing native bees, butterflies, and organic hummingbirds to your garden requires strategic plant layouts. Below are the five best seeds we recommend planting during early spring months.
+                </p>
+                
+                <div class="space-y-4">
+                  <h3 class="font-heading text-xl font-bold text-textPrimary leading-snug">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-xs mr-2 font-bold align-middle">1</span>
+                    Purple Coneflower (Echinacea purpurea)
+                  </h3>
+                  <p class="font-light">
+                    Extremely resilient, purple coneflowers hold deep nectar reserves that butterflies love. They survive hot dry summers and return every year without replanting. Plant in areas that receive at least 6 hours of daily sunlight and watch native bees congregate on the sturdy orange seed heads.
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <h3 class="font-heading text-xl font-bold text-textPrimary leading-snug">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-xs mr-2 font-bold align-middle">2</span>
+                    Wild Bergamot (Monarda fistulosa)
+                  </h3>
+                  <p class="font-light">
+                    Also known as Bee Balm, this native mint cousin blossoms into lavender tubes that hold rich pollen reserves, attracting native honeybees instantly. It exhibits excellent resistance to local pests and performs best in well-draining garden beds.
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <h3 class="font-heading text-xl font-bold text-textPrimary leading-snug">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-xs mr-2 font-bold align-middle">3</span>
+                    Lanceleaf Coreopsis (Coreopsis lanceolata)
+                  </h3>
+                  <p class="font-light">
+                    Producing bright yellow, daisy-like blossoms, Lanceleaf Coreopsis is a staple for pollinator restorations. It thrives in poor, sandy soil where other plants struggle. These early-blooming seeds establish quickly and provide a vital nectar source for bees emerging in mid-spring.
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <h3 class="font-heading text-xl font-bold text-textPrimary leading-snug">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-xs mr-2 font-bold align-middle">4</span>
+                    Black-Eyed Susan (Rudbeckia hirta)
+                  </h3>
+                  <p class="font-light">
+                    A vibrant summer favorite, Black-Eyed Susan seeds should be sown in early spring to guarantee a long, gold-petaled blooming window. Their dark center seed heads are highly attractive to local insect species, and they tolerate partial shade setups nicely.
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <h3 class="font-heading text-xl font-bold text-textPrimary leading-snug">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-xs mr-2 font-bold align-middle">5</span>
+                    Common Milkweed (Asclepias syriaca)
+                  </h3>
+                  <p class="font-light">
+                    Milkweed is the absolute, exclusive host plant for Monarch butterfly larvae. By planting milkweed seeds in your borders, you provide both essential nesting leaves for caterpillars and highly aromatic nectar pods for mature butterflies.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Tags / Share -->
+              <div class="pt-6 border-t border-customBorder/50 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <span class="px-2.5 py-1 bg-surface border border-customBorder rounded-md text-textSecondary">#NativePlants</span>
+                  <span class="px-2.5 py-1 bg-surface border border-customBorder rounded-md text-textSecondary">#SpringPlanting</span>
+                  <span class="px-2.5 py-1 bg-surface border border-customBorder rounded-md text-textSecondary">#Pollinators</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs text-textSecondary">
+                  <span>Share Article:</span>
+                  <div class="flex gap-2">
+                    <a href="#" class="w-7 h-7 rounded-full border border-customBorder flex items-center justify-center hover:bg-primary hover:text-white transition-colors" title="Share on Twitter">
+                      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    </a>
+                    <a href="#" class="w-7 h-7 rounded-full border border-customBorder flex items-center justify-center hover:bg-primary hover:text-white transition-colors" title="Share on Facebook">
+                      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </article>
+
+            <!-- Author Bio Card -->
+            <div class="bg-customBg border border-customBorder rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row gap-6 items-start">
+              <img src="../assets/images/landscaper_work.png" alt="Elena K." class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shrink-0 border border-customBorder">
+              <div class="space-y-3">
+                <div class="flex flex-wrap items-baseline gap-2">
+                  <h4 class="font-heading text-lg font-bold text-textPrimary">Elena K.</h4>
+                  <span class="text-xs text-secondary font-semibold uppercase tracking-wider">Lead Horticulturist</span>
+                </div>
+                <p class="text-xs sm:text-sm text-textSecondary leading-relaxed font-light">
+                  Elena is an ISA-certified arborist with over 12 years of experience rebuilding regional native restoration systems and smart urban garden beds across the Pacific Northwest.
+                </p>
+                <div class="flex gap-3 text-xs text-textSecondary pt-1">
+                  <a href="#" class="hover:text-primary flex items-center gap-1 transition-colors"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> All Articles</a>
+                  <a href="#" class="hover:text-primary flex items-center gap-1 transition-colors"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next & Previous Article Nav -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <a href="blog-single.html" class="bg-customBg border border-customBorder rounded-xl p-5 hover:border-primary/50 transition-colors flex items-center gap-4 group">
+                <i data-lucide="chevron-left" class="w-5 h-5 text-textSecondary group-hover:text-primary shrink-0 transition-colors"></i>
+                <div class="space-y-1">
+                  <span class="block text-[10px] uppercase font-bold text-textSecondary tracking-wider">Previous Post</span>
+                  <span class="block text-xs font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight line-clamp-1">Smart Drip Lines Setup Guide</span>
+                </div>
+              </a>
+              <a href="blog-single.html" class="bg-customBg border border-customBorder rounded-xl p-5 hover:border-primary/50 transition-colors flex items-center justify-between gap-4 group text-right">
+                <div class="space-y-1 text-right w-full">
+                  <span class="block text-[10px] uppercase font-bold text-textSecondary tracking-wider">Next Post</span>
+                  <span class="block text-xs font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight line-clamp-1">Basalt Retaining Wall Construction</span>
+                </div>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-textSecondary group-hover:text-primary shrink-0 transition-colors"></i>
+              </a>
+            </div>
+
+            <!-- Comments / Discussion -->
+            <div class="bg-customBg border border-customBorder rounded-2xl p-6 sm:p-8 shadow-sm space-y-8">
+              <h3 class="font-heading text-lg sm:text-xl font-bold text-textPrimary border-b border-customBorder pb-3">Responses (2)</h3>
+              
+              <div class="space-y-6">
+                <!-- Comment 1 -->
+                <div class="flex gap-4 items-start pb-6 border-b border-customBorder/50">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 font-bold text-sm">
+                    MK
+                  </div>
+                  <div class="space-y-2">
+                    <div class="flex items-baseline justify-between gap-4">
+                      <span class="text-xs font-bold text-textPrimary">Marcus K.</span>
+                      <span class="text-[10px] text-textSecondary">June 19, 2026</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-textSecondary font-light leading-relaxed">
+                      We planted Wild Bergamot last spring and the native bumblebees literally didn't leave our yard for weeks! Highly recommend it to anyone in the Portland area.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Comment 2 -->
+                <div class="flex gap-4 items-start">
+                  <div class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0 font-bold text-sm">
+                    SR
+                  </div>
+                  <div class="space-y-2">
+                    <div class="flex items-baseline justify-between gap-4">
+                      <span class="text-xs font-bold text-textPrimary">Sarah R.</span>
+                      <span class="text-[10px] text-textSecondary">June 20, 2026</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-textSecondary font-light leading-relaxed">
+                      Do Purple Coneflowers grow well in partial shade or do they strictly need full sunlight? Our yard has some large cedar trees blocking the morning sun.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reply Form -->
+              <form class="pt-6 border-t border-customBorder space-y-4" onsubmit="event.preventDefault(); alert('Response submitted for moderation!'); this.reset();">
+                <h4 class="font-heading text-base font-bold text-textPrimary">Leave a Reply</h4>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Full Name</label>
+                    <input type="text" required placeholder="John Doe" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Email Address</label>
+                    <input type="email" required placeholder="john@example.com" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Comment Message</label>
+                  <textarea required rows="4" placeholder="Share your experience or ask a question..." class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary resize-none"></textarea>
+                </div>
+                <button type="submit" class="h-10 px-5 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs flex items-center justify-center">
+                  Submit Response
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Sidebar (4 cols) -->
+          <aside class="lg:col-span-4 space-y-8 lg:sticky lg:top-24 self-start">
+            
+            <!-- Search Widget -->
+            <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm">
+              <h4 class="font-heading font-bold text-lg text-textPrimary">Search Articles</h4>
+              <form class="relative flex items-center" action="blog.html">
+                <input type="text" name="search" placeholder="Type keywords..." class="w-full h-11 pl-4 pr-12 rtl:pr-4 rtl:pl-12 border border-customBorder rounded-lg bg-customBg text-textPrimary focus:outline-none focus:border-primary text-sm transition-colors">
+                <button type="submit" class="absolute right-1 top-1 bottom-1 w-9 bg-primary hover:bg-primary-hover text-white rounded-md flex items-center justify-center transition-colors rtl:right-auto rtl:left-1" title="Search">
+                  <i data-lucide="search" class="w-4 h-4"></i>
+                </button>
+              </form>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm">
+              <h4 class="font-heading font-bold text-lg text-textPrimary">Categories</h4>
+              <ul class="space-y-3 text-sm text-textSecondary">
+                <li>
+                  <a href="blog.html" class="flex justify-between items-center hover:text-primary transition-colors group">
+                    <span class="group-hover:font-semibold">Planting & Botany</span>
+                    <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">1</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="blog.html" class="flex justify-between items-center hover:text-primary transition-colors group">
+                    <span class="group-hover:font-semibold">Smart Irrigation</span>
+                    <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">1</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="blog.html" class="flex justify-between items-center hover:text-primary transition-colors group">
+                    <span class="group-hover:font-semibold">Seasonal Maintenance</span>
+                    <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">2</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="blog.html" class="flex justify-between items-center hover:text-primary transition-colors group">
+                    <span class="group-hover:font-semibold">Landscape Design</span>
+                    <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">2</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Popular Posts Widget -->
+            <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm">
+              <h4 class="font-heading font-bold text-lg text-textPrimary">Popular Guides</h4>
+              <div class="space-y-4">
+                <!-- Post Link 1 -->
+                <a href="blog-single.html" class="flex items-center gap-3 group">
+                  <img src="../assets/images/irrigation_systems.png" alt="Popular Irrigation" class="w-14 h-14 object-cover rounded-lg border border-customBorder shrink-0">
+                  <div class="space-y-1">
+                    <h5 class="font-bold text-xs text-textPrimary group-hover:text-primary transition-colors leading-snug line-clamp-2">Smart Drip Irrigation Installation Guide</h5>
+                    <span class="block text-[10px] text-textSecondary">June 12, 2026</span>
+                  </div>
+                </a>
+                <!-- Post Link 2 -->
+                <a href="blog-single.html" class="flex items-center gap-3 group">
+                  <img src="../assets/images/blog_seeds.png" alt="Popular Seeds" class="w-14 h-14 object-cover rounded-lg border border-customBorder shrink-0">
+                  <div class="space-y-1">
+                    <h5 class="font-bold text-xs text-textPrimary group-hover:text-primary transition-colors leading-snug line-clamp-2">5 Spring Seeds for Pollinator Protection</h5>
+                    <span class="block text-[10px] text-textSecondary">June 18, 2026</span>
+                  </div>
+                </a>
+                <!-- Post Link 3 -->
+                <a href="blog-single.html" class="flex items-center gap-3 group">
+                  <img src="../assets/images/landscape_architecture.png" alt="Popular Design" class="w-14 h-14 object-cover rounded-lg border border-customBorder shrink-0">
+                  <div class="space-y-1">
+                    <h5 class="font-bold text-xs text-textPrimary group-hover:text-primary transition-colors leading-snug line-clamp-2">Erosion Defense & Retaining Basalt Construction</h5>
+                    <span class="block text-[10px] text-textSecondary">June 01, 2026</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Seasonal Checklist CTA Box -->
+            <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm relative overflow-hidden">
+              <div class="space-y-2">
+                <span class="text-[10px] text-secondary font-extrabold uppercase tracking-widest">Free Download</span>
+                <h4 class="font-heading font-bold text-xl leading-tight text-textPrimary">Seasonal Care Guide Checklist</h4>
+                <p class="text-xs text-textSecondary leading-relaxed font-light">Get our full PDF checklist containing calendar schedules, soil amendments, and arborist care pointers.</p>
+              </div>
+              <a href="#" class="block w-full text-center py-2.5 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg transition-colors text-xs shadow-md">
+                Download Care Kit
+              </a>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered Newsletter & Consultation CTA Section -->
+    <section class="py-20 border-t border-customBorder relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 reveal-on-scroll">
+      <!-- Glow background decoration -->
+      <div class="absolute -right-32 -bottom-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute -left-32 -top-32 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
+        <div class="space-y-4">
+          <span class="text-secondary font-bold text-xs tracking-widest uppercase block">Botanical Circle</span>
+          <h2 class="font-heading text-3xl sm:text-5xl font-bold tracking-wide leading-tight text-textPrimary">
+            Let's Shape Your <span class="italic text-secondary">Outdoor Masterpiece</span>
+          </h2>
+          <p class="text-xs sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+            Stay ahead of seasonal growth cycles. Subscribe to our premium botanical journal for early arborist schedules, landscape planning advice, and native flora guidelines.
+          </p>
+        </div>
+
+        <!-- Direct Newsletter form or CTA Button -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto pt-2">
+          <a href="contact.html" class="w-full sm:w-auto h-12 px-8 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center justify-center">
+            Schedule Free Audit
+          </a>
+          <a href="quote.html" class="w-full sm:w-auto h-12 px-8 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center justify-center">
+            Request Proposal
+          </a>
+        </div>
+      </div>
+    </section>
 
   </main>
 

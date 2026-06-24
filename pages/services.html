@@ -214,32 +214,32 @@
   <!-- ===== MAIN CONTENT ===== -->
   <main class="flex-grow">
 
-    <!-- Hero Header -->
-    <section class="bg-surface py-12 border-b border-customBorder">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-        <nav class="text-xs text-textSecondary flex gap-2">
-          <a href="index.html" class="hover:text-primary">Home</a>
-          <span>/</span>
-          <span class="text-textPrimary font-semibold">Services</span>
-        </nav>
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold">What We Do</h1>
+    <!-- Simple Centered Hero Section -->
+    <section class="py-14 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-70"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 relative z-10">
+        <span class="text-secondary font-bold text-xs tracking-widest uppercase">Our Craft</span>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-textPrimary leading-tight">
+          What We Do
+        </h1>
+        <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+          From advanced ecological conceptual layouts to custom masonry construction and weather-synced irrigation networks, we provide a full range of high-end landscape architecture services.
+        </p>
       </div>
     </section>
 
-    <!-- Detailed Services List -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-      
-      <!-- Service Block 1 -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <img src="../assets/images/hero_garden.png" alt="Landscape Architecture Design" class="rounded-xl shadow-md w-full h-[300px] object-cover">
+    <!-- Service Section 1 -->
+    <section class="py-14 bg-surface border-t border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative overflow-hidden rounded-2xl border border-customBorder group shadow-md aspect-[16/10]">
+          <img src="../assets/images/landscape_architecture.png" alt="Landscape Architecture Design" class="w-full h-full object-cover transition-all duration-500 scale-100 group-hover:scale-105">
         </div>
         <div class="space-y-4">
-          <div class="inline-block p-2 bg-primary/10 text-primary rounded-lg">
+          <div class="inline-block p-2 bg-primary/10 text-primary rounded-xl">
             <i data-lucide="palette" class="w-6 h-6"></i>
           </div>
-          <h2 class="font-heading text-2xl sm:text-3xl font-bold">Landscape Architecture & Concept Drafting</h2>
-          <p class="text-textSecondary leading-relaxed text-sm">
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-textPrimary">Landscape Architecture & Concept Drafting</h2>
+          <p class="text-textSecondary leading-relaxed text-sm font-light">
             We construct initial conceptual files, 3D overlays, soil profiles, and flora selection sheets. This includes complete property mapping, sun angle calculations, and windbreaker designs to maximize natural shading.
           </p>
           <ul class="text-xs text-textSecondary space-y-2">
@@ -247,21 +247,25 @@
             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Sun & shadow positioning analyses</li>
             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Soil composition and nutrition maps</li>
           </ul>
-          <a href="quote.html" class="inline-block px-6 py-2.5 bg-primary text-white font-medium rounded hover:bg-primary-hover transition-colors">Request a Design Draft</a>
+          <div class="pt-2">
+            <a href="quote.html" class="h-10 px-6 bg-primary hover:bg-primary-hover text-white font-bold rounded-md shadow-md transition-all duration-300 text-xs inline-flex items-center justify-center">Request a Design Draft</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Service Block 2 -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center lg:flex-row-reverse">
-        <div class="lg:order-2">
-          <img src="../assets/images/landscaper_work.png" alt="Garden Maintenance" class="rounded-xl shadow-md w-full h-[300px] object-cover">
+    <!-- Service Section 2 -->
+    <section class="py-14 reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="lg:order-2 relative overflow-hidden rounded-2xl border border-customBorder group shadow-md aspect-[16/10]">
+          <img src="../assets/images/landscaper_work.png" alt="Garden Maintenance" class="w-full h-full object-cover transition-all duration-500 scale-100 group-hover:scale-105">
         </div>
         <div class="lg:order-1 space-y-4">
-          <div class="inline-block p-2 bg-primary/10 text-primary rounded-lg">
+          <div class="inline-block p-2 bg-primary/10 text-primary rounded-xl">
             <i data-lucide="scissors" class="w-6 h-6"></i>
           </div>
-          <h2 class="font-heading text-2xl sm:text-3xl font-bold">Estate Turf & Shrub Maintenance</h2>
-          <p class="text-textSecondary leading-relaxed text-sm">
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-textPrimary">Estate Turf & Shrub Maintenance</h2>
+          <p class="text-textSecondary leading-relaxed text-sm font-light">
             Keep your property pristine with recurring gardening schedules. We manage seasonal leaf removals, woody tree pruning, shrub trimming, weed suppression, and grass fertilizing.
           </p>
           <ul class="text-xs text-textSecondary space-y-2">
@@ -269,21 +273,25 @@
             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Certified gardeners for delicate plants</li>
             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Eco-friendly weed and pest treatments</li>
           </ul>
-          <a href="pricing.html" class="inline-block px-6 py-2.5 bg-primary text-white font-medium rounded hover:bg-primary-hover transition-colors">View Maintenance Plans</a>
+          <div class="pt-2">
+            <a href="pricing.html" class="h-10 px-6 bg-primary hover:bg-primary-hover text-white font-bold rounded-md shadow-md transition-all duration-300 text-xs inline-flex items-center justify-center">View Maintenance Plans</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Service Block 3 -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <img src="../assets/images/garden_after.png" alt="Irrigation Systems" class="rounded-xl shadow-md w-full h-[300px] object-cover">
+    <!-- Service Section 3 -->
+    <section class="py-14 bg-surface border-t border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative overflow-hidden rounded-2xl border border-customBorder group shadow-md aspect-[16/10]">
+          <img src="../assets/images/irrigation_systems.png" alt="Irrigation Systems" class="w-full h-full object-cover transition-all duration-500 scale-100 group-hover:scale-105">
         </div>
         <div class="space-y-4">
-          <div class="inline-block p-2 bg-primary/10 text-primary rounded-lg">
+          <div class="inline-block p-2 bg-primary/10 text-primary rounded-xl">
             <i data-lucide="droplet" class="w-6 h-6"></i>
           </div>
-          <h2 class="font-heading text-2xl sm:text-3xl font-bold">Smart Watering & Irrigation</h2>
-          <p class="text-textSecondary leading-relaxed text-sm">
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-textPrimary">Smart Watering & Irrigation</h2>
+          <p class="text-textSecondary leading-relaxed text-sm font-light">
             We install modern drip line networks and computerized weather-linked watering systems that adapt water delivery to local rainfall amounts.
           </p>
           <ul class="text-xs text-textSecondary space-y-2">
@@ -291,10 +299,63 @@
             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Wireless weather controller systems</li>
             <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Seasonal water line winterizations</li>
           </ul>
-          <a href="quote.html" class="inline-block px-6 py-2.5 bg-primary text-white font-medium rounded hover:bg-primary-hover transition-colors">Audit My Irrigation</a>
+          <div class="pt-2">
+            <a href="quote.html" class="h-10 px-6 bg-primary hover:bg-primary-hover text-white font-bold rounded-md shadow-md transition-all duration-300 text-xs inline-flex items-center justify-center">Audit My Irrigation</a>
+          </div>
         </div>
       </div>
+    </section>
 
+    <!-- Service Section 4 -->
+    <section class="py-14 reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="lg:order-2 relative overflow-hidden rounded-2xl border border-customBorder group shadow-md aspect-[16/10]">
+          <img src="../assets/images/garden_after.png" alt="Hardscape Construction" class="w-full h-full object-cover transition-all duration-500 scale-100 group-hover:scale-105">
+        </div>
+        <div class="lg:order-1 space-y-4">
+          <div class="inline-block p-2 bg-primary/10 text-primary rounded-xl">
+            <i data-lucide="hammer" class="w-6 h-6"></i>
+          </div>
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-textPrimary">Hardscape Construction & Custom Stonework</h2>
+          <p class="text-textSecondary leading-relaxed text-sm font-light">
+            Enhance your estate layout with custom structural masonry. We design and install premium flagstone terraces, retaining walls, paths, fire pits, and premium timber carpentry.
+          </p>
+          <ul class="text-xs text-textSecondary space-y-2">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Flagstone terrace & patio construction</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Natural dry-stack retaining wall solutions</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Custom cedar pergolas and gates</li>
+          </ul>
+          <div class="pt-2">
+            <a href="quote.html" class="h-10 px-6 bg-primary hover:bg-primary-hover text-white font-bold rounded-md shadow-md transition-all duration-300 text-xs inline-flex items-center justify-center">Request Masonry Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered CTA Section -->
+    <section class="py-16 bg-surface border-t border-customBorder relative overflow-hidden reveal-on-scroll">
+      <!-- Glow background decoration -->
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+        <div class="space-y-4">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase block">Begin Your Journey</span>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-textPrimary leading-tight">Ready to Craft Your Private Sanctuary?</h2>
+          <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-3xl mx-auto font-light">
+            Whether you are looking to reclaim a steep-grade hillside, optimize your estate's irrigation performance with smart weather-linked automation, or design custom flagstone terraces and masonry paths, our certified horticulturists and landscape architects are here to guide you every step of the way from initial blueprint to ongoing care.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <a href="contact.html" class="w-full sm:w-auto h-11 px-7 bg-primary hover:bg-primary-hover text-white font-bold rounded-md shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center justify-center">
+            Schedule a Consultation
+          </a>
+          <a href="portfolio.html" class="w-full sm:w-auto h-11 px-7 border border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-md transition-all duration-300 text-sm flex items-center justify-center">
+            View Our Work
+          </a>
+        </div>
+      </div>
     </section>
 
   </main>

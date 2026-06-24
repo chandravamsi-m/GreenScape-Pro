@@ -210,50 +210,191 @@
   </div>
 
   
-
   <!-- ===== MAIN CONTENT ===== -->
-  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full grid lg:grid-cols-2 gap-12 items-center">
-    
-    <!-- Contact Info -->
-    <div class="space-y-6">
-      <span class="text-secondary font-bold text-sm tracking-wider uppercase">Contact Details</span>
-      <h1 class="font-heading text-3xl sm:text-5xl font-bold">Connect With Our Landscaping Team</h1>
-      <p class="text-textSecondary text-sm">
-        Have questions about our seasonal pricing packages or want to book an architectural soil survey? Fill out the details or reach our Portland main office directly.
-      </p>
-      
-      <div class="space-y-4 pt-4">
-        <div class="flex items-center gap-3">
-          <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
-          <span class="text-sm text-textSecondary">482 Forest Avenue, Portland, OR</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
-          <span class="text-sm text-textSecondary">+1 (503) 555-0149</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
-          <span class="text-sm text-textSecondary">info@greenscapepro.demo</span>
-        </div>
-      </div>
-    </div>
+  <main class="flex-grow bg-customBg">
 
-    <!-- Contact Form with basic validation styles -->
-    <form class="bg-surface border border-customBorder p-8 rounded-2xl space-y-4 shadow-md" onsubmit="event.preventDefault(); alert('Message sent successfully!')">
-      <div>
-        <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Full Name</label>
-        <input type="text" required placeholder="John Doe" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
+    <!-- Hero Header -->
+    <section class="py-14 relative overflow-hidden bg-customBg border-b border-customBorder">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-70"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 relative z-10">
+        <span class="text-secondary font-bold text-xs tracking-widest uppercase">Get In Touch</span>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-textPrimary leading-tight">Connect With Our Landscaping Team</h1>
+        <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+          Have questions about our seasonal pricing packages, want to schedule a site diagnostic, or request a custom proposal? Reach out today.
+        </p>
       </div>
-      <div>
-        <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Email Address</label>
-        <input type="email" required placeholder="john@example.com" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary">
+    </section>
+
+    <!-- Info Cards & Form Section -->
+    <section class="py-16 bg-surface border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          <!-- Left Column: Contact Cards & Hours (6 cols) -->
+          <div class="lg:col-span-6 flex flex-col">
+            <div class="bg-customBg border border-customBorder p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex-grow flex flex-col justify-between space-y-6">
+              <div>
+                <span class="text-secondary font-bold text-xs tracking-wider uppercase block mb-1">Contact Details</span>
+                <h3 class="font-heading text-xl font-bold text-textPrimary border-b border-customBorder pb-3 mb-6">Direct Office Contact</h3>
+                
+                <div class="space-y-6">
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                      <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                      <span class="block text-xs font-bold text-textPrimary uppercase tracking-wider">Office Address</span>
+                      <span class="block text-sm text-textSecondary font-light">482 Forest Avenue, Portland, OR</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                      <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                      <span class="block text-xs font-bold text-textPrimary uppercase tracking-wider">Phone Lines</span>
+                      <a href="tel:+15035550149" class="block text-sm text-textSecondary hover:text-primary transition-colors font-light">+1 (503) 555-0149</a>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                      <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                      <span class="block text-xs font-bold text-textPrimary uppercase tracking-wider">Email Address</span>
+                      <a href="mailto:info@greenscapepro.demo" class="block text-sm text-textSecondary hover:text-primary transition-colors font-light">info@greenscapepro.demo</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Working Hours Sub-section -->
+              <div class="pt-6 border-t border-customBorder/50 space-y-4">
+                <div class="flex items-center gap-2 text-primary font-bold text-sm">
+                  <i data-lucide="clock" class="w-4 h-4"></i>
+                  <span>Operating Hours</span>
+                </div>
+                <ul class="text-xs text-textSecondary space-y-2.5">
+                  <li class="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-center border-b border-customBorder/50 pb-2">
+                    <span>Spring & Summer (Peak)</span>
+                    <span class="font-semibold text-textPrimary text-left sm:text-right">Mon - Sat: 7:00 AM - 6:00 PM</span>
+                  </li>
+                  <li class="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-center border-b border-customBorder/50 pb-2">
+                    <span>Autumn & Winter</span>
+                    <span class="font-semibold text-textPrimary text-left sm:text-right">Mon - Fri: 8:00 AM - 5:00 PM</span>
+                  </li>
+                  <li class="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-center">
+                    <span>Sundays & Holidays</span>
+                    <span class="font-semibold text-secondary uppercase tracking-wider text-left sm:text-right">Emergency Care Only</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form (6 cols) -->
+          <div class="lg:col-span-6 flex flex-col">
+            <form class="bg-customBg border border-customBorder p-8 rounded-2xl space-y-5 shadow-md hover:shadow-lg transition-all duration-300 flex-grow flex flex-col justify-between" onsubmit="event.preventDefault(); alert('Message sent successfully! Our botanical coordinator will contact you within 24 hours.'); this.reset();">
+              <div>
+                <span class="text-secondary font-bold text-xs tracking-wider uppercase block mb-1">Get In Touch</span>
+                <h3 class="font-heading text-xl font-bold text-textPrimary border-b border-customBorder pb-3 mb-6">Send Us a Message</h3>
+                
+                <div class="space-y-5">
+                  <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Full Name</label>
+                      <input type="text" required placeholder="John Doe" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                    </div>
+                    <div>
+                      <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Email Address</label>
+                      <input type="email" required placeholder="john@example.com" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                    </div>
+                  </div>
+
+                  <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Phone Number</label>
+                      <input type="tel" required placeholder="(503) 555-0199" class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                    </div>
+                    <div>
+                      <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Service Needed</label>
+                      <select required class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary">
+                        <option value="">Select a Service...</option>
+                        <option value="design">Landscape Architecture & Design</option>
+                        <option value="maintenance">Seasonal Garden Care & Maintenance</option>
+                        <option value="irrigation">Smart Irrigation & Drip Lines</option>
+                        <option value="masonry">Hardscape Construction & Stone Masonry</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-[10px] font-bold uppercase text-textSecondary mb-1.5 tracking-wider">Message Description</label>
+                    <textarea required rows="5" placeholder="Specify your property conditions, layout goals, or scheduling needs..." class="w-full p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary text-xs focus:outline-none focus:border-primary resize-none"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <button type="submit" class="w-full h-11 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs flex items-center justify-center">
+                  Send Consultation Request
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
       </div>
-      <div>
-        <label class="block text-xs font-bold uppercase text-textSecondary mb-1.5">Message</label>
-        <textarea required rows="4" placeholder="How can we help?" class="w-full p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary"></textarea>
+    </section>
+
+    <!-- Google Map Section -->
+    <section class="py-16 bg-customBg border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase">Our Location</span>
+          <h2 class="font-heading text-3xl font-bold text-textPrimary">Find Us In Portland</h2>
+          <p class="text-xs sm:text-sm text-textSecondary leading-relaxed font-light">
+            Stop by our regional office for sample material evaluations, stone selections, and arborist blueprint consultations.
+          </p>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+          <iframe class="w-full h-[300px] sm:h-[450px] border-0 rounded-2xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178904.34351659918!2d-122.80996846939947!3d45.522690906232535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
-      <button type="submit" class="w-full py-3.5 bg-primary hover:bg-primary-hover text-white font-bold rounded shadow-md transition-colors">Send Message</button>
-    </form>
+    </section>
+
+    <!-- Service Area Section -->
+    <section class="py-16 bg-surface border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase">Regional Operations</span>
+          <h2 class="font-heading text-3xl font-bold text-textPrimary">Areas We Serve</h2>
+          <p class="text-xs sm:text-sm text-textSecondary leading-relaxed font-light">
+            We provide full-scale residential landscape architecture, estate diagnostics, and recurring biological maintenance across these local areas.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 text-center space-y-2 hover:-translate-y-1 transition-all duration-300">
+            <span class="block text-primary font-heading font-bold text-base">Portland Heights</span>
+            <span class="block text-[10px] text-textSecondary uppercase font-bold tracking-wider">Premium Care</span>
+          </div>
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 text-center space-y-2 hover:-translate-y-1 transition-all duration-300">
+            <span class="block text-primary font-heading font-bold text-base">West Hills</span>
+            <span class="block text-[10px] text-textSecondary uppercase font-bold tracking-wider">Architecture & Care</span>
+          </div>
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 text-center space-y-2 hover:-translate-y-1 transition-all duration-300">
+            <span class="block text-primary font-heading font-bold text-base">Lake Oswego</span>
+            <span class="block text-[10px] text-textSecondary uppercase font-bold tracking-wider">Water & Drip Systems</span>
+          </div>
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 text-center space-y-2 hover:-translate-y-1 transition-all duration-300">
+            <span class="block text-primary font-heading font-bold text-base">Beaverton</span>
+            <span class="block text-[10px] text-textSecondary uppercase font-bold tracking-wider">Seasonal Upkeep</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 

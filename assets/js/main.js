@@ -397,10 +397,28 @@ function initFaqAccordion() {
     item.addEventListener('click', () => {
       const content = item.nextElementSibling;
       const icon = item.querySelector('.faq-icon');
+      const isExpanded = !content.classList.contains('hidden');
       
-      content.classList.toggle('hidden');
-      if (icon) {
-        icon.classList.toggle('rotate-180');
+      // Close all other accordion items
+      items.forEach(otherItem => {
+        const otherContent = otherItem.nextElementSibling;
+        const otherIcon = otherItem.querySelector('.faq-icon');
+        if (otherContent) {
+          otherContent.classList.add('hidden');
+        }
+        if (otherIcon) {
+          otherIcon.classList.remove('rotate-180');
+        }
+      });
+      
+      // Open this item if it wasn't already expanded
+      if (!isExpanded) {
+        if (content) {
+          content.classList.remove('hidden');
+        }
+        if (icon) {
+          icon.classList.add('rotate-180');
+        }
       }
     });
   });

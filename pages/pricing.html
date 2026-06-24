@@ -214,58 +214,393 @@
   <!-- ===== MAIN CONTENT ===== -->
   <main class="flex-grow">
 
-    <!-- Hero Header -->
-    <section class="bg-surface py-12 border-b border-customBorder">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-        <nav class="text-xs text-textSecondary flex gap-2">
-          <a href="index.html" class="hover:text-primary">Home</a>
-          <span>/</span>
-          <span class="text-textPrimary font-semibold">Pricing</span>
-        </nav>
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold">Maintenance Packages</h1>
+    <!-- Simple Centered Hero Section -->
+    <section class="py-14 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-70"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 relative z-10">
+        <span class="text-secondary font-bold text-xs tracking-widest uppercase">Our Plans</span>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-textPrimary leading-tight">
+          Maintenance Packages
+        </h1>
+        <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+          Compare our recurring estate care and botanical plans. Find the perfect package to keep your private sanctuary healthy and beautiful.
+        </p>
       </div>
     </section>
 
-    <!-- Pricing Comparison Cards -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Basic -->
-        <div class="bg-surface p-8 rounded-xl border border-customBorder space-y-6">
-          <h3 class="font-bold text-xl text-textSecondary">Basic Care</h3>
-          <div class="text-5xl font-bold">$149<span class="text-sm text-textSecondary font-medium">/mo</span></div>
-          <ul class="text-sm text-textSecondary space-y-3">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Lawn cutting (bi-weekly)</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Basic plant watering check</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Autumn leaf collection</li>
-          </ul>
-          <a href="quote.html" class="block w-full text-center py-3 border border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors">Select Plan</a>
-        </div>
-        
-        <!-- Standard -->
-        <div class="bg-surface p-8 rounded-xl border-2 border-primary space-y-6 relative shadow-lg">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Most Popular</div>
-          <h3 class="font-bold text-xl text-primary">Standard Estate</h3>
-          <div class="text-5xl font-bold">$299<span class="text-sm text-textSecondary font-medium">/mo</span></div>
-          <ul class="text-sm text-textSecondary space-y-3">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Lawn & edge clipping (weekly)</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Irrigation pipe maintenance</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Shrub fertilizing & trimming</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Client dashboard support</li>
-          </ul>
-          <a href="quote.html" class="block w-full text-center py-3 bg-primary text-white font-bold rounded hover:bg-primary-hover transition-colors">Choose Standard</a>
+    <!-- Pricing Cards Section -->
+    <section class="py-14 bg-surface border-t border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase">Our Plans</span>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-textPrimary">Flexible Monthly Maintenance Packages</h2>
+          <p class="text-sm text-textSecondary leading-relaxed font-light">
+            Select a plan that fits the scale and botanical needs of your landscape. Our expert arborists, advanced soil diagnostics, and weather-linked irrigation solutions ensure your estate looks breathtaking in every season.
+          </p>
         </div>
 
-        <!-- Premium -->
-        <div class="bg-surface p-8 rounded-xl border border-customBorder space-y-6">
-          <h3 class="font-bold text-xl text-textSecondary">Premium Botanical</h3>
-          <div class="text-5xl font-bold">$549<span class="text-sm text-textSecondary font-medium">/mo</span></div>
-          <ul class="text-sm text-textSecondary space-y-3">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Dedicated professional crew visits</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Smart irrigation optimization</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Soil organic diagnostics</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i> Seasonal frost plant wrapping</li>
-          </ul>
-          <a href="quote.html" class="block w-full text-center py-3 border border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors">Get Premium</a>
+        <div class="grid md:grid-cols-3 gap-8 items-stretch pt-4">
+          <!-- Basic Care -->
+          <div class="bg-customBg p-8 rounded-2xl border border-customBorder space-y-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <span class="text-xs font-bold uppercase text-textSecondary tracking-wider">Individual Care</span>
+                <h4 class="font-heading font-bold text-2xl text-textPrimary">Basic Care</h4>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-5xl font-extrabold text-textPrimary tracking-tight">$149</span>
+                <span class="text-sm font-medium text-textSecondary">/mo</span>
+              </div>
+              <p class="text-xs text-textSecondary leading-relaxed">Essential upkeep for smaller properties and simplified seasonal yards.</p>
+              <ul class="space-y-3 pt-2 text-xs text-textSecondary">
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Bi-weekly lawn trimming</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Basic plant watering control</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Seasonal leaf cleanup</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Digital scheduling updates</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="quote.html" class="block w-full text-center py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-300 text-sm">Select Plan</a>
+            </div>
+          </div>
+          
+          <!-- Standard Estate -->
+          <div class="bg-customBg p-8 rounded-2xl border-2 border-primary space-y-6 relative shadow-xl md:scale-105 z-10 flex flex-col justify-between">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] tracking-widest font-extrabold px-3 py-1 rounded-full uppercase shadow-md">Most Popular</div>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <span class="text-xs font-bold uppercase text-primary tracking-wider">Premium Standard</span>
+                <h4 class="font-heading font-bold text-2xl text-textPrimary">Standard Estate</h4>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-5xl font-extrabold text-textPrimary tracking-tight">$299</span>
+                <span class="text-sm font-medium text-textSecondary">/mo</span>
+              </div>
+              <p class="text-xs text-textSecondary leading-relaxed">Comprehensive maintenance for standard residential estates and gardens.</p>
+              <ul class="space-y-3 pt-2 text-xs text-textSecondary">
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Weekly lawn & edge maintenance</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Drip irrigation audits</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Shrub fertilizing & pruning</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Portal support & schedules</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="quote.html" class="block w-full text-center py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-sm">Choose Standard</a>
+            </div>
+          </div>
+
+          <!-- Premium Botanical -->
+          <div class="bg-customBg p-8 rounded-2xl border border-customBorder space-y-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <span class="text-xs font-bold uppercase text-textSecondary tracking-wider">Ultimate Luxury</span>
+                <h4 class="font-heading font-bold text-2xl text-textPrimary">Premium Botanical</h4>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-5xl font-extrabold text-textPrimary tracking-tight">$549</span>
+                <span class="text-sm font-medium text-textSecondary">/mo</span>
+              </div>
+              <p class="text-xs text-textSecondary leading-relaxed">Full-scale horticultural preservation and personalized ecosystem care.</p>
+              <ul class="space-y-3 pt-2 text-xs text-textSecondary">
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Dedicated professional crew visits</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Smart irrigation optimization</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Soil organic treatments</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  <span>Complete frost safeguards</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="quote.html" class="block w-full text-center py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-300 text-sm">Get Premium</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Comparison Matrix Section -->
+    <section class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
+      <div class="space-y-10">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase">Compare Features</span>
+          <h2 class="font-heading text-3xl font-bold text-textPrimary">Detailed Plan Comparison</h2>
+          <p class="text-sm text-textSecondary">An exhaustive overview of standard and premium botanical care deliverables.</p>
+        </div>
+
+        <!-- Desktop Table View -->
+        <div class="hidden md:block overflow-x-auto border border-customBorder rounded-2xl shadow-sm bg-customBg">
+          <table class="w-full text-left border-collapse min-w-[600px] text-sm">
+            <thead>
+              <tr class="bg-surface border-b border-customBorder text-textPrimary font-bold">
+                <th class="p-4">Deliverables</th>
+                <th class="p-4 text-center">Basic Care</th>
+                <th class="p-4 text-center">Standard Estate</th>
+                <th class="p-4 text-center">Premium Botanical</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-customBorder text-textSecondary font-light">
+              <tr>
+                <td class="p-4 font-medium text-textPrimary">Lawn Mowing & Edging</td>
+                <td class="p-4 text-center">Bi-Weekly</td>
+                <td class="p-4 text-center">Weekly</td>
+                <td class="p-4 text-center">Weekly + Detail</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-textPrimary">Autumn Leaf Collection</td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-textPrimary">Irrigation Pipe Maintenance</td>
+                <td class="p-4 text-center">—</td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-textPrimary">Smart Irrigation Auditing</td>
+                <td class="p-4 text-center">—</td>
+                <td class="p-4 text-center">—</td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-textPrimary">Organic Soil Diagnostics</td>
+                <td class="p-4 text-center">—</td>
+                <td class="p-4 text-center">—</td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-textPrimary">Client Portal & Photos</td>
+                <td class="p-4 text-center">—</td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+                <td class="p-4 text-center"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile Comparison View -->
+        <div class="block md:hidden space-y-4">
+          <!-- Deliverable 1 -->
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 space-y-3 shadow-sm">
+            <h4 class="font-bold text-textPrimary text-sm">Lawn Mowing & Edging</h4>
+            <div class="grid grid-cols-3 gap-2 text-xs pt-1 border-t border-customBorder/50 pt-2">
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Basic</span>
+                <span class="text-textPrimary font-semibold">Bi-Weekly</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Standard</span>
+                <span class="text-textPrimary font-semibold">Weekly</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Premium</span>
+                <span class="text-textPrimary font-semibold text-primary">Weekly + Detail</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Deliverable 2 -->
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 space-y-3 shadow-sm">
+            <h4 class="font-bold text-textPrimary text-sm">Autumn Leaf Collection</h4>
+            <div class="grid grid-cols-3 gap-2 text-xs pt-1 border-t border-customBorder/50 pt-2">
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Basic</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Standard</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Premium</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverable 3 -->
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 space-y-3 shadow-sm">
+            <h4 class="font-bold text-textPrimary text-sm">Irrigation Pipe Maintenance</h4>
+            <div class="grid grid-cols-3 gap-2 text-xs pt-1 border-t border-customBorder/50 pt-2">
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Basic</span>
+                <span class="text-textSecondary">—</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Standard</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Premium</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverable 4 -->
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 space-y-3 shadow-sm">
+            <h4 class="font-bold text-textPrimary text-sm">Smart Irrigation Auditing</h4>
+            <div class="grid grid-cols-3 gap-2 text-xs pt-1 border-t border-customBorder/50 pt-2">
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Basic</span>
+                <span class="text-textSecondary">—</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Standard</span>
+                <span class="text-textSecondary">—</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Premium</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverable 5 -->
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 space-y-3 shadow-sm">
+            <h4 class="font-bold text-textPrimary text-sm">Organic Soil Diagnostics</h4>
+            <div class="grid grid-cols-3 gap-2 text-xs pt-1 border-t border-customBorder/50 pt-2">
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Basic</span>
+                <span class="text-textSecondary">—</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Standard</span>
+                <span class="text-textSecondary">—</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Premium</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverable 6 -->
+          <div class="bg-customBg border border-customBorder rounded-xl p-5 space-y-3 shadow-sm">
+            <h4 class="font-bold text-textPrimary text-sm">Client Portal & Photos</h4>
+            <div class="grid grid-cols-3 gap-2 text-xs pt-1 border-t border-customBorder/50 pt-2">
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Basic</span>
+                <span class="text-textSecondary">—</span>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Standard</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+              <div>
+                <span class="block text-textSecondary text-[10px] uppercase font-bold tracking-wider mb-1">Premium</span>
+                <i data-lucide="check" class="w-4 h-4 text-primary"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-14 bg-surface border-t border-b border-customBorder reveal-on-scroll">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase">Got Questions?</span>
+          <h2 class="font-heading text-3xl font-bold text-textPrimary">Frequently Asked Questions</h2>
+          <p class="text-sm text-textSecondary">Simple answers to common queries about our monthly plans.</p>
+        </div>
+
+        <div class="space-y-4 max-w-3xl mx-auto bg-customBg p-6 rounded-2xl border border-customBorder shadow-sm">
+          <!-- FAQ 1 -->
+          <div class="border-b border-customBorder pb-4">
+            <button class="faq-header w-full flex justify-between items-center text-left py-2 font-bold font-heading text-textPrimary text-base sm:text-lg focus:outline-none">
+              <span>Can I customize or change my plan later?</span>
+              <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-textSecondary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden mt-2 text-xs sm:text-sm text-textSecondary leading-relaxed font-light">
+              Yes, you can upgrade, downgrade, or pause your service plan at any time through your client portal or by contacting your dedicated account manager.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border-b border-customBorder pb-4">
+            <button class="faq-header w-full flex justify-between items-center text-left py-2 font-bold font-heading text-textPrimary text-base sm:text-lg focus:outline-none">
+              <span>What happens if it rains on a scheduled day?</span>
+              <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-textSecondary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden mt-2 text-xs sm:text-sm text-textSecondary leading-relaxed font-light">
+              If rain or high winds prevent us from performing lawn care safely, we reschedule your visit within 48 hours and send a live photo confirmation through the portal.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="pb-2">
+            <button class="faq-header w-full flex justify-between items-center text-left py-2 font-bold font-heading text-textPrimary text-base sm:text-lg focus:outline-none">
+              <span>Do you use organic weed control?</span>
+              <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-textSecondary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden mt-2 text-xs sm:text-sm text-textSecondary leading-relaxed font-light">
+              Absolutely. We use only organic composts and natural botanical sprays to prevent chemical run-offs into municipal or private groundwater tables.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered CTA Section -->
+    <section class="py-16 border-t border-customBorder relative overflow-hidden reveal-on-scroll">
+      <!-- Glow background decoration -->
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+        <div class="space-y-4">
+          <span class="text-secondary font-bold text-sm tracking-wider uppercase block">Begin Your Journey</span>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-textPrimary leading-tight">Ready to Craft Your Private Sanctuary?</h2>
+          <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-3xl mx-auto font-light">
+            Whether you are looking to reclaim a steep-grade hillside, optimize your estate's irrigation performance with smart weather-linked automation, or design custom flagstone terraces and masonry paths, our certified horticulturists and landscape architects are here to guide you every step of the way from initial blueprint to ongoing care.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <a href="contact.html" class="w-full sm:w-auto h-11 px-7 bg-primary hover:bg-primary-hover text-white font-bold rounded-md shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center justify-center">
+            Schedule a Consultation
+          </a>
+          <a href="portfolio.html" class="w-full sm:w-auto h-11 px-7 border border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-md transition-all duration-300 text-sm flex items-center justify-center">
+            View Our Work
+          </a>
         </div>
       </div>
     </section>

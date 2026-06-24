@@ -117,8 +117,17 @@ footer p, footer span, footer li {
 footer a {
   color: var(--color-footer-text) !important;
 }
+footer a.shrink-0 {
+  color: var(--color-primary) !important;
+}
+footer a.shrink-0 span.text-secondary {
+  color: var(--color-secondary) !important;
+}
 footer a:hover {
   color: var(--color-primary) !important;
+}
+footer a.shrink-0:hover {
+  opacity: 0.9;
 }
 
 /* Footer elements overrides */

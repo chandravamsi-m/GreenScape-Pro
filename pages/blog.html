@@ -212,66 +212,344 @@
   
 
   <!-- ===== MAIN CONTENT ===== -->
-  <main class="flex-grow">
+  <main class="flex-grow bg-customBg">
 
     <!-- Hero Header -->
-    <section class="bg-surface py-12 border-b border-customBorder">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-        <nav class="text-xs text-textSecondary flex gap-2">
-          <a href="index.html" class="hover:text-primary">Home</a>
-          <span>/</span>
-          <span class="text-textPrimary font-semibold">Blog</span>
-        </nav>
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold">Botanical Education & Care Guides</h1>
+    <section class="py-14 relative overflow-hidden bg-customBg border-b border-customBorder">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-70"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 relative z-10">
+        <span class="text-secondary font-bold text-xs tracking-widest uppercase">Our Journal</span>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-textPrimary leading-tight">Botanical Education & Care Guides</h1>
+        <p class="text-sm sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+          Expert advice, seasonal care checklists, and architectural design principles direct from our master horticulturists.
+        </p>
       </div>
     </section>
 
-    <!-- Blog Articles List -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-3 gap-8">
+    <!-- Main Blog Layout -->
+    <section class="py-16 bg-surface border-b border-customBorder">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12">
         
-        <!-- Post 1 -->
-        <article class="bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm group">
-          <img src="../assets/images/blog_seeds.png" alt="Planting seed roots" class="w-full h-48 object-cover group-hover:scale-102 transition-transform">
-          <div class="p-6 space-y-3">
-            <span class="text-xs text-secondary font-bold uppercase">Planting Guide</span>
-            <h3 class="font-heading text-lg font-bold group-hover:text-primary"><a href="blog-single.html">5 Spring Seeds for Pollinators</a></h3>
-            <p class="text-textSecondary text-xs">Discover native wild plants that help local bees thrive during the early seasonal blooms...</p>
-            <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
-              <span>June 18, 2026</span>
-              <span>4 min read</span>
+        <!-- Left Column: Articles & Navigation (8 cols) -->
+        <div class="lg:col-span-8 space-y-12">
+          
+          <!-- Featured Post (Highlight Card) -->
+          <article class="bg-customBg border border-customBorder rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col md:flex-row">
+            <div class="md:w-1/2 relative min-h-[250px] overflow-hidden">
+              <img src="../assets/images/garden_after.png" alt="Featured Garden Restoration" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <span class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md">Featured Article</span>
+            </div>
+            <div class="md:w-1/2 p-8 flex flex-col justify-between space-y-4">
+              <div class="space-y-3">
+                <span class="text-xs text-secondary font-bold uppercase tracking-wider">Sustainable Architecture</span>
+                <h2 class="font-heading text-2xl font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight">
+                  <a href="blog-single.html">The Future of Estate Design: Aligning Aesthetics with Soil Ecology</a>
+                </h2>
+                <p class="text-textSecondary text-xs leading-relaxed font-light">
+                  How high-end residential landscaping is shifting towards organic biology, natural retention masonry, and weather-linked water systems for long-term health.
+                </p>
+              </div>
+              <div class="flex items-center justify-between text-xs text-textSecondary pt-4 border-t border-customBorder/50">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                  <span>June 24, 2026</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                  <span>8 min read</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category Navigation Tabs -->
+          <div class="border-b border-customBorder pb-1 flex flex-wrap gap-2 overflow-x-auto whitespace-nowrap">
+            <button class="blog-filter-btn px-4 py-2 border-b-2 border-primary text-primary font-bold text-sm" data-category="all">All Articles</button>
+            <button class="blog-filter-btn px-4 py-2 border-b-2 border-transparent text-textSecondary hover:text-primary font-semibold text-sm transition-all" data-category="planting">Planting</button>
+            <button class="blog-filter-btn px-4 py-2 border-b-2 border-transparent text-textSecondary hover:text-primary font-semibold text-sm transition-all" data-category="irrigation">Irrigation</button>
+            <button class="blog-filter-btn px-4 py-2 border-b-2 border-transparent text-textSecondary hover:text-primary font-semibold text-sm transition-all" data-category="maintenance">Maintenance</button>
+            <button class="blog-filter-btn px-4 py-2 border-b-2 border-transparent text-textSecondary hover:text-primary font-semibold text-sm transition-all" data-category="design">Design</button>
+          </div>
+
+          <!-- Articles Grid (6 Posts) -->
+          <div id="articles-grid" class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Post 1 -->
+            <article class="bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between" data-category="planting">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="../assets/images/blog_seeds.png" alt="Planting seeds" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 bg-primary/90 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Planting</span>
+                </div>
+                <div class="p-6 space-y-3">
+                  <span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Planting Guide</span>
+                  <h3 class="font-heading text-lg font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight">
+                    <a href="blog-single.html">5 Spring Seeds for Pacific Northwest Pollinators</a>
+                  </h3>
+                  <p class="text-textSecondary text-xs leading-relaxed font-light">
+                    Discover native wild plants and wildflowers that help local bee populations thrive during early seasonal blooms.
+                  </p>
+                </div>
+              </div>
+              <div class="p-6 pt-0">
+                <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
+                  <span>June 18, 2026</span>
+                  <span>4 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between" data-category="irrigation">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="../assets/images/irrigation_systems.png" alt="Watering lines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 bg-primary/90 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Irrigation</span>
+                </div>
+                <div class="p-6 space-y-3">
+                  <span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Water Conservation</span>
+                  <h3 class="font-heading text-lg font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight">
+                    <a href="blog-single.html">Smart Drip Lines: Direct Botanical Watering Systems</a>
+                  </h3>
+                  <p class="text-textSecondary text-xs leading-relaxed font-light">
+                    Learn how localized pipe drops save up to 40% water directly at plant roots while starving surrounding invasive weeds.
+                  </p>
+                </div>
+              </div>
+              <div class="p-6 pt-0">
+                <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
+                  <span>June 12, 2026</span>
+                  <span>6 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between" data-category="maintenance">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="../assets/images/team_member_man.png" alt="Pruning shears" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 bg-primary/90 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Maintenance</span>
+                </div>
+                <div class="p-6 space-y-3">
+                  <span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Maintenance Tips</span>
+                  <h3 class="font-heading text-lg font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight">
+                    <a href="blog-single.html">Top Summer Shrub Pruning Checklist</a>
+                  </h3>
+                  <p class="text-textSecondary text-xs leading-relaxed font-light">
+                    Keep your summer hedges clean, encourage thick leaf regeneration, and protect branches from damp rot.
+                  </p>
+                </div>
+              </div>
+              <div class="p-6 pt-0">
+                <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
+                  <span>June 08, 2026</span>
+                  <span>5 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between" data-category="design">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="../assets/images/landscape_architecture.png" alt="Basalt walls" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 bg-primary/90 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Design</span>
+                </div>
+                <div class="p-6 space-y-3">
+                  <span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Stone Masonry</span>
+                  <h3 class="font-heading text-lg font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight">
+                    <a href="blog-single.html">Basalt Retaining Walls: Form & Erosion Defense</a>
+                  </h3>
+                  <p class="text-textSecondary text-xs leading-relaxed font-light">
+                    How dry-stacked local stones create dynamic multi-level properties and stabilize steep-grade soil.
+                  </p>
+                </div>
+              </div>
+              <div class="p-6 pt-0">
+                <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
+                  <span>June 01, 2026</span>
+                  <span>7 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between" data-category="maintenance">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="../assets/images/landscaper_work.png" alt="Soil tools" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 bg-primary/90 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Maintenance</span>
+                </div>
+                <div class="p-6 space-y-3">
+                  <span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Horticulture Care</span>
+                  <h3 class="font-heading text-lg font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight">
+                    <a href="blog-single.html">Understanding Soil Biology & Bio-Nutrients</a>
+                  </h3>
+                  <p class="text-textSecondary text-xs leading-relaxed font-light">
+                    Why chemical fertilizers harm evergreen root networks and how organic diagnostics preserve natural systems.
+                  </p>
+                </div>
+              </div>
+              <div class="p-6 pt-0">
+                <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
+                  <span>May 25, 2026</span>
+                  <span>6 min read</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="bg-customBg border border-customBorder rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between" data-category="design">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="../assets/images/hero_garden.png" alt="Perennial borders" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 bg-primary/90 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Design</span>
+                </div>
+                <div class="p-6 space-y-3">
+                  <span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Garden Design</span>
+                  <h3 class="font-heading text-lg font-bold text-textPrimary group-hover:text-primary transition-colors leading-tight">
+                    <a href="blog-single.html">Designing Low-Maintenance Perennial Borders</a>
+                  </h3>
+                  <p class="text-textSecondary text-xs leading-relaxed font-light">
+                    Select local evergreens and perennial combinations that maintain structure and beautiful colors all year round.
+                  </p>
+                </div>
+              </div>
+              <div class="p-6 pt-0">
+                <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
+                  <span>May 18, 2026</span>
+                  <span>5 min read</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Pagination Controls Removed -->
+
+        </div>
+
+        <!-- Right Column: Sidebar (4 cols) -->
+        <aside class="lg:col-span-4 space-y-8 lg:sticky lg:top-24 self-start">
+          
+          <!-- Search Widget -->
+          <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm">
+            <h4 class="font-heading font-bold text-lg text-textPrimary">Search Articles</h4>
+            <div class="relative flex items-center">
+              <input type="text" id="blog-search-input" placeholder="Type keywords..." class="w-full h-11 pl-4 pr-12 rtl:pr-4 rtl:pl-12 border border-customBorder rounded-lg bg-customBg text-textPrimary focus:outline-none focus:border-primary text-sm transition-colors">
+              <button class="absolute right-1 top-1 bottom-1 w-9 bg-primary hover:bg-primary-hover text-white rounded-md flex items-center justify-center transition-colors rtl:right-auto rtl:left-1" title="Search">
+                <i data-lucide="search" class="w-4 h-4"></i>
+              </button>
             </div>
           </div>
-        </article>
 
-        <!-- Post 2 -->
-        <article class="bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm group">
-          <img src="../assets/images/irrigation_systems.png" alt="Watering pipes" class="w-full h-48 object-cover group-hover:scale-102 transition-transform">
-          <div class="p-6 space-y-3">
-            <span class="text-xs text-secondary font-bold uppercase">Water Conservation</span>
-            <h3 class="font-heading text-lg font-bold group-hover:text-primary"><a href="blog-single.html">Smart Drip Lines Setup Guide</a></h3>
-            <p class="text-textSecondary text-xs">Learn how localized pipe drops save water directly at plant roots and minimize weeds...</p>
-            <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
-              <span>June 12, 2026</span>
-              <span>6 min read</span>
+          <!-- Categories Widget -->
+          <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm">
+            <h4 class="font-heading font-bold text-lg text-textPrimary">Categories</h4>
+            <ul class="space-y-3 text-sm text-textSecondary">
+              <li>
+                <a href="#" class="flex justify-between items-center hover:text-primary transition-colors group">
+                  <span class="group-hover:font-semibold">Planting & Botany</span>
+                  <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">1</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex justify-between items-center hover:text-primary transition-colors group">
+                  <span class="group-hover:font-semibold">Smart Irrigation</span>
+                  <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">1</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex justify-between items-center hover:text-primary transition-colors group">
+                  <span class="group-hover:font-semibold">Seasonal Maintenance</span>
+                  <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flex justify-between items-center hover:text-primary transition-colors group">
+                  <span class="group-hover:font-semibold">Landscape Design</span>
+                  <span class="px-2 py-0.5 bg-customBg border border-customBorder rounded-full text-xs text-textSecondary">2</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Popular Posts Widget -->
+          <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm">
+            <h4 class="font-heading font-bold text-lg text-textPrimary">Popular Guides</h4>
+            <div class="space-y-4">
+              <!-- Post Link 1 -->
+              <a href="blog-single.html" class="flex items-center gap-3 group">
+                <img src="../assets/images/irrigation_systems.png" alt="Popular Irrigation" class="w-14 h-14 object-cover rounded-lg border border-customBorder shrink-0">
+                <div class="space-y-1">
+                  <h5 class="font-bold text-xs text-textPrimary group-hover:text-primary transition-colors leading-snug line-clamp-2">Smart Drip Irrigation Installation Guide</h5>
+                  <span class="block text-[10px] text-textSecondary">June 12, 2026</span>
+                </div>
+              </a>
+              <!-- Post Link 2 -->
+              <a href="blog-single.html" class="flex items-center gap-3 group">
+                <img src="../assets/images/blog_seeds.png" alt="Popular Seeds" class="w-14 h-14 object-cover rounded-lg border border-customBorder shrink-0">
+                <div class="space-y-1">
+                  <h5 class="font-bold text-xs text-textPrimary group-hover:text-primary transition-colors leading-snug line-clamp-2">5 Spring Seeds for Pollinator Protection</h5>
+                  <span class="block text-[10px] text-textSecondary">June 18, 2026</span>
+                </div>
+              </a>
+              <!-- Post Link 3 -->
+              <a href="blog-single.html" class="flex items-center gap-3 group">
+                <img src="../assets/images/landscape_architecture.png" alt="Popular Design" class="w-14 h-14 object-cover rounded-lg border border-customBorder shrink-0">
+                <div class="space-y-1">
+                  <h5 class="font-bold text-xs text-textPrimary group-hover:text-primary transition-colors leading-snug line-clamp-2">Erosion Defense & Retaining Basalt Construction</h5>
+                  <span class="block text-[10px] text-textSecondary">June 01, 2026</span>
+                </div>
+              </a>
             </div>
           </div>
-        </article>
 
-        <!-- Post 3 -->
-        <article class="bg-surface border border-customBorder rounded-xl overflow-hidden shadow-sm group">
-          <img src="../assets/images/team_member_man.png" alt="Pruning shear tools" class="w-full h-48 object-cover group-hover:scale-102 transition-transform">
-          <div class="p-6 space-y-3">
-            <span class="text-xs text-secondary font-bold uppercase">Maintenance Tips</span>
-            <h3 class="font-heading text-lg font-bold group-hover:text-primary"><a href="blog-single.html">Top Summer Shrub Pruning Checklist</a></h3>
-            <p class="text-textSecondary text-xs">Keep your summer hedges clean, encourage thick leaves and protect branches from rot...</p>
-            <div class="flex justify-between text-xs text-textSecondary pt-3 border-t border-customBorder/40">
-              <span>June 08, 2026</span>
-              <span>5 min read</span>
+          <!-- Seasonal Checklist CTA Box -->
+          <div class="bg-customBg border border-customBorder rounded-2xl p-6 space-y-4 shadow-sm relative overflow-hidden">
+            <div class="space-y-2">
+              <span class="text-[10px] text-secondary font-extrabold uppercase tracking-widest">Free Download</span>
+              <h4 class="font-heading font-bold text-xl leading-tight text-textPrimary">Seasonal Care Guide Checklist</h4>
+              <p class="text-xs text-textSecondary leading-relaxed font-light">Get our full PDF checklist containing calendar schedules, soil amendments, and arborist care pointers.</p>
             </div>
+            <a href="#" class="block w-full text-center py-2.5 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg transition-colors text-xs shadow-md">
+              Download Care Kit
+            </a>
           </div>
-        </article>
 
+        </aside>
+      </div>
+      </div>
+    </section>
+
+    <!-- Centered Newsletter & Consultation CTA Section -->
+    <section class="py-20 border-t border-customBorder relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 reveal-on-scroll">
+      <!-- Glow background decoration -->
+      <div class="absolute -right-32 -bottom-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute -left-32 -top-32 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
+        <div class="space-y-4">
+          <span class="text-secondary font-bold text-xs tracking-widest uppercase block">Botanical Circle</span>
+          <h2 class="font-heading text-3xl sm:text-5xl font-bold tracking-wide leading-tight text-textPrimary">
+            Let's Shape Your <span class="italic text-secondary">Outdoor Masterpiece</span>
+          </h2>
+          <p class="text-xs sm:text-base text-textSecondary leading-relaxed max-w-2xl mx-auto font-light">
+            Stay ahead of seasonal growth cycles. Subscribe to our premium botanical journal for early arborist schedules, landscape planning advice, and native flora guidelines.
+          </p>
+        </div>
+
+        <!-- Direct Newsletter form or CTA Button -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto pt-2">
+          <a href="contact.html" class="w-full sm:w-auto h-12 px-8 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center justify-center">
+            Schedule Free Audit
+          </a>
+          <a href="quote.html" class="w-full sm:w-auto h-12 px-8 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center justify-center">
+            Request Proposal
+          </a>
+        </div>
       </div>
     </section>
 
@@ -368,6 +646,55 @@
 
     </div>
   </footer>
+
+  <!-- Blog Filtering and Search Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.blog-filter-btn');
+      const articles = document.querySelectorAll('#articles-grid article');
+      const searchInput = document.getElementById('blog-search-input');
+      let activeCategory = 'all';
+      let searchQuery = '';
+
+      const filterArticles = () => {
+        articles.forEach(article => {
+          const category = article.getAttribute('data-category');
+          const title = article.querySelector('h3').textContent.toLowerCase();
+          const description = article.querySelector('p').textContent.toLowerCase();
+          
+          const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+          const matchesSearch = (title.includes(searchQuery) || description.includes(searchQuery));
+
+          if (matchesCategory && matchesSearch) {
+            article.style.display = 'flex';
+          } else {
+            article.style.display = 'none';
+          }
+        });
+      };
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('border-primary', 'text-primary', 'font-bold');
+            b.classList.add('border-transparent', 'text-textSecondary');
+          });
+          btn.classList.add('border-primary', 'text-primary', 'font-bold');
+          btn.classList.remove('border-transparent', 'text-textSecondary');
+
+          activeCategory = btn.getAttribute('data-category');
+          filterArticles();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.toLowerCase().trim();
+          filterArticles();
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
