@@ -12,13 +12,13 @@
   --color-border:         #D9E3D9;
 
   /* -- Footer Variable Defaults (Light Mode) -- */
-  --color-footer-bg:      #0B130E;
-  --color-footer-text:    #A8C0A8;
-  --color-footer-border:  #1D2E22;
-  --color-footer-title:   #FFFFFF;
-  --color-footer-widget-bg:     #111C15;
-  --color-footer-widget-border: #1D2E22;
-  --color-footer-widget-text:   #8AA392;
+  --color-footer-bg:      #0B0C0E;
+  --color-footer-text:    #9CA3AF;
+  --color-footer-border:  #1B1C1F;
+  --color-footer-title:   #F3F4F6;
+  --color-footer-widget-bg:     #121315;
+  --color-footer-widget-border: #1B1C1F;
+  --color-footer-widget-text:   #9CA3AF;
 
   /* -- Typography -- */
   --font-heading: 'Playfair Display', Georgia, serif;
