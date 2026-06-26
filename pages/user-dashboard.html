@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" dir="ltr">
 <head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Dashboard — GreenScape Pro</title>
@@ -66,13 +67,13 @@
     <!-- Right: Theme, RTL Toggles & User Banner -->
     <div class="flex items-center gap-3 sm:gap-4">
       <!-- Theme Toggle -->
-      <button class="theme-toggle p-2.5 rounded-full bg-surface border border-customBorder text-textSecondary hover:text-primary hover:shadow-md transition-colors" title="Toggle Light/Dark Mode">
+      <button class="theme-toggle hidden md:inline-flex p-2.5 rounded-full bg-surface border border-customBorder text-textSecondary hover:text-primary hover:shadow-md transition-colors" title="Toggle Light/Dark Mode">
         <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
         <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
       </button>
 
       <!-- RTL Toggle -->
-      <button class="rtl-toggle px-3 py-2 rounded-md bg-surface border border-customBorder text-textSecondary font-bold text-xs hover:text-primary hover:shadow-md transition-colors" title="Toggle Direction">
+      <button class="rtl-toggle hidden md:inline-flex px-3 py-2 rounded-md bg-surface border border-customBorder text-textSecondary font-bold text-sm hover:text-primary hover:shadow-md transition-colors" title="Toggle Direction">
         <span class="rtl-toggle-text-rtl">RTL</span>
         <span class="rtl-toggle-text-ltr">LTR</span>
       </button>
@@ -84,8 +85,7 @@
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm select-none border border-primary/20">JD</div>
         <div class="hidden sm:block text-left">
-          <div class="text-[10px] text-textSecondary font-bold uppercase tracking-wider leading-none mb-0.5">Welcome back,</div>
-          <div class="text-xs font-bold text-primary leading-tight">John Doe</div>
+          <div class="text-sm font-bold text-primary leading-tight">John Doe</div>
         </div>
       </div>
     </div>
@@ -95,51 +95,67 @@
   <div class="flex flex-grow flex-col md:flex-row relative">
 
     <!-- Dashboard Sidebar Navigation -->
-    <aside id="db-sidebar" class="fixed md:static inset-y-0 left-0 w-64 bg-surface border-r border-customBorder p-6 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 shrink-0 h-[calc(100vh-4rem)] md:h-auto">
-      <!-- Sidebar Brand (Visible inside mobile drawer, matches site style) -->
-      <div class="flex items-center gap-2 md:hidden mb-6">
-        <img src="../assets/images/logo.svg" alt="GreenScape Pro" class="w-8 h-8">
-        <span class="font-heading font-bold text-xl text-primary tracking-wide">GreenScape<span class="text-secondary">Pro</span></span>
+    <aside id="db-sidebar" class="fixed md:static inset-y-0 left-0 rtl:left-auto rtl:right-0 w-72 md:w-64 bg-surface border-r rtl:border-r-0 rtl:border-l border-customBorder p-6 flex flex-col transform -translate-x-full rtl:translate-x-full md:translate-x-0 md:rtl:translate-x-0 transition-transform duration-300 ease-in-out z-40 shrink-0 h-screen md:h-auto">
+      <!-- Sidebar Brand & Close button (Visible inside mobile drawer) -->
+      <div class="flex items-center justify-between md:hidden mb-6">
+        <div class="flex items-center gap-2">
+          <img src="../assets/images/logo.svg" alt="GreenScape Pro" class="w-8 h-8">
+          <span class="font-heading font-bold text-xl text-primary tracking-wide">GreenScape<span class="text-secondary">Pro</span></span>
+        </div>
+        <button id="db-sidebar-close" class="p-2 rounded-md hover:bg-customBg text-textSecondary" title="Close Menu">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
       </div>
 
       <!-- Nav Links -->
       <nav class="space-y-1">
-        <a href="#" data-target="overview" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium bg-primary/20 text-primary border-l-4 border-primary">
+        <a href="#" data-target="overview" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium bg-primary/20 text-primary border-l-4 border-primary whitespace-nowrap">
           <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Overview
         </a>
-        <a href="#" data-target="projects" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="projects" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="folder-kanban" class="w-4 h-4"></i> My Projects
         </a>
-        <a href="#" data-target="approvals" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="approvals" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="file-check" class="w-4 h-4"></i> Design Approvals
         </a>
-        <a href="#" data-target="schedule" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="schedule" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="calendar" class="w-4 h-4"></i> Maintenance Schedule
         </a>
-        <a href="#" data-target="payments" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="payments" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="credit-card" class="w-4 h-4"></i> Payments & Invoices
         </a>
-        <a href="#" data-target="messages" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="messages" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="message-square" class="w-4 h-4"></i> Messages
         </a>
         
-        <!-- Separator & Logout right after navigation links -->
+        <!-- Separator, Mobile Settings, & Logout -->
         <div class="h-px bg-customBorder my-3"></div>
-        <a href="login.html" class="flex items-center gap-3 px-4 py-2 text-[13px] font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg">
+        <div class="flex items-center gap-2 md:hidden mb-3 px-4 justify-between bg-customBg border border-customBorder rounded-lg p-2">
+          <span class="text-xs font-semibold text-textSecondary uppercase tracking-wider">Settings</span>
+          <div class="flex gap-2">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle p-2 rounded-full bg-surface border border-customBorder text-textSecondary hover:text-primary" title="Toggle Light/Dark Mode">
+              <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+              <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            </button>
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle px-2.5 py-1.5 rounded-md bg-surface border border-customBorder text-textSecondary font-bold text-[10px]" title="Toggle Direction">
+              <span class="rtl-toggle-text-rtl">RTL</span>
+              <span class="rtl-toggle-text-ltr">LTR</span>
+            </button>
+          </div>
+        </div>
+        <a href="login.html" class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg">
           <i data-lucide="log-out" class="w-4 h-4"></i> Log Out
         </a>
       </nav>
     </aside>
 
     <!-- Main Content Space -->
-    <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto max-h-[calc(100vh-4rem)] text-sm md:text-[15px]">
     
     <!-- Section: Overview -->
     <section id="overview" class="db-section space-y-6">
-      <div class="flex justify-between items-center">
-        <p class="text-xs text-textSecondary font-medium">Last updated: June 23, 2026</p>
-      </div>
-
       <!-- Quick Metrics Row -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="bg-surface p-6 rounded-xl border border-customBorder">
@@ -169,56 +185,60 @@
         <!-- Recent Projects Table -->
         <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
           <h3 class="font-bold text-sm text-primary">Recent Project Updates</h3>
-          <table class="w-full text-xs text-left">
-            <thead>
-              <tr class="border-b border-customBorder text-textSecondary font-semibold">
-                <th class="py-2">Project</th>
-                <th class="py-2">Type</th>
-                <th class="py-2">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-customBorder/50">
-                <td class="py-3 font-semibold">Portland Heights Transformation</td>
-                <td class="py-3">Complete Yard Redesign</td>
-                <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">In Progress</span></td>
-              </tr>
-              <tr>
-                <td class="py-3 font-semibold">West Hills Pruning & Mulching</td>
-                <td class="py-3">Seasonal Maintenance</td>
-                <td class="py-3"><span class="px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Completed</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+              <thead>
+                <tr class="border-b border-customBorder text-textSecondary font-semibold">
+                  <th class="py-2">Project</th>
+                  <th class="py-2 hidden sm:table-cell">Type</th>
+                  <th class="py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-customBorder/50">
+                  <td class="py-3 font-semibold">Portland Heights Transformation</td>
+                  <td class="py-3 hidden sm:table-cell">Complete Yard Redesign</td>
+                  <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">In Progress</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-semibold">West Hills Pruning & Mulching</td>
+                  <td class="py-3 hidden sm:table-cell">Seasonal Maintenance</td>
+                  <td class="py-3"><span class="px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Recent Invoices Table -->
         <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
           <h3 class="font-bold text-sm text-primary">Recent Billing Statements</h3>
-          <table class="w-full text-xs text-left">
-            <thead>
-              <tr class="border-b border-customBorder text-textSecondary font-semibold">
-                <th class="py-2">Invoice #</th>
-                <th class="py-2">Due Date</th>
-                <th class="py-2">Amount</th>
-                <th class="py-2">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-customBorder/50">
-                <td class="py-3 font-semibold">INV-2026-004</td>
-                <td class="py-3">June 30, 2026</td>
-                <td class="py-3 font-semibold text-red-600">$299.00</td>
-                <td class="py-3"><span class="px-2 py-0.5 bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200 rounded-full font-bold text-[10px]">Unpaid</span></td>
-              </tr>
-              <tr>
-                <td class="py-3 font-semibold">INV-2026-003</td>
-                <td class="py-3">May 31, 2026</td>
-                <td class="py-3 font-semibold text-green-600">$450.00</td>
-                <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Paid</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+              <thead>
+                <tr class="border-b border-customBorder text-textSecondary font-semibold">
+                  <th class="py-2">Invoice #</th>
+                  <th class="py-2 hidden sm:table-cell">Due Date</th>
+                  <th class="py-2">Amount</th>
+                  <th class="py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-customBorder/50">
+                  <td class="py-3 font-semibold">INV-2026-004</td>
+                  <td class="py-3 hidden sm:table-cell">June 30, 2026</td>
+                  <td class="py-3 font-semibold text-red-600">$299.00</td>
+                  <td class="py-3"><span class="px-2 py-0.5 bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200 rounded-full font-bold text-[10px]">Unpaid</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-semibold">INV-2026-003</td>
+                  <td class="py-3 hidden sm:table-cell">May 31, 2026</td>
+                  <td class="py-3 font-semibold text-green-600">$450.00</td>
+                  <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Paid</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -304,12 +324,14 @@
         </div>
 
         <!-- Timeline Stepper -->
-        <div class="grid grid-cols-5 text-center text-[10px] sm:text-xs text-textSecondary pt-4 font-bold border-b border-customBorder pb-6">
-          <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-5 h-5 mx-auto mb-1 text-primary"></i> Consultation</div>
-          <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-5 h-5 mx-auto mb-1 text-primary"></i> Proposal Approval</div>
-          <div class="text-yellow-600 font-bold animate-pulse"><i data-lucide="circle-dot" class="w-5 h-5 mx-auto mb-1 text-yellow-600"></i> Implementation</div>
-          <div><i data-lucide="circle" class="w-5 h-5 mx-auto mb-1"></i> Quality Check</div>
-          <div><i data-lucide="circle" class="w-5 h-5 mx-auto mb-1"></i> Final Handover</div>
+        <div class="overflow-x-auto pb-2">
+          <div class="grid grid-cols-5 text-center text-[10px] sm:text-xs text-textSecondary pt-4 font-bold border-b border-customBorder pb-6 min-w-[550px]">
+            <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-5 h-5 mx-auto mb-1 text-primary"></i> Consultation</div>
+            <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-5 h-5 mx-auto mb-1 text-primary"></i> Proposal Approval</div>
+            <div class="text-yellow-600 font-bold animate-pulse"><i data-lucide="circle-dot" class="w-5 h-5 mx-auto mb-1 text-yellow-600"></i> Implementation</div>
+            <div><i data-lucide="circle" class="w-5 h-5 mx-auto mb-1"></i> Quality Check</div>
+            <div><i data-lucide="circle" class="w-5 h-5 mx-auto mb-1"></i> Final Handover</div>
+          </div>
         </div>
 
         <!-- Extra details: Crew & Deliverables -->
@@ -335,7 +357,7 @@
           </div>
           <div class="space-y-3">
             <h4 class="font-bold text-sm text-primary">Current Phase Tasks</h4>
-            <ul class="space-y-2 text-xs">
+            <ul class="space-y-2 text-sm">
               <li class="flex items-center gap-2 text-textSecondary"><i data-lucide="check-square" class="w-4 h-4 text-primary shrink-0"></i> Site preparation and grading (Done)</li>
               <li class="flex items-center gap-2 text-textSecondary"><i data-lucide="check-square" class="w-4 h-4 text-primary shrink-0"></i> Hardscape layout & flagstone delivery (Done)</li>
               <li class="flex items-center gap-2 text-textPrimary"><i data-lucide="square" class="w-4 h-4 text-yellow-600 shrink-0"></i> Laying the pathing and stone retaining walls (Active)</li>
@@ -513,7 +535,7 @@
           <h3 class="font-bold text-sm text-primary flex items-center gap-2">
             <i data-lucide="calendar-plus" class="w-4.5 h-4.5 text-primary"></i> Request Additional Service
           </h3>
-          <form class="space-y-3 text-xs" onsubmit="event.preventDefault(); alert('Service request submitted successfully!')">
+          <form class="space-y-3 text-sm" onsubmit="event.preventDefault(); alert('Service request submitted successfully!')">
             <div class="grid grid-cols-2 gap-3">
               <div>
                 <label class="block font-bold mb-1 uppercase text-textSecondary">Preferred Date</label>
@@ -585,8 +607,60 @@
       <!-- Invoices and Account Statement -->
       <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
         <h3 class="font-bold text-sm text-primary">Invoices and Account Statement</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full text-xs text-left min-w-[600px]">
+        <!-- Mobile Card View -->
+        <div class="space-y-4 md:hidden">
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>INV-2026-004</span>
+              <span class="px-2 py-0.5 bg-red-100 text-red-800 rounded font-bold text-[9px]">Unpaid</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Description:</strong> June Estate Care Plan</p>
+              <p><strong>Due Date:</strong> June 30, 2026</p>
+              <p class="text-red-600 font-semibold"><strong>Amount:</strong> $299.00</p>
+            </div>
+            <div class="pt-2 border-t border-customBorder flex justify-end">
+              <button onclick="alert('Payment modal triggers (Stripe UI)...')" class="px-3 py-1 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors text-[11px]">Pay Now</button>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>INV-2026-003</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[9px]">Paid</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Description:</strong> Horticulture Consultation & Flora Kit</p>
+              <p><strong>Due Date:</strong> May 31, 2026</p>
+              <p class="text-textPrimary font-semibold"><strong>Amount:</strong> $450.00</p>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>INV-2026-002</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[9px]">Paid</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Description:</strong> Site Preparation & Stone Retaining Material</p>
+              <p><strong>Due Date:</strong> May 15, 2026</p>
+              <p class="text-textPrimary font-semibold"><strong>Amount:</strong> $1,200.00</p>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>INV-2026-001</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[9px]">Paid</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Description:</strong> Landscape Blueprinting & Architect Consultation</p>
+              <p><strong>Due Date:</strong> April 30, 2026</p>
+              <p class="text-textPrimary font-semibold"><strong>Amount:</strong> $2,500.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full text-sm text-left">
             <thead>
               <tr class="border-b border-customBorder text-textSecondary font-semibold">
                 <th class="py-2">Invoice #</th>
@@ -689,7 +763,7 @@
 
     <!-- Section: Messages -->
     <section id="messages" class="db-section space-y-6 hidden">
-      <div class="bg-surface border border-customBorder rounded-xl h-[500px] flex flex-col justify-between overflow-hidden">
+      <div class="bg-surface border border-customBorder rounded-xl flex flex-col justify-between">
         <!-- Messages Header -->
         <div class="p-4 border-b border-customBorder bg-customBg flex items-center gap-3">
           <div class="w-9 h-9 rounded-full bg-secondary text-white flex items-center justify-center font-bold">MV</div>
@@ -700,7 +774,7 @@
         </div>
 
         <!-- Messages Area -->
-        <div class="p-6 space-y-4 overflow-y-auto flex-grow text-xs">
+        <div class="p-6 space-y-4 flex-grow text-xs">
           <!-- MSG 1 -->
           <div class="flex gap-3">
             <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">MV</div>
@@ -723,6 +797,22 @@
             <div class="bg-customBg p-3 rounded-lg max-w-md border border-customBorder">
               <span class="font-bold block mb-1 text-primary text-[10px]">Marcus V. (Lead Designer)</span>
               Excellent. David P. has selected local native flora to guarantee they thrive. Once you click "Approve Layout" on the Design Approvals section, we can book the stone crew.
+            </div>
+          </div>
+          <!-- MSG 4 -->
+          <div class="flex gap-3 justify-end">
+            <div class="bg-primary/10 p-3 rounded-lg max-w-md border border-primary/20 text-right">
+              <span class="font-bold block mb-1 text-primary text-[10px]">You</span>
+              Perfect, I will take a look at the plant options. I prefer native low-maintenance shrubs if possible.
+            </div>
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">JD</div>
+          </div>
+          <!-- MSG 5 -->
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">MV</div>
+            <div class="bg-customBg p-3 rounded-lg max-w-md border border-customBorder">
+              <span class="font-bold block mb-1 text-primary text-[10px]">Marcus V. (Lead Designer)</span>
+              Understood! We've selected drought-tolerant species like Oregon Grape and Salal. I've updated the plant list for you to review.
             </div>
           </div>
         </div>

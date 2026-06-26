@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" dir="ltr">
 <head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard — GreenScape Pro</title>
@@ -66,13 +67,13 @@
     <!-- Right: Theme, RTL Toggles & User Banner -->
     <div class="flex items-center gap-3 sm:gap-4">
       <!-- Theme Toggle -->
-      <button class="theme-toggle p-2.5 rounded-full bg-surface border border-customBorder text-textSecondary hover:text-primary hover:shadow-md transition-colors" title="Toggle Light/Dark Mode">
+      <button class="theme-toggle hidden md:inline-flex p-2.5 rounded-full bg-surface border border-customBorder text-textSecondary hover:text-primary hover:shadow-md transition-colors" title="Toggle Light/Dark Mode">
         <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
         <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
       </button>
 
       <!-- RTL Toggle -->
-      <button class="rtl-toggle px-3 py-2 rounded-md bg-surface border border-customBorder text-textSecondary font-bold text-xs hover:text-primary hover:shadow-md transition-colors" title="Toggle Direction">
+      <button class="rtl-toggle hidden md:inline-flex px-3 py-2 rounded-md bg-surface border border-customBorder text-textSecondary font-bold text-sm hover:text-primary hover:shadow-md transition-colors" title="Toggle Direction">
         <span class="rtl-toggle-text-rtl">RTL</span>
         <span class="rtl-toggle-text-ltr">LTR</span>
       </button>
@@ -84,8 +85,7 @@
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm select-none border border-primary/20">A</div>
         <div class="hidden sm:block text-left">
-          <div class="text-[10px] text-textSecondary font-bold uppercase tracking-wider leading-none mb-0.5">Welcome back,</div>
-          <div class="text-xs font-bold text-primary leading-tight">Admin Portal</div>
+          <div class="text-sm font-bold text-primary leading-tight">Admin Portal</div>
         </div>
       </div>
     </div>
@@ -95,51 +95,67 @@
   <div class="flex flex-grow flex-col md:flex-row relative">
 
     <!-- Dashboard Sidebar Navigation -->
-    <aside id="db-sidebar" class="fixed md:static inset-y-0 left-0 w-64 bg-surface border-r border-customBorder p-6 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 shrink-0 h-[calc(100vh-4rem)] md:h-auto">
-      <!-- Sidebar Brand (Visible inside mobile drawer, matches site style) -->
-      <div class="flex items-center gap-2 md:hidden mb-6">
-        <img src="../assets/images/logo.svg" alt="GreenScape Pro" class="w-8 h-8">
-        <span class="font-heading font-bold text-xl text-primary tracking-wide">GreenScape<span class="text-secondary">Pro</span></span>
+    <aside id="db-sidebar" class="fixed md:static inset-y-0 left-0 rtl:left-auto rtl:right-0 w-72 md:w-64 bg-surface border-r rtl:border-r-0 rtl:border-l border-customBorder p-6 flex flex-col transform -translate-x-full rtl:translate-x-full md:translate-x-0 md:rtl:translate-x-0 transition-transform duration-300 ease-in-out z-40 shrink-0 h-screen md:h-auto">
+      <!-- Sidebar Brand & Close button (Visible inside mobile drawer) -->
+      <div class="flex items-center justify-between md:hidden mb-6">
+        <div class="flex items-center gap-2">
+          <img src="../assets/images/logo.svg" alt="GreenScape Pro" class="w-8 h-8">
+          <span class="font-heading font-bold text-xl text-primary tracking-wide">GreenScape<span class="text-secondary">Pro</span></span>
+        </div>
+        <button id="db-sidebar-close" class="p-2 rounded-md hover:bg-customBg text-textSecondary" title="Close Menu">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
       </div>
 
       <!-- Nav Links -->
       <nav class="space-y-1">
-        <a href="#" data-target="admin-overview" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium bg-primary/20 text-primary border-l-4 border-primary">
+        <a href="#" data-target="admin-overview" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium bg-primary/20 text-primary border-l-4 border-primary whitespace-nowrap">
           <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Overview
         </a>
-        <a href="#" data-target="clients" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="clients" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="users" class="w-4 h-4"></i> Clients
         </a>
-        <a href="#" data-target="admin-projects" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="admin-projects" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="folder-kanban" class="w-4 h-4"></i> Project Management
         </a>
-        <a href="#" data-target="admin-approvals" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="admin-approvals" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="file-check" class="w-4 h-4"></i> Design Proposals
         </a>
-        <a href="#" data-target="admin-scheduling" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="admin-scheduling" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="calendar" class="w-4 h-4"></i> Scheduling
         </a>
-        <a href="#" data-target="reports" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="reports" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
           <i data-lucide="pie-chart" class="w-4 h-4"></i> Reports & Analytics
         </a>
         
-        <!-- Separator & Logout right after navigation links -->
+        <!-- Separator, Mobile Settings, & Logout -->
         <div class="h-px bg-customBorder my-3"></div>
-        <a href="login.html" class="flex items-center gap-3 px-4 py-2 text-[13px] font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg">
+        <div class="flex items-center gap-2 md:hidden mb-3 px-4 justify-between bg-customBg border border-customBorder rounded-lg p-2">
+          <span class="text-xs font-semibold text-textSecondary uppercase tracking-wider">Settings</span>
+          <div class="flex gap-2">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle p-2 rounded-full bg-surface border border-customBorder text-textSecondary hover:text-primary" title="Toggle Light/Dark Mode">
+              <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+              <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            </button>
+            <!-- RTL Toggle -->
+            <button class="rtl-toggle px-2.5 py-1.5 rounded-md bg-surface border border-customBorder text-textSecondary font-bold text-[10px]" title="Toggle Direction">
+              <span class="rtl-toggle-text-rtl">RTL</span>
+              <span class="rtl-toggle-text-ltr">LTR</span>
+            </button>
+          </div>
+        </div>
+        <a href="login.html" class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg">
           <i data-lucide="log-out" class="w-4 h-4"></i> Log Out
         </a>
       </nav>
     </aside>
 
     <!-- Main Content Space -->
-    <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto max-h-[calc(100vh-4rem)] text-sm md:text-[15px]">
     
     <!-- Section: Admin Overview -->
     <section id="admin-overview" class="db-section space-y-6">
-      <div class="flex justify-between items-center">
-        <p class="text-xs text-textSecondary font-medium">Last updated: June 23, 2026</p>
-      </div>
-
       <!-- Metrics Row -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="bg-surface p-6 rounded-xl border border-customBorder">
@@ -169,36 +185,38 @@
         <!-- Recent Active Contracts -->
         <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
           <h3 class="font-bold text-sm text-primary">Recent Active Contracts</h3>
-          <table class="w-full text-xs text-left">
-            <thead>
-              <tr class="border-b border-customBorder text-textSecondary font-semibold">
-                <th class="py-2">Client</th>
-                <th class="py-2">Project</th>
-                <th class="py-2">Progress</th>
-                <th class="py-2">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-customBorder/50">
-                <td class="py-3 font-semibold">John Doe</td>
-                <td class="py-3">Portland Heights Redesign</td>
-                <td class="py-3">40%</td>
-                <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">In Progress</span></td>
-              </tr>
-              <tr class="border-b border-customBorder/50">
-                <td class="py-3 font-semibold">Sarah L.</td>
-                <td class="py-3">Lake Oswego Backyard Build</td>
-                <td class="py-3">90%</td>
-                <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">Nearing End</span></td>
-              </tr>
-              <tr>
-                <td class="py-3 font-semibold">Robert H.</td>
-                <td class="py-3">Pearl District Rooftop Planters</td>
-                <td class="py-3">100%</td>
-                <td class="py-3"><span class="px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Completed</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+              <thead>
+                <tr class="border-b border-customBorder text-textSecondary font-semibold">
+                  <th class="py-2">Client</th>
+                  <th class="py-2 hidden sm:table-cell">Project</th>
+                  <th class="py-2">Progress</th>
+                  <th class="py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-customBorder/50">
+                  <td class="py-3 font-semibold">John Doe</td>
+                  <td class="py-3 hidden sm:table-cell">Portland Heights Redesign</td>
+                  <td class="py-3">40%</td>
+                  <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">In Progress</span></td>
+                </tr>
+                <tr class="border-b border-customBorder/50">
+                  <td class="py-3 font-semibold">Sarah L.</td>
+                  <td class="py-3 hidden sm:table-cell">Lake Oswego Backyard Build</td>
+                  <td class="py-3">90%</td>
+                  <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">Nearing End</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-semibold">Robert H.</td>
+                  <td class="py-3 hidden sm:table-cell">Pearl District Rooftop Planters</td>
+                  <td class="py-3">100%</td>
+                  <td class="py-3"><span class="px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Recent Client Feedback Log -->
@@ -345,8 +363,85 @@
           </div>
         </div>
 
-        <div class="overflow-x-auto">
-          <table class="w-full text-xs text-left min-w-[600px]">
+        <!-- Mobile Card View -->
+        <div class="space-y-4 md:hidden">
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[10px]">JD</div>
+                John Doe
+              </span>
+              <span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded text-[9px] font-bold">Active Project</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Email:</strong> john@example.com</p>
+              <p><strong>Location:</strong> West Hills, Portland</p>
+              <p><strong>Active Projects:</strong> 1 Active</p>
+              <p><strong>Joined:</strong> Jan 12, 2026</p>
+            </div>
+            <div class="pt-2 border-t border-customBorder flex justify-end">
+              <button class="text-primary font-bold hover:underline">Manage</button>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[10px]">SL</div>
+                Sarah L.
+              </span>
+              <span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded text-[9px] font-bold">Active Project</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Email:</strong> sarah@domain.com</p>
+              <p><strong>Location:</strong> East Portland</p>
+              <p><strong>Active Projects:</strong> 1 Active</p>
+              <p><strong>Joined:</strong> Feb 19, 2026</p>
+            </div>
+            <div class="pt-2 border-t border-customBorder flex justify-end">
+              <button class="text-primary font-bold hover:underline">Manage</button>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[10px]">RH</div>
+                Robert H.
+              </span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[9px] font-bold">Maintenance</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Email:</strong> robert@harbor.net</p>
+              <p><strong>Location:</strong> Pearl District, Portland</p>
+              <p><strong>Active Projects:</strong> 0 Active</p>
+              <p><strong>Joined:</strong> Mar 02, 2026</p>
+            </div>
+            <div class="pt-2 border-t border-customBorder flex justify-end">
+              <button class="text-primary font-bold hover:underline">Manage</button>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[10px]">EW</div>
+                Emily W.
+              </span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[9px] font-bold">Maintenance</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Email:</strong> emily@woodland.com</p>
+              <p><strong>Location:</strong> Lake Oswego, OR</p>
+              <p><strong>Active Projects:</strong> 0 Active</p>
+              <p><strong>Joined:</strong> April 11, 2026</p>
+            </div>
+            <div class="pt-2 border-t border-customBorder flex justify-end">
+              <button class="text-primary font-bold hover:underline">Manage</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full text-sm text-left">
             <thead>
               <tr class="border-b border-customBorder text-textSecondary font-semibold">
                 <th class="py-2">Client Name</th>
@@ -417,8 +512,43 @@
         <h3 class="font-bold text-sm text-primary flex items-center gap-2">
           <i data-lucide="clipboard-list" class="w-4.5 h-4.5 text-primary"></i> Prospective Clients & Inquiries
         </h3>
-        <div class="overflow-x-auto">
-          <table class="w-full text-xs text-left min-w-[600px]">
+        <!-- Mobile Card View -->
+        <div class="space-y-4 md:hidden">
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>Jane K.</span>
+              <span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded text-[9px] font-bold">Pending Consultation</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Contact:</strong> 503-555-0199 / jane@k.com</p>
+              <p><strong>Requested:</strong> Backyard Irrigation Setup</p>
+              <p><strong>Proposed Date:</strong> July 02, 2026</p>
+              <p><strong>Assigned:</strong> David P.</p>
+            </div>
+            <div class="pt-2 border-t border-customBorder flex justify-end">
+              <button class="text-primary font-bold hover:underline text-xs">Schedule</button>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>Tom B.</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[9px] font-bold">Lead Contacted</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Contact:</strong> 503-555-0211 / tom@b.net</p>
+              <p><strong>Requested:</strong> Estate Lawn Renovation</p>
+              <p><strong>Proposed Date:</strong> July 05, 2026</p>
+              <p><strong>Assigned:</strong> Marcus V.</p>
+            </div>
+            <div class="pt-2 border-t border-customBorder flex justify-end">
+              <button class="text-primary font-bold hover:underline text-xs">Schedule</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full text-sm text-left">
             <thead>
               <tr class="border-b border-customBorder text-textSecondary font-semibold">
                 <th class="py-2">Contact Name</th>
@@ -459,7 +589,7 @@
     <section id="admin-projects" class="db-section space-y-6 hidden">
       <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-6">
         <h3 class="font-bold text-sm text-primary">Add New Landscape Contract</h3>
-        <form class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs" onsubmit="event.preventDefault(); alert('Project created!')">
+        <form class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm" onsubmit="event.preventDefault(); alert('Project created!')">
           <div>
             <label class="block font-bold mb-1.5 uppercase text-textSecondary">Contract Name</label>
             <input type="text" required placeholder="e.g. West Portland Lawn" class="w-full p-2.5 border border-customBorder rounded-lg bg-customBg text-textPrimary">
@@ -516,7 +646,7 @@
     <section id="admin-approvals" class="db-section space-y-6 hidden">
       <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-6">
         <h3 class="font-bold text-sm text-primary">Submit New Design Proposal</h3>
-        <form class="space-y-4 text-xs" onsubmit="event.preventDefault(); alert('Design uploaded!')">
+        <form class="space-y-4 text-sm" onsubmit="event.preventDefault(); alert('Design uploaded!')">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block font-bold mb-1.5 uppercase text-textSecondary">Select Project</label>
@@ -540,30 +670,58 @@
 
       <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
         <h3 class="font-bold text-sm text-primary">Proposal History Log</h3>
-        <table class="w-full text-xs text-left">
-          <thead>
-            <tr class="border-b border-customBorder text-textSecondary font-semibold">
-              <th class="py-2">Proposal Version</th>
-              <th class="py-2">Project</th>
-              <th class="py-2">Date Submitted</th>
-              <th class="py-2">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-customBorder/50">
-              <td class="py-3 font-semibold">Portland Heights Layout v2</td>
-              <td class="py-3">Portland Heights Redesign</td>
-              <td class="py-3">June 20, 2026</td>
-              <td class="py-3"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded font-bold text-[10px]">Awaiting Client</span></td>
-            </tr>
-            <tr class="border-b border-customBorder/50">
-              <td class="py-3 font-semibold">Plant Palette & Flora Selector v1</td>
-              <td class="py-3">Portland Heights Redesign</td>
-              <td class="py-3">June 15, 2026</td>
-              <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[10px]">Approved</span></td>
-            </tr>
-          </tbody>
-        </table>
+        
+        <!-- Mobile Card View -->
+        <div class="space-y-4 md:hidden">
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>Portland Heights Layout v2</span>
+              <span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded font-bold text-[9px]">Awaiting Client</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Project:</strong> Portland Heights Redesign</p>
+              <p><strong>Date Submitted:</strong> June 20, 2026</p>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>Plant Palette & Flora Selector v1</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[9px]">Approved</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Project:</strong> Portland Heights Redesign</p>
+              <p><strong>Date Submitted:</strong> June 15, 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full text-sm text-left min-w-[500px]">
+            <thead>
+              <tr class="border-b border-customBorder text-textSecondary font-semibold">
+                <th class="py-2">Proposal Version</th>
+                <th class="py-2">Project</th>
+                <th class="py-2">Date Submitted</th>
+                <th class="py-2">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">Portland Heights Layout v2</td>
+                <td class="py-3">Portland Heights Redesign</td>
+                <td class="py-3">June 20, 2026</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded font-bold text-[10px]">Awaiting Client</span></td>
+              </tr>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">Plant Palette & Flora Selector v1</td>
+                <td class="py-3">Portland Heights Redesign</td>
+                <td class="py-3">June 15, 2026</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[10px]">Approved</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -571,7 +729,7 @@
     <section id="admin-scheduling" class="db-section space-y-6 hidden">
       <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-6">
         <h3 class="font-bold text-sm text-primary">Schedule New Crew Visit</h3>
-        <form class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs" onsubmit="event.preventDefault(); alert('Visit scheduled!')">
+        <form class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm" onsubmit="event.preventDefault(); alert('Visit scheduled!')">
           <div>
             <label class="block font-bold mb-1.5 uppercase text-textSecondary">Date</label>
             <input type="date" required class="w-full p-2.5 border border-customBorder rounded-lg bg-customBg text-textPrimary">
@@ -690,36 +848,74 @@
 
       <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
         <h3 class="font-bold text-sm text-primary">Service Class Revenue Breakdown</h3>
-        <table class="w-full text-xs text-left">
-          <thead>
-            <tr class="border-b border-customBorder text-textSecondary font-semibold">
-              <th class="py-2">Service Type</th>
-              <th class="py-2">Revenue Share</th>
-              <th class="py-2">YTD Earnings</th>
-              <th class="py-2">Growth (YoY)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-customBorder/50">
-              <td class="py-3 font-semibold">Garden Blueprinting & Design</td>
-              <td class="py-3">30%</td>
-              <td class="py-3">$14,475</td>
-              <td class="py-3 text-green-600">+12%</td>
-            </tr>
-            <tr class="border-b border-customBorder/50">
-              <td class="py-3 font-semibold">Landscape Construction & Build</td>
-              <td class="py-3">55%</td>
-              <td class="py-3">$26,537</td>
-              <td class="py-3 text-green-600">+24%</td>
-            </tr>
-            <tr>
-              <td class="py-3 font-semibold">Seasonal Care & Maintenance</td>
-              <td class="py-3">15%</td>
-              <td class="py-3">$7,238</td>
-              <td class="py-3 text-green-600">+8%</td>
-            </tr>
-          </tbody>
-        </table>
+        
+        <!-- Mobile Card View -->
+        <div class="space-y-4 md:hidden">
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>Garden Blueprinting & Design</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[9px] font-bold">+12% YoY</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Revenue Share:</strong> 30%</p>
+              <p><strong>YTD Earnings:</strong> $14,475</p>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>Landscape Construction & Build</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[9px] font-bold">+24% YoY</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Revenue Share:</strong> 55%</p>
+              <p><strong>YTD Earnings:</strong> $26,537</p>
+            </div>
+          </div>
+          <div class="p-4 bg-customBg rounded-lg border border-customBorder space-y-2 text-sm">
+            <div class="flex justify-between items-center font-bold text-textPrimary">
+              <span>Seasonal Care & Maintenance</span>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[9px] font-bold">+8% YoY</span>
+            </div>
+            <div class="text-xs text-textSecondary space-y-1">
+              <p><strong>Revenue Share:</strong> 15%</p>
+              <p><strong>YTD Earnings:</strong> $7,238</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table View -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full text-sm text-left min-w-[500px]">
+            <thead>
+              <tr class="border-b border-customBorder text-textSecondary font-semibold">
+                <th class="py-2">Service Type</th>
+                <th class="py-2">Revenue Share</th>
+                <th class="py-2">YTD Earnings</th>
+                <th class="py-2">Growth (YoY)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">Garden Blueprinting & Design</td>
+                <td class="py-3">30%</td>
+                <td class="py-3">$14,475</td>
+                <td class="py-3 text-green-600">+12%</td>
+              </tr>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">Landscape Construction & Build</td>
+                <td class="py-3">55%</td>
+                <td class="py-3">$26,537</td>
+                <td class="py-3 text-green-600">+24%</td>
+              </tr>
+              <tr>
+                <td class="py-3 font-semibold">Seasonal Care & Maintenance</td>
+                <td class="py-3">15%</td>
+                <td class="py-3">$7,238</td>
+                <td class="py-3 text-green-600">+8%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 

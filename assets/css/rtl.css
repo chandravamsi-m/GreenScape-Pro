@@ -25,3 +25,17 @@ html[dir="rtl"] #mobile-menu-drawer {
 html[dir="rtl"] #mobile-menu-drawer.translate-x-full {
   transform: translateX(-100%);
 }
+
+/* Dashboard Sidebar RTL overrides for mobile/small screens */
+@media (max-width: 767px) {
+  html[dir="rtl"] #db-sidebar {
+    left: auto !important;
+    right: 0 !important;
+    border-right-width: 0 !important;
+    border-left-width: 1px !important;
+    transform: translateX(100%) !important;
+  }
+  html[dir="rtl"] #db-sidebar.translate-x-0 {
+    transform: translateX(0) !important;
+  }
+}

@@ -369,6 +369,12 @@ function initDashboardTabs() {
           sec.classList.add('hidden');
         }
       });
+
+      // Scroll main content area back to top
+      const mainContainer = document.querySelector('main');
+      if (mainContainer) {
+        mainContainer.scrollTop = 0;
+      }
       
       // Update header title dynamically
       const headerTitle = document.getElementById('header-title');
@@ -393,7 +399,8 @@ function initDashboardTabs() {
       // Close sidebar on mobile
       const dbSidebar = document.getElementById('db-sidebar');
       if (dbSidebar) {
-        dbSidebar.classList.add('-translate-x-full');
+        dbSidebar.classList.remove('translate-x-0');
+        dbSidebar.classList.add('-translate-x-full', 'rtl:translate-x-full');
       }
     });
   });
@@ -401,11 +408,45 @@ function initDashboardTabs() {
   // Mobile toggle for dashboard sidebar
   const dbSidebarToggle = document.getElementById('db-sidebar-toggle');
   const dbSidebar = document.getElementById('db-sidebar');
+  const dbSidebarClose = document.getElementById('db-sidebar-close');
+  
   if (dbSidebarToggle && dbSidebar) {
-    dbSidebarToggle.addEventListener('click', () => {
-      dbSidebar.classList.toggle('-translate-x-full');
+    dbSidebarToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dbSidebar.classList.contains('translate-x-0');
+      if (isOpen) {
+        dbSidebar.classList.remove('translate-x-0');
+        dbSidebar.classList.add('-translate-x-full', 'rtl:translate-x-full');
+      } else {
+        dbSidebar.classList.add('translate-x-0');
+        dbSidebar.classList.remove('-translate-x-full', 'rtl:translate-x-full');
+      }
     });
   }
+
+  if (dbSidebarClose && dbSidebar) {
+    dbSidebarClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dbSidebar.classList.remove('translate-x-0');
+      dbSidebar.classList.add('-translate-x-full', 'rtl:translate-x-full');
+    });
+  }
+
+  if (dbSidebar) {
+    dbSidebar.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent clicks inside the sidebar from closing it
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (dbSidebar) {
+      const isOpen = dbSidebar.classList.contains('translate-x-0');
+      if (isOpen && (!dbSidebarToggle || !dbSidebarToggle.contains(e.target))) {
+        dbSidebar.classList.remove('translate-x-0');
+        dbSidebar.classList.add('-translate-x-full', 'rtl:translate-x-full');
+      }
+    }
+  });
 }
 
 /* ==========================================================================
