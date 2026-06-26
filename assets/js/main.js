@@ -370,6 +370,26 @@ function initDashboardTabs() {
         }
       });
       
+      // Update header title dynamically
+      const headerTitle = document.getElementById('header-title');
+      if (headerTitle) {
+        const titleMap = {
+          'overview': 'Dashboard Overview & Stats',
+          'projects': 'Active Landscaping Projects',
+          'approvals': 'Design Approvals & Proposals',
+          'schedule': 'Garden Maintenance Schedule',
+          'payments': 'Payments, Invoices & Balances',
+          'messages': 'Client Team Conversation',
+          'admin-overview': 'Admin Dashboard Controls',
+          'clients': 'Client Directory & Accounts',
+          'admin-projects': 'Project Management & Contracts',
+          'admin-approvals': 'Submit Design Proposals',
+          'admin-scheduling': 'Crew Scheduling Board',
+          'reports': 'Performance & Revenue Reports'
+        };
+        headerTitle.textContent = titleMap[targetSectionId] || tab.textContent.trim();
+      }
+      
       // Close sidebar on mobile
       const dbSidebar = document.getElementById('db-sidebar');
       if (dbSidebar) {

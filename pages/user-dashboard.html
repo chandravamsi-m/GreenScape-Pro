@@ -40,86 +40,104 @@
   <link rel="stylesheet" id="rtl-stylesheet" href="../assets/css/rtl.css" disabled>
   <script src="../assets/js/main.js" defer></script>
 </head>
-<body class="bg-customBg text-textPrimary font-body min-h-screen flex flex-col md:flex-row">
+<body class="bg-customBg text-textPrimary font-body min-h-screen flex flex-col relative overflow-x-hidden transition-colors duration-300">
 
-  <!-- Mobile Sidebar Toggle Topbar -->
-  <div class="md:hidden w-full h-16 bg-surface border-b border-customBorder px-4 flex items-center justify-between z-30">
-    <span class="font-heading font-bold text-lg text-primary">GreenScape Pro</span>
-    <button id="db-sidebar-toggle" class="p-2 rounded-md hover:bg-customBg text-textSecondary">
-      <i data-lucide="menu" class="w-6 h-6"></i>
-    </button>
-  </div>
+  <!-- Top Dashboard Header -->
+  <header class="w-full h-16 bg-surface border-b border-customBorder px-4 md:px-6 flex items-center justify-between sticky top-0 z-30 transition-colors duration-300">
+    <!-- Left: Mobile Sidebar Toggle + Brand Logo (with right border aligning to sidebar edge on desktop) -->
+    <div class="flex items-center gap-4 md:w-64 md:border-r md:border-customBorder md:h-16 md:shrink-0 md:-ml-6 md:pl-6">
+      <!-- Mobile Sidebar Toggle -->
+      <button id="db-sidebar-toggle" class="md:hidden p-2 rounded-md hover:bg-customBg text-textSecondary" title="Toggle Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="../assets/images/logo.svg" alt="GreenScape Pro" class="w-8 h-8">
+        <span class="font-heading font-bold text-xl text-primary tracking-wide whitespace-nowrap">GreenScape<span class="text-secondary">Pro</span></span>
+      </a>
+    </div>
 
-  <!-- Dashboard Sidebar Navigation -->
-  <aside id="db-sidebar" class="fixed md:static inset-y-0 left-0 w-64 bg-surface border-r border-customBorder p-6 flex flex-col justify-between transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 shrink-0">
-    <div class="space-y-6">
-      <div class="flex items-center gap-2">
-        <i data-lucide="sprout" class="w-6 h-6 text-primary"></i>
-        <span class="font-heading font-bold text-lg text-primary">GreenScape <span class="text-secondary">Pro</span></span>
-      </div>
+    <!-- Middle: Dynamic Page Title -->
+    <div class="hidden md:flex items-center flex-grow pl-6">
+      <h1 id="header-title" class="font-heading text-lg font-bold text-textPrimary tracking-wide">Dashboard Overview & Stats</h1>
+    </div>
 
-      <!-- Welcome Banner -->
-      <div class="p-4 bg-primary/10 rounded-xl flex items-center gap-3">
-        <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">JD</div>
-        <div>
-          <div class="text-xs text-textSecondary font-semibold">Welcome back,</div>
-          <div class="text-sm font-bold text-primary">John Doe</div>
+    <!-- Right: Theme, RTL Toggles & User Banner -->
+    <div class="flex items-center gap-3 sm:gap-4">
+      <!-- Theme Toggle -->
+      <button class="theme-toggle p-2.5 rounded-full bg-surface border border-customBorder text-textSecondary hover:text-primary hover:shadow-md transition-colors" title="Toggle Light/Dark Mode">
+        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+      </button>
+
+      <!-- RTL Toggle -->
+      <button class="rtl-toggle px-3 py-2 rounded-md bg-surface border border-customBorder text-textSecondary font-bold text-xs hover:text-primary hover:shadow-md transition-colors" title="Toggle Direction">
+        <span class="rtl-toggle-text-rtl">RTL</span>
+        <span class="rtl-toggle-text-ltr">LTR</span>
+      </button>
+
+      <!-- Vertical Divider -->
+      <div class="h-6 w-px bg-customBorder hidden sm:block"></div>
+
+      <!-- Welcome / User Profile Banner -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-sm select-none border border-primary/20">JD</div>
+        <div class="hidden sm:block text-left">
+          <div class="text-[10px] text-textSecondary font-bold uppercase tracking-wider leading-none mb-0.5">Welcome back,</div>
+          <div class="text-xs font-bold text-primary leading-tight">John Doe</div>
         </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Body Wrapper -->
+  <div class="flex flex-grow flex-col md:flex-row relative">
+
+    <!-- Dashboard Sidebar Navigation -->
+    <aside id="db-sidebar" class="fixed md:static inset-y-0 left-0 w-64 bg-surface border-r border-customBorder p-6 flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 shrink-0 h-[calc(100vh-4rem)] md:h-auto">
+      <!-- Sidebar Brand (Visible inside mobile drawer, matches site style) -->
+      <div class="flex items-center gap-2 md:hidden mb-6">
+        <img src="../assets/images/logo.svg" alt="GreenScape Pro" class="w-8 h-8">
+        <span class="font-heading font-bold text-xl text-primary tracking-wide">GreenScape<span class="text-secondary">Pro</span></span>
       </div>
 
       <!-- Nav Links -->
       <nav class="space-y-1">
-        <a href="#" data-target="overview" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-bold bg-primary/20 text-primary border-l-4 border-primary">
+        <a href="#" data-target="overview" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium bg-primary/20 text-primary border-l-4 border-primary">
           <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Overview
         </a>
-        <a href="#" data-target="projects" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-bold text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="projects" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
           <i data-lucide="folder-kanban" class="w-4 h-4"></i> My Projects
         </a>
-        <a href="#" data-target="approvals" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-bold text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="approvals" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
           <i data-lucide="file-check" class="w-4 h-4"></i> Design Approvals
         </a>
-        <a href="#" data-target="schedule" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-bold text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="schedule" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
           <i data-lucide="calendar" class="w-4 h-4"></i> Maintenance Schedule
         </a>
-        <a href="#" data-target="payments" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-bold text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="payments" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
           <i data-lucide="credit-card" class="w-4 h-4"></i> Payments & Invoices
         </a>
-        <a href="#" data-target="messages" class="db-tab-btn flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-bold text-textSecondary hover:bg-primary/10">
+        <a href="#" data-target="messages" class="db-tab-btn flex items-center gap-3 px-4 py-2 rounded-lg text-[13px] font-medium text-textSecondary hover:bg-primary/10">
           <i data-lucide="message-square" class="w-4 h-4"></i> Messages
         </a>
+        
+        <!-- Separator & Logout right after navigation links -->
+        <div class="h-px bg-customBorder my-3"></div>
+        <a href="login.html" class="flex items-center gap-3 px-4 py-2 text-[13px] font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg">
+          <i data-lucide="log-out" class="w-4 h-4"></i> Log Out
+        </a>
       </nav>
-    </div>
+    </aside>
 
-    <!-- Bottom Settings & Actions -->
-    <div class="space-y-4 pt-6 border-t border-customBorder">
-      <div class="flex items-center justify-between">
-        <span class="text-xs text-textSecondary">Theme & Dir</span>
-        <div class="flex items-center gap-2">
-          <button class="theme-toggle p-1.5 rounded-full hover:bg-customBg/80 text-textSecondary">
-            <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
-            <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-yellow-400"></i>
-          </button>
-          <button class="rtl-toggle p-1.5 rounded-full hover:bg-customBg/80 text-textSecondary">
-            <i data-lucide="languages" class="w-4 h-4"></i>
-          </button>
-        </div>
-      </div>
-      <a href="login.html" class="flex items-center gap-3 px-4 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg">
-        <i data-lucide="log-out" class="w-4 h-4"></i> Log Out
-      </a>
-    </div>
-  </aside>
-
-  <!-- Main Content Space -->
-  <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto max-h-screen">
+    <!-- Main Content Space -->
+    <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto max-h-[calc(100vh-4rem)]">
     
     <!-- Section: Overview -->
     <section id="overview" class="db-section space-y-6">
       <div class="flex justify-between items-center">
-        <div>
-          <h1 class="font-heading text-2xl sm:text-3xl font-bold">Dashboard Overview</h1>
-          <p class="text-xs text-textSecondary">June 23, 2026</p>
-        </div>
+        <p class="text-xs text-textSecondary font-medium">Last updated: June 23, 2026</p>
       </div>
 
       <!-- Quick Metrics Row -->
@@ -127,25 +145,30 @@
         <div class="bg-surface p-6 rounded-xl border border-customBorder">
           <div class="text-textSecondary text-xs font-semibold mb-1">Active Projects</div>
           <div class="text-2xl font-bold">1</div>
+          <p class="text-[10px] text-textSecondary mt-1">Portland Heights Redesign</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-customBorder">
           <div class="text-textSecondary text-xs font-semibold mb-1">Pending Approvals</div>
           <div class="text-2xl font-bold text-yellow-600">1</div>
+          <p class="text-[10px] text-textSecondary mt-1">Layout v2 Needs Review</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-customBorder">
           <div class="text-textSecondary text-xs font-semibold mb-1">Upcoming Visits</div>
-          <div class="text-2xl font-bold">2</div>
+          <div class="text-2xl font-bold text-primary">3</div>
+          <p class="text-[10px] text-textSecondary mt-1">Next visit: June 25, 2026</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-customBorder">
           <div class="text-textSecondary text-xs font-semibold mb-1">Outstanding Balance</div>
           <div class="text-2xl font-bold text-red-600">$299.00</div>
+          <p class="text-[10px] text-textSecondary mt-1">Due Date: June 30, 2026</p>
         </div>
       </div>
 
-      <!-- Overview Tables -->
+      <!-- Overview Tables Grid -->
       <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Recent Projects Table -->
         <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
-          <h3 class="font-bold text-sm">Recent Projects</h3>
+          <h3 class="font-bold text-sm text-primary">Recent Project Updates</h3>
           <table class="w-full text-xs text-left">
             <thead>
               <tr class="border-b border-customBorder text-textSecondary font-semibold">
@@ -155,25 +178,120 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="py-3 font-semibold">Portland Heights Redesign</td>
-                <td class="py-3">Garden Design</td>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">Portland Heights Transformation</td>
+                <td class="py-3">Complete Yard Redesign</td>
                 <td class="py-3"><span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px]">In Progress</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 font-semibold">West Hills Pruning & Mulching</td>
+                <td class="py-3">Seasonal Maintenance</td>
+                <td class="py-3"><span class="px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Completed</span></td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <!-- Recent Invoices Table -->
+        <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+          <h3 class="font-bold text-sm text-primary">Recent Billing Statements</h3>
+          <table class="w-full text-xs text-left">
+            <thead>
+              <tr class="border-b border-customBorder text-textSecondary font-semibold">
+                <th class="py-2">Invoice #</th>
+                <th class="py-2">Due Date</th>
+                <th class="py-2">Amount</th>
+                <th class="py-2">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">INV-2026-004</td>
+                <td class="py-3">June 30, 2026</td>
+                <td class="py-3 font-semibold text-red-600">$299.00</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200 rounded-full font-bold text-[10px]">Unpaid</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 font-semibold">INV-2026-003</td>
+                <td class="py-3">May 31, 2026</td>
+                <td class="py-3 font-semibold text-green-600">$450.00</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Paid</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Property Logs & Seasonal Tips Grid -->
+      <div class="grid lg:grid-cols-3 gap-6">
+        <!-- Recent Property & Project Logs (2 cols on lg) -->
+        <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4 lg:col-span-2">
+          <h3 class="font-bold text-sm text-primary flex items-center gap-2">
+            <i data-lucide="history" class="w-4.5 h-4.5 text-primary"></i> Recent Property & Project Activity
+          </h3>
+          <div class="space-y-4">
+            <div class="flex gap-3 text-xs items-start">
+              <div class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 animate-pulse"></div>
+              <div class="flex-grow">
+                <div class="flex justify-between font-bold text-textPrimary">
+                  <span>Design Proposal Uploaded (v2)</span>
+                  <span class="text-[10px] text-textSecondary font-normal">June 20, 2026</span>
+                </div>
+                <p class="text-textSecondary text-[11px] mt-0.5">Marcus V. posted the updated flagstone pathway curves and smart drip system blueprints.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 text-xs items-start">
+              <div class="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5"></div>
+              <div class="flex-grow">
+                <div class="flex justify-between font-bold text-textPrimary">
+                  <span>Soil Preparation Complete</span>
+                  <span class="text-[10px] text-textSecondary font-normal">June 08, 2026</span>
+                </div>
+                <p class="text-textSecondary text-[11px] mt-0.5">Horticulture crew completed grading, leveling, and soil bio-char enrichment.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 text-xs items-start">
+              <div class="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5"></div>
+              <div class="flex-grow">
+                <div class="flex justify-between font-bold text-textPrimary">
+                  <span>Initial Consultation Complete</span>
+                  <span class="text-[10px] text-textSecondary font-normal">May 24, 2026</span>
+                </div>
+                <p class="text-textSecondary text-[11px] mt-0.5">Met with Marcus V. on site to finalize boundaries and flora wishes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seasonal Plant Care Tip Card (1 col) -->
+        <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-xs font-bold text-secondary">
+              <i data-lucide="sprout" class="w-4 h-4"></i> Seasonal Care Tip
+            </div>
+            <h4 class="font-bold text-xs text-textPrimary">English Boxwood Summer Care</h4>
+            <p class="text-textSecondary text-[11px] leading-relaxed">
+              With summer temperatures rising, ensure your new Boxwoods receive deep watering twice a week. Add 2 inches of mulch around the root zone to retain moisture.
+            </p>
+          </div>
+          <a href="#" data-target="messages" class="db-tab-btn block w-full text-center py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg text-xs font-bold transition-colors">
+            Ask Horticulturist
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Section: My Projects -->
     <section id="projects" class="db-section space-y-6 hidden">
-      <h1 class="font-heading text-2xl sm:text-3xl font-bold">My Landscaping Projects</h1>
-      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-6">
         <div class="flex justify-between items-center border-b border-customBorder pb-3">
-          <h3 class="font-bold text-base">Portland Heights Garden Transformation</h3>
+          <div>
+            <h3 class="font-bold text-lg text-primary">Portland Heights Garden Transformation</h3>
+            <p class="text-xs text-textSecondary mt-0.5">High-end landscape design & implementation contract</p>
+          </div>
           <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full text-xs font-bold">In Progress</span>
         </div>
+
         <!-- Progress Bar -->
         <div class="space-y-2">
           <div class="flex justify-between text-xs text-textSecondary font-semibold">
@@ -184,116 +302,442 @@
             <div class="h-full bg-primary" style="width: 40%"></div>
           </div>
         </div>
+
         <!-- Timeline Stepper -->
-        <div class="grid grid-cols-5 text-center text-[10px] sm:text-xs text-textSecondary pt-4 font-bold">
-          <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-4 h-4 mx-auto mb-1 text-primary"></i> Consultation</div>
-          <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-4 h-4 mx-auto mb-1 text-primary"></i> Proposal Approval</div>
-          <div class="text-yellow-600 font-bold animate-pulse"><i data-lucide="circle-dot" class="w-4 h-4 mx-auto mb-1 text-yellow-600"></i> Implementation</div>
-          <div><i data-lucide="circle" class="w-4 h-4 mx-auto mb-1"></i> Quality Check</div>
-          <div><i data-lucide="circle" class="w-4 h-4 mx-auto mb-1"></i> Final Handover</div>
+        <div class="grid grid-cols-5 text-center text-[10px] sm:text-xs text-textSecondary pt-4 font-bold border-b border-customBorder pb-6">
+          <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-5 h-5 mx-auto mb-1 text-primary"></i> Consultation</div>
+          <div class="text-primary font-bold"><i data-lucide="check-circle" class="w-5 h-5 mx-auto mb-1 text-primary"></i> Proposal Approval</div>
+          <div class="text-yellow-600 font-bold animate-pulse"><i data-lucide="circle-dot" class="w-5 h-5 mx-auto mb-1 text-yellow-600"></i> Implementation</div>
+          <div><i data-lucide="circle" class="w-5 h-5 mx-auto mb-1"></i> Quality Check</div>
+          <div><i data-lucide="circle" class="w-5 h-5 mx-auto mb-1"></i> Final Handover</div>
+        </div>
+
+        <!-- Extra details: Crew & Deliverables -->
+        <div class="grid md:grid-cols-2 gap-6 pt-2">
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm text-primary">Assigned Landscape Crew</h4>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 bg-customBg p-3 rounded-lg border border-customBorder">
+                <div class="w-8 h-8 rounded-full bg-secondary text-white font-bold flex items-center justify-center text-xs">MV</div>
+                <div>
+                  <div class="text-xs font-bold text-textPrimary">Marcus V.</div>
+                  <div class="text-[10px] text-textSecondary">Lead Landscape Architect</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-customBg p-3 rounded-lg border border-customBorder">
+                <div class="w-8 h-8 rounded-full bg-primary text-white font-bold flex items-center justify-center text-xs">DP</div>
+                <div>
+                  <div class="text-xs font-bold text-textPrimary">David P.</div>
+                  <div class="text-[10px] text-textSecondary">Horticulture Specialist</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm text-primary">Current Phase Tasks</h4>
+            <ul class="space-y-2 text-xs">
+              <li class="flex items-center gap-2 text-textSecondary"><i data-lucide="check-square" class="w-4 h-4 text-primary shrink-0"></i> Site preparation and grading (Done)</li>
+              <li class="flex items-center gap-2 text-textSecondary"><i data-lucide="check-square" class="w-4 h-4 text-primary shrink-0"></i> Hardscape layout & flagstone delivery (Done)</li>
+              <li class="flex items-center gap-2 text-textPrimary"><i data-lucide="square" class="w-4 h-4 text-yellow-600 shrink-0"></i> Laying the pathing and stone retaining walls (Active)</li>
+              <li class="flex items-center gap-2 text-textSecondary"><i data-lucide="square" class="w-4 h-4 shrink-0"></i> Smart irrigation sensor deployment (Pending)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Flora & Plant Inventory Block -->
+        <div class="pt-4 border-t border-customBorder space-y-4">
+          <h4 class="font-bold text-sm text-primary">Flora & Planting Palette Inventory</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-customBg p-3 rounded-lg border border-customBorder space-y-1">
+              <div class="text-xs font-bold text-textPrimary">English Boxwood</div>
+              <div class="text-[10px] text-textSecondary">Qty: 24 | Zone A</div>
+              <span class="inline-block text-[9px] bg-green-100 text-green-800 px-1.5 py-0.5 rounded font-bold">On Site</span>
+            </div>
+            <div class="bg-customBg p-3 rounded-lg border border-customBorder space-y-1">
+              <div class="text-xs font-bold text-textPrimary">French Lavender</div>
+              <div class="text-[10px] text-textSecondary">Qty: 18 | Zone B</div>
+              <span class="inline-block text-[9px] bg-green-100 text-green-800 px-1.5 py-0.5 rounded font-bold">On Site</span>
+            </div>
+            <div class="bg-customBg p-3 rounded-lg border border-customBorder space-y-1">
+              <div class="text-xs font-bold text-textPrimary">Japanese Maple</div>
+              <div class="text-[10px] text-textSecondary">Qty: 3 | Zone A</div>
+              <span class="inline-block text-[9px] bg-yellow-100 text-yellow-800 px-1.5 py-0.5 rounded font-bold">In Transit</span>
+            </div>
+            <div class="bg-customBg p-3 rounded-lg border border-customBorder space-y-1">
+              <div class="text-xs font-bold text-textPrimary">White Hydrangea</div>
+              <div class="text-[10px] text-textSecondary">Qty: 12 | Zone C</div>
+              <span class="inline-block text-[9px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded font-bold">Backordered</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Section: Design Approvals -->
     <section id="approvals" class="db-section space-y-6 hidden">
-      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Design Approvals</h1>
-      <div class="bg-surface border border-customBorder rounded-xl p-6 grid lg:grid-cols-2 gap-6 items-center">
-        <div class="space-y-4">
-          <h3 class="font-bold text-lg">Portland Heights Layout v2</h3>
-          <p class="text-xs text-textSecondary">Submitted by Marcus V. on June 20, 2026</p>
-          <p class="text-textSecondary text-sm">
-            Please review the updated layout. We adjusted the flagstone pathway curves and added a smart drip system config.
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Blueprint Pending Approval -->
+        <div class="bg-surface border border-customBorder rounded-xl p-6 space-y-4">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 rounded-full font-bold text-[10px] uppercase">Pending Your Review</span>
+              <h3 class="font-bold text-lg mt-1.5 text-primary">Portland Heights Layout v2</h3>
+              <p class="text-xs text-textSecondary">Submitted by Marcus V. on June 20, 2026</p>
+            </div>
+          </div>
+          <p class="text-textSecondary text-xs">
+            We adjusted the flagstone pathway curves to flow naturally around the mature maples and added a smart drip irrigation system route.
           </p>
           <div class="flex gap-3 pt-2">
-            <button onclick="alert('Proposal approved!')" class="px-5 py-2.5 bg-primary text-white font-bold rounded shadow-md hover:bg-primary-hover transition-colors text-xs">Approve Layout</button>
-            <button onclick="alert('Revision requested')" class="px-5 py-2.5 border border-primary text-primary font-bold rounded hover:bg-primary/10 transition-colors text-xs">Request Revisions</button>
+            <button onclick="alert('Proposal approved!')" class="px-4 py-2 bg-primary text-white font-bold rounded shadow hover:bg-primary-hover transition-colors text-xs">Approve Layout</button>
+            <button onclick="alert('Revision requested')" class="px-4 py-2 border border-primary text-primary font-bold rounded hover:bg-primary/10 transition-colors text-xs">Request Revisions</button>
+          </div>
+          <div class="pt-2">
+            <img src="../assets/images/hero_garden.png" alt="Garden design blueprint" class="rounded-lg shadow w-full h-[180px] object-cover">
           </div>
         </div>
-        <div>
-          <img src="../assets/images/hero_garden.png" alt="Garden design blueprint" class="rounded-lg shadow w-full h-[220px] object-cover">
+
+        <!-- History of Approved Proposals -->
+        <div class="bg-surface border border-customBorder rounded-xl p-6 space-y-4">
+          <h3 class="font-bold text-sm text-primary">Approval History</h3>
+          <div class="space-y-4">
+            <div class="p-3 bg-customBg rounded-lg border border-customBorder flex items-center justify-between">
+              <div>
+                <h4 class="text-xs font-bold">Plant Palette & Flora Selector v1</h4>
+                <p class="text-[10px] text-textSecondary">Approved on June 15, 2026</p>
+              </div>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Approved</span>
+            </div>
+            <div class="p-3 bg-customBg rounded-lg border border-customBorder flex items-center justify-between">
+              <div>
+                <h4 class="text-xs font-bold">Soil Treatment & Drainage Proposal</h4>
+                <p class="text-[10px] text-textSecondary">Approved on June 08, 2026</p>
+              </div>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Approved</span>
+            </div>
+            <div class="p-3 bg-customBg rounded-lg border border-customBorder flex items-center justify-between">
+              <div>
+                <h4 class="text-xs font-bold">Initial Yard Consultation & Blueprint v1</h4>
+                <p class="text-[10px] text-textSecondary">Approved on May 24, 2026</p>
+              </div>
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Approved</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Section: Maintenance Schedule -->
     <section id="schedule" class="db-section space-y-6 hidden">
-      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Maintenance Schedule</h1>
+      <!-- Top Card: Scheduled Visits -->
       <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
-        <h3 class="font-bold text-sm">Upcoming Garden Care Visits</h3>
+        <div class="flex justify-between items-center border-b border-customBorder pb-3">
+          <h3 class="font-bold text-sm text-primary">Scheduled Maintenance & Care Visits</h3>
+          <span class="text-xs text-textSecondary font-semibold">Active Care Package: Estate Care Plan</span>
+        </div>
         <div class="divide-y divide-customBorder">
-          <div class="py-3 flex justify-between items-center">
+          <div class="py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
             <div>
-              <div class="text-sm font-bold">Lawn Aeration & Trimming</div>
-              <div class="text-xs text-textSecondary">June 25, 2026 at 09:00 AM</div>
+              <div class="text-sm font-bold text-textPrimary">Lawn Aeration & Seasonal Trimming</div>
+              <div class="text-xs text-textSecondary mt-0.5">June 25, 2026 at 09:00 AM — Crew Lead: Marcus V.</div>
+              <div class="flex gap-2 mt-2">
+                <span class="text-[10px] bg-customBg border border-customBorder text-textSecondary px-2 py-0.5 rounded">Core Aeration</span>
+                <span class="text-[10px] bg-customBg border border-customBorder text-textSecondary px-2 py-0.5 rounded">Tree Pruning</span>
+              </div>
             </div>
-            <span class="px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full text-[10px] font-bold">Scheduled</span>
+            <span class="sm:self-center px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full text-[10px] font-bold self-start">Scheduled</span>
           </div>
-          <div class="py-3 flex justify-between items-center">
+
+          <div class="py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
             <div>
-              <div class="text-sm font-bold">Irrigation Sensor Check</div>
-              <div class="text-xs text-textSecondary">July 09, 2026 at 02:00 PM</div>
+              <div class="text-sm font-bold text-textPrimary">Irrigation Flow Sensor & Drip Calibration</div>
+              <div class="text-xs text-textSecondary mt-0.5">July 09, 2026 at 02:00 PM — Crew Lead: David P.</div>
+              <div class="flex gap-2 mt-2">
+                <span class="text-[10px] bg-customBg border border-customBorder text-textSecondary px-2 py-0.5 rounded">Sensor Check</span>
+                <span class="text-[10px] bg-customBg border border-customBorder text-textSecondary px-2 py-0.5 rounded">Zone Calibration</span>
+              </div>
             </div>
-            <span class="px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full text-[10px] font-bold">Scheduled</span>
+            <span class="sm:self-center px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full text-[10px] font-bold self-start">Scheduled</span>
           </div>
+
+          <div class="py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+            <div>
+              <div class="text-sm font-bold text-textPrimary">Summer Feeding & Soil Mulch Top-Up</div>
+              <div class="text-xs text-textSecondary mt-0.5">July 23, 2026 at 09:00 AM — Crew Lead: David P.</div>
+              <div class="flex gap-2 mt-2">
+                <span class="text-[10px] bg-customBg border border-customBorder text-textSecondary px-2 py-0.5 rounded">Mulching</span>
+                <span class="text-[10px] bg-customBg border border-customBorder text-textSecondary px-2 py-0.5 rounded">Fertilizer Application</span>
+              </div>
+            </div>
+            <span class="sm:self-center px-2.5 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full text-[10px] font-bold self-start">Scheduled</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Left: Completed Visit History Log -->
+        <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+          <h3 class="font-bold text-sm text-primary flex items-center gap-2">
+            <i data-lucide="check-square" class="w-4.5 h-4.5 text-primary"></i> Completed Service History
+          </h3>
+          <div class="space-y-4 text-xs">
+            <div class="p-3 bg-customBg rounded-lg border border-customBorder space-y-2">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-textPrimary">Spring Cleanup & Pruning</h4>
+                  <p class="text-[10px] text-textSecondary">Completed on April 28, 2026</p>
+                </div>
+                <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[9px]">Completed</span>
+              </div>
+              <p class="text-textSecondary text-[11px]">
+                <strong>Crew Notes:</strong> Boxwoods trimmed; organic compost top-layer spread in Zone A. Irrigation pipes flushed and pressure-tested. All clear.
+              </p>
+            </div>
+            <div class="p-3 bg-customBg rounded-lg border border-customBorder space-y-2">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-textPrimary">Soil pH Analysis & Fertilization</h4>
+                  <p class="text-[10px] text-textSecondary">Completed on March 14, 2026</p>
+                </div>
+                <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded font-bold text-[9px]">Completed</span>
+              </div>
+              <p class="text-textSecondary text-[11px]">
+                <strong>Crew Notes:</strong> Soil sample gathered. pH was slightly alkaline (7.4), applied elemental sulfur treatment to nudge toward 6.5.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Request a Service / Visit Modification Form -->
+        <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+          <h3 class="font-bold text-sm text-primary flex items-center gap-2">
+            <i data-lucide="calendar-plus" class="w-4.5 h-4.5 text-primary"></i> Request Additional Service
+          </h3>
+          <form class="space-y-3 text-xs" onsubmit="event.preventDefault(); alert('Service request submitted successfully!')">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-bold mb-1 uppercase text-textSecondary">Preferred Date</label>
+                <input type="date" required class="w-full p-2 border border-customBorder rounded-lg bg-customBg text-textPrimary">
+              </div>
+              <div>
+                <label class="block font-bold mb-1 uppercase text-textSecondary">Preferred Time</label>
+                <select class="w-full p-2 border border-customBorder rounded-lg bg-customBg text-textPrimary">
+                  <option>Morning (9 AM - 12 PM)</option>
+                  <option>Afternoon (1 PM - 4 PM)</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold mb-1 uppercase text-textSecondary">Service Needed</label>
+              <select class="w-full p-2 border border-customBorder rounded-lg bg-customBg text-textPrimary">
+                <option>Additional Pruning & Weeding</option>
+                <option>Irrigation Checkup / Repair</option>
+                <option>Pest Control & Plant Health Audit</option>
+                <option>Other / Special Request</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold mb-1 uppercase text-textSecondary">Additional Notes / Instructions</label>
+              <textarea placeholder="e.g. Please check the lavender bushes in the backyard, they look a bit yellow..." rows="2" class="w-full p-2 border border-customBorder rounded-lg bg-customBg text-textPrimary"></textarea>
+            </div>
+            <button type="submit" class="w-full py-2 bg-primary text-white font-bold rounded-lg shadow hover:bg-primary-hover transition-colors">Submit Request</button>
+          </form>
         </div>
       </div>
     </section>
 
     <!-- Section: Payments -->
     <section id="payments" class="db-section space-y-6 hidden">
-      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Payments & Invoices</h1>
-      <div class="bg-surface p-6 rounded-xl border border-customBorder">
-        <table class="w-full text-xs text-left">
-          <thead>
-            <tr class="border-b border-customBorder text-textSecondary font-semibold">
-              <th class="py-2">Invoice #</th>
-              <th class="py-2">Service</th>
-              <th class="py-2">Due Date</th>
-              <th class="py-2">Amount</th>
-              <th class="py-2">Status</th>
-              <th class="py-2">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="py-3">INV-2026-004</td>
-              <td class="py-3 font-semibold">June Estate Care Plan</td>
-              <td class="py-3">June 30, 2026</td>
-              <td class="py-3 font-semibold text-red-600">$299.00</td>
-              <td class="py-3"><span class="px-2 py-0.5 bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200 rounded-full font-bold text-[10px]">Unpaid</span></td>
-              <td class="py-3">
-                <button onclick="alert('Payment modal triggers (Stripe UI)...')" class="px-3 py-1 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors">Pay Now</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Billing Analytics Row -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-surface p-6 rounded-xl border border-customBorder flex items-center justify-between">
+          <div>
+            <div class="text-textSecondary text-xs font-semibold mb-1">Total Paid (YTD)</div>
+            <div class="text-2xl font-bold text-primary">$4,150.00</div>
+            <p class="text-[10px] text-textSecondary mt-1">Across 3 settled invoices</p>
+          </div>
+          <div class="p-3 rounded-full bg-primary/10 text-primary">
+            <i data-lucide="check-circle" class="w-6 h-6"></i>
+          </div>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-customBorder flex items-center justify-between">
+          <div>
+            <div class="text-textSecondary text-xs font-semibold mb-1">Pending Balance</div>
+            <div class="text-2xl font-bold text-red-600">$299.00</div>
+            <p class="text-[10px] text-textSecondary mt-1">Due date: June 30, 2026</p>
+          </div>
+          <div class="p-3 rounded-full bg-red-100 dark:bg-red-950/40 text-red-700 dark:text-red-300">
+            <i data-lucide="alert-circle" class="w-6 h-6"></i>
+          </div>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-customBorder flex items-center justify-between">
+          <div>
+            <div class="text-textSecondary text-xs font-semibold mb-1">Next Plan Renewal</div>
+            <div class="text-2xl font-bold text-primary">Estate Care Plan</div>
+            <p class="text-[10px] text-textSecondary mt-1">Renews: July 01, 2026 ($299)</p>
+          </div>
+          <div class="p-3 rounded-full bg-yellow-100 dark:bg-yellow-950/40 text-yellow-700 dark:text-yellow-300">
+            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Invoices and Account Statement -->
+      <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+        <h3 class="font-bold text-sm text-primary">Invoices and Account Statement</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left min-w-[600px]">
+            <thead>
+              <tr class="border-b border-customBorder text-textSecondary font-semibold">
+                <th class="py-2">Invoice #</th>
+                <th class="py-2">Service Description</th>
+                <th class="py-2">Due Date</th>
+                <th class="py-2">Amount</th>
+                <th class="py-2">Status</th>
+                <th class="py-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">INV-2026-004</td>
+                <td class="py-3">June Estate Care Plan</td>
+                <td class="py-3">June 30, 2026</td>
+                <td class="py-3 font-semibold text-red-600">$299.00</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200 rounded-full font-bold text-[10px]">Unpaid</span></td>
+                <td class="py-3">
+                  <button onclick="alert('Payment modal triggers (Stripe UI)...')" class="px-3 py-1 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors text-[11px]">Pay Now</button>
+                </td>
+              </tr>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">INV-2026-003</td>
+                <td class="py-3">Horticulture Consultation & Flora Kit</td>
+                <td class="py-3">May 31, 2026</td>
+                <td class="py-3 font-semibold text-textPrimary">$450.00</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Paid</span></td>
+                <td class="py-3"><span class="text-textSecondary text-[11px]">-</span></td>
+              </tr>
+              <tr class="border-b border-customBorder/50">
+                <td class="py-3 font-semibold">INV-2026-002</td>
+                <td class="py-3">Site Preparation & Stone Retaining Material</td>
+                <td class="py-3">May 15, 2026</td>
+                <td class="py-3 font-semibold text-textPrimary">$1,200.00</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Paid</span></td>
+                <td class="py-3"><span class="text-textSecondary text-[11px]">-</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 font-semibold">INV-2026-001</td>
+                <td class="py-3">Landscape Blueprinting & Architect Consultation</td>
+                <td class="py-3">April 30, 2026</td>
+                <td class="py-3 font-semibold text-textPrimary">$2,500.00</td>
+                <td class="py-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 rounded-full font-bold text-[10px]">Paid</span></td>
+                <td class="py-3"><span class="text-textSecondary text-[11px]">-</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Payment Settings Row -->
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Saved Payment Methods -->
+        <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+          <div class="flex justify-between items-center border-b border-customBorder pb-3">
+            <h3 class="font-bold text-sm text-primary flex items-center gap-2">
+              <i data-lucide="credit-card" class="w-4.5 h-4.5 text-primary"></i> Saved Payment Methods
+            </h3>
+            <button onclick="alert('Open Add Payment Method modal')" class="text-xs text-primary font-bold hover:underline">Add New Card</button>
+          </div>
+          <div class="flex items-center justify-between p-3.5 bg-customBg rounded-lg border border-customBorder text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-6 bg-slate-200 dark:bg-slate-800 rounded flex items-center justify-center font-bold text-[10px] text-slate-700 dark:text-slate-300">VISA</div>
+              <div>
+                <p class="font-bold text-textPrimary">Visa Ending in 4242</p>
+                <p class="text-[10px] text-textSecondary">Expires 12/28 | Preferred Card</p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 bg-green-100 text-green-800 rounded text-[9px] font-bold">Primary</span>
+          </div>
+          <!-- Auto-Pay Settings Toggle -->
+          <div class="flex items-center justify-between p-3.5 bg-customBg rounded-lg border border-customBorder text-xs">
+            <div>
+              <p class="font-bold text-textPrimary">Automatic Bill Payment</p>
+              <p class="text-[10px] text-textSecondary">Invoices will be auto-debited on due dates.</p>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" checked class="sr-only peer" onchange="alert('Auto-Pay updated!')">
+              <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Billing Info & Support -->
+        <div class="bg-surface p-6 rounded-xl border border-customBorder space-y-4">
+          <h3 class="font-bold text-sm text-primary flex items-center gap-2">
+            <i data-lucide="help-circle" class="w-4.5 h-4.5 text-primary"></i> Billing & Account Help
+          </h3>
+          <p class="text-xs text-textSecondary leading-relaxed">
+            Need custom financing or split billing for large construction phases? Speak directly with our billing support team or schedule an architecture plan review.
+          </p>
+          <div class="pt-2">
+            <a href="#" data-target="messages" class="db-tab-btn inline-flex items-center gap-2 px-4 py-2 bg-primary text-white font-bold rounded shadow hover:bg-primary-hover transition-colors text-xs">
+              <i data-lucide="message-square" class="w-4 h-4"></i> Contact Billing Support
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Section: Messages -->
     <section id="messages" class="db-section space-y-6 hidden">
-      <h1 class="font-heading text-2xl sm:text-3xl font-bold">Team Conversation</h1>
-      <div class="bg-surface border border-customBorder rounded-xl h-[450px] flex flex-col justify-between">
+      <div class="bg-surface border border-customBorder rounded-xl h-[500px] flex flex-col justify-between overflow-hidden">
+        <!-- Messages Header -->
+        <div class="p-4 border-b border-customBorder bg-customBg flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-secondary text-white flex items-center justify-center font-bold">MV</div>
+          <div>
+            <h4 class="text-xs font-bold text-textPrimary">Marcus V. (Lead Architect)</h4>
+            <p class="text-[9px] text-green-600 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-500 rounded-full inline-block animate-ping"></span> Online</p>
+          </div>
+        </div>
+
         <!-- Messages Area -->
         <div class="p-6 space-y-4 overflow-y-auto flex-grow text-xs">
+          <!-- MSG 1 -->
           <div class="flex gap-3">
             <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">MV</div>
-            <div class="bg-customBg p-3 rounded-lg max-w-sm border border-customBorder">
+            <div class="bg-customBg p-3 rounded-lg max-w-md border border-customBorder">
               <span class="font-bold block mb-1 text-primary text-[10px]">Marcus V. (Lead Designer)</span>
-              Hi John, the flagstone samples have arrived. Let me know what you think of layout v2!
+              Hi John, the flagstone samples have arrived at our office. Let me know what you think of layout v2! We adjusted the path to curve around the old oaks.
+            </div>
+          </div>
+          <!-- MSG 2 -->
+          <div class="flex gap-3 justify-end">
+            <div class="bg-primary/10 p-3 rounded-lg max-w-md border border-primary/20 text-right">
+              <span class="font-bold block mb-1 text-primary text-[10px]">You</span>
+              Thanks Marcus! Just checked the layout. I really like the oak flow. Let me check the plants.
+            </div>
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">JD</div>
+          </div>
+          <!-- MSG 3 -->
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">MV</div>
+            <div class="bg-customBg p-3 rounded-lg max-w-md border border-customBorder">
+              <span class="font-bold block mb-1 text-primary text-[10px]">Marcus V. (Lead Designer)</span>
+              Excellent. David P. has selected local native flora to guarantee they thrive. Once you click "Approve Layout" on the Design Approvals section, we can book the stone crew.
             </div>
           </div>
         </div>
+
         <!-- Input area -->
-        <div class="p-4 border-t border-customBorder flex gap-2">
-          <input type="text" placeholder="Type a message..." class="flex-grow p-3 border border-customBorder rounded bg-customBg text-textPrimary focus:outline-none focus:border-primary text-xs">
-          <button onclick="alert('Message sent')" class="px-4 py-2 bg-primary text-white font-bold rounded shadow-md hover:bg-primary-hover transition-colors text-xs">Send</button>
+        <div class="p-4 border-t border-customBorder flex gap-2 bg-customBg">
+          <input type="text" placeholder="Type a message..." class="flex-grow p-3 border border-customBorder rounded-lg bg-customBg text-textPrimary focus:outline-none focus:border-primary text-xs">
+          <button onclick="alert('Message sent')" class="px-4 py-2 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-primary-hover transition-colors text-xs flex items-center gap-1.5"><i data-lucide="send" class="w-3.5 h-3.5"></i> Send</button>
         </div>
       </div>
     </section>
 
   </main>
+
+  </div>
 
 </body>
 </html>
