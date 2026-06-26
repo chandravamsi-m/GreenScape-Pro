@@ -27,7 +27,7 @@ html[dir="rtl"] #mobile-menu-drawer.translate-x-full {
 }
 
 /* Dashboard Sidebar RTL overrides for mobile/small screens */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   html[dir="rtl"] #db-sidebar {
     left: auto !important;
     right: 0 !important;
