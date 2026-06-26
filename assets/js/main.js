@@ -354,11 +354,11 @@ function initDashboardTabs() {
       
       // Update sidebar styling
       tabs.forEach(t => {
-        t.classList.remove('bg-primary/20', 'text-primary', 'border-l-4', 'border-primary');
+        t.classList.remove('bg-primary/20', 'text-primary', 'border-l-4', 'border-primary', 'rtl:border-l-0', 'rtl:border-r-4');
         t.classList.add('text-textSecondary');
       });
       
-      tab.classList.add('bg-primary/20', 'text-primary', 'border-l-4', 'border-primary');
+      tab.classList.add('bg-primary/20', 'text-primary', 'border-l-4', 'rtl:border-l-0', 'rtl:border-r-4', 'border-primary');
       tab.classList.remove('text-textSecondary');
       
       // Toggle sections

@@ -46,7 +46,7 @@
   <!-- Top Dashboard Header -->
   <header class="w-full h-16 bg-surface border-b border-customBorder px-4 md:px-6 flex items-center justify-between sticky top-0 z-30 transition-colors duration-300">
     <!-- Left: Mobile Sidebar Toggle + Brand Logo (with right border aligning to sidebar edge on desktop) -->
-    <div class="flex items-center gap-4 md:w-64 md:border-r md:border-customBorder md:h-16 md:shrink-0 md:-ml-6 md:pl-6">
+    <div class="flex items-center gap-4 md:w-64 md:border-r md:rtl:border-r-0 md:rtl:border-l md:border-customBorder md:h-16 md:shrink-0 md:-ml-6 md:rtl:-ml-0 md:rtl:-mr-6 md:pl-6 md:rtl:pl-0 md:rtl:pr-6">
       <!-- Mobile Sidebar Toggle -->
       <button id="db-sidebar-toggle" class="md:hidden p-2 rounded-md hover:bg-customBg text-textSecondary" title="Toggle Menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -109,7 +109,7 @@
 
       <!-- Nav Links -->
       <nav class="space-y-1">
-        <a href="#" data-target="admin-overview" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium bg-primary/20 text-primary border-l-4 border-primary whitespace-nowrap">
+        <a href="#" data-target="admin-overview" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium bg-primary/20 text-primary border-l-4 rtl:border-l-0 rtl:border-r-4 border-primary whitespace-nowrap">
           <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Overview
         </a>
         <a href="#" data-target="clients" class="db-tab-btn flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-textSecondary hover:bg-primary/10 whitespace-nowrap">
